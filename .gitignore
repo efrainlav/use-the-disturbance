@@ -1,7 +1,18 @@
-*~
-.*~
+.ipynb_checkpoints
+
+# Tex files
+*.synctex.gz
+*.fls
+*.bbl
+*.blg
+*.fff
+*.log
+*.lof
+*.aux
 *.pyc
-*-eps-converted-to-pdf.pdf
-manuscript/output/*
-.env
-code/.ipynb_checkpoints/
+*.out
+*.lot
+*.toc
+*.ttt
+*~
+*-eps-converted-to.pdf
