@@ -16,3 +16,4 @@
 *.ttt
 *~
 *-eps-converted-to.pdf
+*.fdb_latexmk
