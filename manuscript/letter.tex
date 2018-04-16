@@ -61,7 +61,8 @@
 The resultant of gravitational force and centrifugal force acting 
 on a body at rest on the Earth's surface is called 
 \textit{gravity vector} and its intensity is called simply 
-\textit{gravity} \citep{hofmann-wellenhof-moritz2005}.
+\textit{gravity} \citep{heiskanen-moritz1967,
+hofmann-wellenhof-moritz2005}.
 In the case of gravimetry on moving platforms (e.g., airplanes,
 helicopters, marine vessels), there are additional
 non-gravitational accelerations due to the vehicle motion, 
@@ -164,7 +165,6 @@ converted into geocentric Cartesian coordinates $(X, Y, Z)$
 The plane containing the point $P$, the axis $Z$ and
 the origin $O$ of this \textit{geocentric Cartesian coordinate system}
 is called meridian plane (gray plane in Figure \ref{fig:fig1}).
-
 At a given point $(h, \varphi, \lambda)$, there are three 
 unit vectors (Figure \ref{fig:fig1}) given by \citep{soler1976}:
 \begin{equation}
@@ -190,8 +190,8 @@ unit vectors (Figure \ref{fig:fig1}) given by \citep{soler1976}:
 \end{split} \: ,
 \label{eq:unit-vectors}
 \end{equation}
-Notice that these unit vectors are mutually orthogonal.
-The normal gravity vector $\mitbf{\gamma}_{P}$ at a point $P$
+Notice that these unit vectors are mutually orthogonal and
+that the normal gravity vector $\mitbf{\gamma}_{P}$ at a point $P$
 is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ at $P$.
 
 
@@ -210,18 +210,19 @@ is caused by contrasts between the actual internal
 density distribution of the Earth and the internal density 
 distribution of the normal Earth.
 In applied geophysics, these density differences are generally 
-called ``anomalous masses" (e.g., \citeauthor{hammer1945}, 
+called \textit{anomalous masses} (e.g., \citeauthor{hammer1945}, 
 \citeyear{hammer1945}; \citeauthor{lafehr1965}, \citeyear{lafehr1965}),
-``density anomalies" (e.g., \citeauthor{forsberg1984}, \citeyear{forsberg1984})
-or ``gravity sources" (e.g., \citeauthor{blakely1996}, 
+\textit{density anomalies} (e.g., \citeauthor{forsberg1984}, \citeyear{forsberg1984})
+or \textit{gravity sources} (e.g., \citeauthor{blakely1996}, 
 \citeyear{blakely1996}). Here, we opted for using the last term.
 
 The difference between the observed gravity and the
-normal gravity, at the same point, is called gravity disturbance
-\citep{hofmann-wellenhof-moritz2005}.
+normal gravity, at the same point, is called \textit{gravity disturbance}
+\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}.
 Notice that the gravity disturbance is not equivalent to the
 magnitude of the difference between the gravity vector
-and the normal gravity vector at the same point.
+and the normal gravity vector at the same point 
+\citep{barthelmes2013, sanso_sideris2013}.
 As properly pointed out by \citet{hackney-featherstone2003},
 the gravity disturbance is a very-well established quantity in geodesy,
 but appears to be less well known in geophysics.
@@ -291,9 +292,18 @@ are, respectively, the normal gravity vector and a
 disturbing gravitational attraction produced by the anomalous 
 masses at the point $(x_{i}, y_{i}, z_{i})$.
 
+For each point $(x_{i}, y_{i}, z_{i})$ in the topocentric
+Cartesian coordinate system (Figure \ref{fig:fig2}b), there is
+a corresponding point $(h_{i}, \varphi_{i}, \lambda_{i})$
+in the geodetic coordinate system (Figure \ref{fig:fig1}).
+Here, we opted for omitting the equations to convert a point
+$(x_{i}, y_{i}, z_{i})$ into a point $(h_{i}, \varphi_{i}, \lambda_{i})$
+and vice versa. These equations, however, may be easily
+found in the literature \citep[e.g.,][]{heiskanen-moritz1967, soler1976, torge2012, bouman_etal2013}.
+
 By definition, the gravity disturbance $\delta g_{i}$,
 at the point $(x_{i}, y_{i}, z_{i})$, is given by 
-\citep{hofmann-wellenhof-moritz2005}:
+\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}:
 \begin{equation}
 \delta g_{i} =  g_{i} - \gamma_{i} \: ,
 \label{eq:gravity-disturbance}
@@ -314,41 +324,49 @@ g_{i} \approx \gamma_{i} +
 \hat{\mitbf{\gamma}}_{i}^{\top} \Delta \mitbf{g}_{i} \: ,
 \label{eq:gobs-approx}
 \end{equation}
-where $\hat{\mitbf{\gamma}}_{i} = -\hat{\mitbf{u}}_{i}$ is a unit 
+where $^{\top}$ denotes transposition,
+$\hat{\mitbf{\gamma}}_{i} = -\hat{\mitbf{u}}_{i}$ is a unit 
 vector with the same direction as the normal gravity vector 
-$\mitbf{\gamma}_{i}$ at the point $(x_{i}, y_{i}, z_{i})$ and
+$\mitbf{\gamma}_{i}$ at the point $(x_{i}, y_{i}, z_{i})$, in the
+topocentric Cartesian coordinate system (Figure \ref{fig:fig2}b), and
 $\hat{\mitbf{u}}_{i}$ is the unit vector $\hat{\mitbf{u}}$ 
-(equation \ref{eq:unit-vectors}) evaluated at the point $(h_{i}, \varphi_{i}, \lambda_{i})$, which is obtained by transforming $(x_{i}, y_{i}, z_{i})$
-from the topocentric coordinate system (Figure \ref{fig:fig2}) to the
+(equation \ref{eq:unit-vectors}) evaluated at the corresponding 
+point $(h_{i}, \varphi_{i}, \lambda_{i})$ in the 
 geodetic coordinate system (Figure \ref{fig:fig1}).
-
-PAREI AQUI
-
 
 This approximation, which is known in geodesy \citep[e.g.,][]{sanso_sideris2013},
 is largely used in applied geophysics for representing
 total-field anomalies \citep[e.g.,][]{blakely1996}.
-Notice that, local- or regional-gravity studies, the unit
+Notice that, in local- or regional-gravity studies, the unit
 vector $\hat{\mitbf{\gamma}}_{i}$ (equation \ref{eq:gobs-approx}) 
-coincides with the $z$ axis
-of the local Cartesian coordinate system defined
-at the beginning of this section. Consequently,
-by using the approximation defined in equation \ref{eq:gobs-approx}, 
-the gravity disturbance (equation \ref{eq:gravity-disturbance}) can be 
-rewritten as follows \begin{equation}
-\delta g^{o}_{i} \approx \hat{\mitbf{z}}^{\top} \Delta \mitbf{g}^{o}_{i} \: ,
+may be considered constant throughout the study area and 
+parallel to the $z$ axis of the topocentric Cartesian coordinate 
+system (Figure \ref{fig:fig2}b).
+Consequently, by using the approximation defined in equation 
+\ref{eq:gobs-approx}, the gravity disturbance 
+(equation \ref{eq:gravity-disturbance}) can be rewritten as 
+follows 
+\begin{equation}
+\delta g_{i} \approx \hat{\mitbf{\gamma}}_{P}^{\top} \Delta \mitbf{g}_{i} \: ,
 \label{eq:gravity-disturbance-approx}
 \end{equation}
-where $\hat{\mitbf{z}}^{\top} = \left[ \, 0 \; 0 \; 1 \right]$.
-According to equation \ref{eq:gravity-disturbance-approx},
-the gravity disturbance $\delta g^{o}_{i}$ (equation \ref{eq:gravity-disturbance})
-represents the vertical component of the gravitational attraction exerted by
+where $\hat{\mitbf{\gamma}}_{P}$ represents the unit vector with
+the same direction as the normal gravity vector $\mitbf{\gamma}_{P}$
+at the origin $P$ of the topocentric Cartesian coordinate system
+(Figure \ref{fig:fig2}).
+This equation shows that the gravity disturbance $\delta g_{i}$ (equation \ref{eq:gravity-disturbance}) is different from the magnitude
+of the disturbing gravitational attraction $\Delta \mitbf{g}_{i}$
+produced by the gravity sources. Rather, it represents the 
+component of the $\Delta \mitbf{g}_{i}$ on the direction of the normal
+gravity vector. In the topocentric Cartesian coordinate system,
+the gravity disturbance $\delta g_{i}$ (equation \ref{eq:gravity-disturbance-approx})
+can be defined as the vertical component of the gravitational attraction exerted by
 the gravity sources at the point $(x_{i}, y_{i}, z_{i})$.
 As a consequence, the gravity disturbance produced by
-a homogeneous gravity source can be represented 
-by the following harmonic function
+a homogeneous gravity source with density contrast $\Delta\rho$
+(in $kg / m^{3}$) can be represented by the following harmonic function:
 \begin{equation}
-d^{o}_{i} = k_{g} \, G \, \rho \, \partial_{z} \phi_{i} \: ,
+d_{i} = k_{g} \, G \, \Delta\rho \, \partial_{z} \phi_{i} \: ,
 \label{eq:gz-local}
 \end{equation}
 where $G$ is the Newtonian constant of gravitation
@@ -369,45 +387,68 @@ and $z^{\prime}$ within the volume $v$ of the gravity source.
 This equation can be easily generalized for the case
 of multiple gravity sources.
 
-\section{Gravity disturbance versus gravity anomaly}
+Practically all the literature about gravity modeling
+use the quantity $d_{i}$ (equation \ref{eq:gz-local})
+to represent the gravity anomaly produced by 
+gravity sources \citep[e.g.,][]{blakely1996}. 
+Consequently, almost all the geophysicists use the gravity
+anomaly as an approximation of the gravity disturbance
+produced by the gravity sources. Notice that $d_{i}$ 
+(equation \ref{eq:gz-local}) does not depend on the
+geoidal surface. Rather, it depends on the relative position 
+of the observation points $(x_{i}, y_{i}, z_{i})$ with respect to
+the gravity sources in a topocentric Cartesian coordinate
+system (Figure \ref{fig:fig2}b).
 
-Almost all interpretation techniques assume, implicitly or
+
+\section{Conclusions}
+
+We debate the conceptual differences between the gravity
+disturbance and the gravity anomaly.
+Our reasoning suggest that the gravity disturbance is the
+more appropriated quantity for representing the gravity
+effect produced by the gravity sources.
+In summary, we point out that:
+
+\begin{enumerate}
+%\renewcommand{\theenumi}{(\arabic{enumi})}
+\renewcommand{\theenumii}{\alph{enumii}}
+
+\item Almost all interpretation techniques assume, implicitly or
 directly, that the gravity data is harmonic (e.g., 
 upward/downward continuation, 
 data processing with equivalent layer,
 conversions between gravity and magnetic data,
 computation of vertical derivatives via Fourier and Hilbert
-transforms).
-
-
-Consequently, they implicitly or directly assume that
+transforms). As a consequence, they implicitly or directly assume that
 the gravity data approximates the gravitational disturbance.
 
-
-Almost all forward modelling techniques compute
+\item Almost all forward modeling techniques compute
 the vertical component of the gravitational attraction 
 exerted by the geological bodies at the observation points.
-
-
+Notice that the gravity anomaly requires the computation of gravity
+on the Geoid, which is generally within the topographic masses.
 Hence, almost all geophysicists implicitly compute 
-the vertical component of the gravitational disturbance.
+the gravity disturbance.
 
-
-The gravity anomaly is defined as the difference between 
-the gravity $\| \mitbf{g}_{P} \|$, at a point $P$ on the
-Geoid, and the normal gravity $\| \mitbf{\gamma}_{Q} \|$,
-on the reference elipsoid, where $P$ and $Q$ have the same
-geodetic latitude and longitude.
-
-
+\item The gravity anomaly is defined as the difference between 
+the gravity on the Geoid and the normal gravity on the reference 
+ellipsoid, both at the same geodetic latitude and longitude.
 Consequently, the gravity anomaly is a function of
 the geodetic latitude and longitude only and cannot
-be calculated at arbitrary heights.
+be calculated at arbitrary heights. On the other hand,
+the gravity disturbance can be computed at arbitrary points
+outside the sources.
 
+\end{enumerate}
 
-Gravity anomalies require the computation of gravity
-within the topographic masses, where the gravitational
-disturbance is not harmonic.
+The principal theoretical implication of this study is that
+is that, although the gravity anomaly may be used as a good approximation of
+the gravity effect produced by the sources for most practical applications,
+the more appropriated quantity for gravity modeling is the
+gravity disturbance. We stress that, more important than the 
+the terminology changes, the geophysicist must bear in mind the 
+conceptual assumptions used in gravity modeling.
 
 
 \begin{acknowledgments}
