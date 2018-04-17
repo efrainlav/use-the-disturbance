@@ -10,8 +10,8 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 
-\title[Gravity disturbance or gravity anomaly?]
-      {Gravity disturbance or gravity anomaly?}
+\title[Theoretical aspects in gravity modeling]
+      {Theoretical aspects in gravity modeling}
       
 \author[Oliveira Jr, Barbosa and Uieda]
 {Vanderlei C. Oliveira Jr$^1$\thanks{Sei la, Nacional, Brazil}, Val\'{e}ria C. F. Barbosa$^1$ and Leonardo Uieda$^2$ \\
@@ -56,11 +56,12 @@
  potential fields -- gravity disturbance -- gravity anomaly -- gravity modeling.
 \end{keywords}
 
+
 \section{Introduction}
 
 The resultant of gravitational force and centrifugal force acting 
 on a body at rest on the Earth's surface is called 
-\textit{gravity vector} and its intensity is called simply 
+\textit{gravity vector} and its intensity is called 
 \textit{gravity} \citep{heiskanen-moritz1967,
 hofmann-wellenhof-moritz2005}.
 In the case of gravimetry on moving platforms (e.g., airplanes,
@@ -75,14 +76,7 @@ Hence, geophysicists are usually interested
 in the gravitational component of the observed gravity, 
 which is produced by the Earth's internal 
 density distribution.
-%In applied geophysics, gravity surveys are usually conducted 
-%over local or regional areas on the Earth's surface for the purpose of 
-%characterizing geological structures located within the
-%crust and upper mantle.
-%
-%Consequently, geophysicists are only interested in the
-%particular gravitational component of gravity which 
-%is produced by these target geological structures.
+
 The first step of the procedure for isolating this 
 gravitational component consists in removing the non-gravitational 
 effects due to the vehicle motion and also the time variations 
@@ -96,8 +90,13 @@ internal density distribution.
 The isolation of this particular gravitational component 
 and its subsequent use for estimating density 
 distributions related to geological structures in subsurface 
-are the main goals in applied geophysics 
-\citep{blakely1996}.
+are the main goals in applied geophysics \citep{blakely1996}.
+The computation of the gravitational effect produced by
+the geological structures is commonly known in geophysics as 
+\textit{gravity modeling}.
+This term is different from \textit{gravity field modeling}, which
+is commonly used in geodesy to denote the characterization of the 
+gravity field in a local, regional or global scale.
 
 Based on well-established concepts of the literature,
 we present a discussion aiming at bringing some
@@ -109,16 +108,16 @@ more geodetic than geophysical point of view
 \citep{lafehr1991,chapin1996,li2001,fairhead2003,
 hackney-featherstone2003,hinze2005}.
 Our reasoning suggests that the gravity 
-disturbance is more appropriated than gravity anomalies for 
-approximating the gravitational effect produced by the Earth's 
-internal density distribution.
+disturbance is more appropriated than the gravity anomaly 
+for geophysical purposes.
 
 
 \section{Normal Earth and normal gravity}
 
 Traditionally, the Earth's gravity field is approximated 
-by the gravity field produced by a geocentric and rigid ellipsoid 
-of revolution, which has the minor axis $b$ 
+by the gravity field produced by a reference ellipsoid
+(or level ellipsoid), which is rigid and geocentric.
+This reference ellipsoid has the minor axis $b$ 
 coincident with the mean rotating axis of the Earth $Z$, the 
 same total mass (including the atmosphere) and also the
 same angular velocity of the Earth \citep{heiskanen-moritz1967,
@@ -134,7 +133,7 @@ the resultant of the virtual
 gravitational and centrifugal forces exerted by the normal
 Earth on a body at rest at a point $P$ is called 
 \textit{normal gravity vector} and its intensity is called 
-simply \textit{normal gravity}.
+\textit{normal gravity}.
 In geodesy, any model used to represent the normal gravity field
 can be arbitrarily defined for the only purpose
 of keeping the difference from the actual gravity field as small 
@@ -153,20 +152,32 @@ with its limiting surface.
 For convenience, we denote any density distribution 
 satisfying this condition as a \textit{normal density distribution}.
 
-The normal Earth gives rise to the \textit{geodetic coordinate system}
-\citep{heiskanen-moritz1967, soler1976, torge2012, bouman_etal2013}.
-In this coordinate system, the position of a point $P$
+
+\section{Terrestrial Reference Systems used in gravity modeling}
+
+For geophysical purposes, there are three important Terrestrial Reference Systems used in gravity modeling. 
+They rotate with the Earth and are used for describing
+positions and movements of objects on and close to the Earth’s surface
+\citep{torge2012}.
+
+The first one is a geocentric system of Cartesian coordinates having 
+the $Z$-axis coincident with the mean Earth's rotational axis,
+the $X$-axis pointing to the Greenwich meridian and the $Y$-axis
+directed so as to obtain a right-handed system (Figure \ref{fig:fig1}).
+This reference system can be found in the literature with different names: Mean Terrestrial System \citep[e.g.,][]{soler1976}, Earth-fixed geocentric Cartesian system \citep[e.g.,][]{torge2012} 
+or Earth-centered Earth-fixed system \citep[e.g.,][]{bouman_etal2013}, for example. Here, we opted for simply using the term Geocentric Cartesian System (GCS).
+
+Other important reference system is a geocentric system of 
+geodetic coordinates, which is defined by the reference ellipsoid 
+used in the Normal Earth model \citep{heiskanen-moritz1967, soler1976, 
+torge2012, bouman_etal2013}. 
+In this coordinate system, the position of a point 
 is defined by the \textit{geometric height} $h$, 
-\textit{geodetic latitude}
-$\varphi$ and \textit{longitude} $\lambda$ (Figure \ref{fig:fig1}).
-Geodetic coordinates $(h, \varphi, \lambda)$ can be easily 
-converted into geocentric Cartesian coordinates $(X, Y, Z)$
-(Figure \ref{fig:fig1}).
-The plane containing the point $P$, the axis $Z$ and
-the origin $O$ of this \textit{geocentric Cartesian coordinate system}
-is called meridian plane (gray plane in Figure \ref{fig:fig1}).
+\textit{geodetic latitude} $\varphi$ and \textit{longitude} $\lambda$ (Figure \ref{fig:fig1}).
+For convenience, we call this system Geocentric Geodetic System
+(GGS). 
 At a given point $(h, \varphi, \lambda)$, there are three 
-unit vectors (Figure \ref{fig:fig1}) given by \citep{soler1976}:
+mutually-orthogonal unit vectors (Figure \ref{fig:fig1}) given by \citep{soler1976}:
 \begin{equation}
 \begin{split}
 \hat{\mitbf{u}} &= 
@@ -187,15 +198,25 @@ unit vectors (Figure \ref{fig:fig1}) given by \citep{soler1976}:
 \cos\lambda \\
 0
 \end{bmatrix}
-\end{split} \: ,
+\end{split} \: .
 \label{eq:unit-vectors}
 \end{equation}
-Notice that these unit vectors are mutually orthogonal and
-that the normal gravity vector $\mitbf{\gamma}_{P}$ at a point $P$
-is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ at $P$.
+The required equations to convert coordinates $(h, \varphi, 
+\lambda)$ referred to the GGS into coordinates $(X, Y, Z)$ referred to 
+the GCS (Figure \ref{fig:fig1}) and vice versa can be easily found in 
+the literature \citep[e.g.,][]{heiskanen-moritz1967, torge2012, 
+bouman_etal2013}.
+
+PAREI AQUI
+
+In a local or regional study, geophysicists commonly use a topocentric 
+Cartesian coordinate system (TCS) with origin at a point $P$ on or 
+close to the Earth's surface and axes $x$, $y$ and $z$ (Figure 
+\ref{fig:fig2}). In the TCS, the axes $x$ and $y$ are parallel to the unit vectors $\hat{\mitbf{v}}_{P}$ $\hat{\mitbf{w}}_{P}$, respectively. 
+The $z$-axis, however, is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ (equation \ref{eq:unit-vectors}) and points downward.
 
 
-\section{Gravity disturbance}
+\section{Basic concepts}
 
 It is worth noting that, by definition, 
 the centrifugal component of the normal gravity field is
@@ -273,13 +294,7 @@ other than that were the gravity is measured.
 
 \section{Mathematical description of the gravity disturbance in a local coordinate system}
 
-In a local- or regional-gravity study, 
-geophysicists commonly use a topocentric Cartesian coordinate system
-with origin at a point $P$ and axes $x$, $y$ and $z$ defined
-by the unit vectors $\hat{\mitbf{v}}_{P}$,
-$\hat{\mitbf{w}}_{P}$ and $-\hat{\mitbf{u}}_{P}$ 
-(equation \ref{eq:unit-vectors}), respectively
-(Figures \ref{fig:fig1} and \ref{fig:fig2}).
+
 In this coordinate system, the observed gravity vector
 $\mitbf{g}_{i}$, at a point $(x_{i}, y_{i}, z_{i})$, 
 $i = 1, ..., N$, can be represented by
@@ -296,10 +311,7 @@ For each point $(x_{i}, y_{i}, z_{i})$ in the topocentric
 Cartesian coordinate system (Figure \ref{fig:fig2}b), there is
 a corresponding point $(h_{i}, \varphi_{i}, \lambda_{i})$
 in the geodetic coordinate system (Figure \ref{fig:fig1}).
-Here, we opted for omitting the equations to convert a point
-$(x_{i}, y_{i}, z_{i})$ into a point $(h_{i}, \varphi_{i}, \lambda_{i})$
-and vice versa. These equations, however, may be easily
-found in the literature \citep[e.g.,][]{heiskanen-moritz1967, soler1976, torge2012, bouman_etal2013}.
+
 
 By definition, the gravity disturbance $\delta g_{i}$,
 at the point $(x_{i}, y_{i}, z_{i})$, is given by 
@@ -477,24 +489,23 @@ reviewers for their criticisms and corrections.
 \begin{figure}
 %    \vspace{5.5cm}
     \includegraphics{figures/cartesian-geodetic-systems.png}
-    \caption{Schematic representation of the geodetic coordinate
-    system defined by an oblate ellipsoid with semi-minor axis $b$, 
-    coincident with the mean Earth's rotation axis, and a semi-major
+    \caption{Schematic representation of the Geocentric Cartesian System (GCS) and the Geocentric Geodetic System (GGS). The GCS has the $Z$-axis coincident with the mean Earth's rotational axis,
+    the $X$-axis pointing to the Greenwich meridian and the $Y$-axis
+    directed so as to obtain a right-handed system. The GGS is      defined by an oblate ellipsoid with semi-minor axis $b$, 
+    coincident with the $Z$-axis of GCS, and a semi-major
     axis $a$. In this coordinate system, the position of a point is
     determined by the geometric height $h$, the geodetic latitude 
     $\varphi$ and longitude $\lambda$. 
     The Earth's center of mass is represented 
-    by $O$, $P$ represents a point $(h, \varphi, \lambda)$ and 
-    $P^{\prime}$ represents the projection of $P$ on the plane $XY$ 
+    by $O$, $P$ represents a point $(h_{P}, \varphi_{P}, \lambda_{P})$ and $P^{\prime}$ its projection onto the plane $XY$ 
     (Equatorial plane). The plane containing $O$, $P$ and 
-    $P^{\prime}$ is represented by the gray triangle in (a) and (b). 
-    The unit vectors 
-    $\hat{\mitbf{u}}_{P}$, $\hat{\mitbf{v}}_{P}$ and 
+    $P^{\prime}$ is represented in gray in (a) and (b). 
+    The unit vectors $\hat{\mitbf{u}}_{P}$, $\hat{\mitbf{v}}_{P}$ and 
     $\hat{\mitbf{w}}_{P}$ define three mutually orthogonal 
-    directions at each point $P$.
-    In (b), the point $Q$ represents the projection of $P$ on the 
-    ellipsoid surface, at the same latitude $\varphi$ and 
-    longitude $\lambda$.}
+    directions at $P$ (equation \ref{eq:unit-vectors}).
+    In (b), $Q$ represents a point $(h_{Q}, \varphi_{Q}, \lambda_{Q})$,
+    which is the projection of $P$ onto the reference ellipsoid, at
+    the same latitude and longitude ($\varphi_{Q} = \varphi_{P}$ and $\lambda_{Q} = \lambda_{P}$).}
   \label{fig:fig1}
 \end{figure}
 
@@ -503,20 +514,20 @@ reviewers for their criticisms and corrections.
     \caption{(a) Schematic representation of the gravity vector
     $\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$,
     disturbing gravitational attraction $\Delta \mitbf{g}_{P}$
-    (equation \ref{eq:gravity-vector}) and the unit vector 
-    $\hat{\mitbf{u}}_{P}$ (equation \ref{eq:unit-vectors}) 
-    at the point $P$ and also the normal gravity vector
-    $\mitbf{\gamma}_{Q}$ at the point $Q$ on the reference ellipsoid.
-    At the point $P$ the normal gravity vector $\mitbf{\gamma}_{P}$ 
-    is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ and the 
-    normal gravity $\mitbf{\gamma}_{Q}$ at the point $Q$ is opposite
-    the another unit vector $\hat{\mitbf{u}}_{Q}$, which is
-    close to $\hat{\mitbf{u}}_{P}$.
+    (equation \ref{eq:gravity-vector}), unit vector 
+    $\hat{\mitbf{u}}_{P}$ (equation \ref{eq:unit-vectors}) and
+    the normal gravity vector $\mitbf{\gamma}_{Q}$ at the point $Q$ on the reference ellipsoid.
+    At $P$, the normal gravity vector $\mitbf{\gamma}_{P}$ 
+    is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ and, at $Q$, the normal gravity $\mitbf{\gamma}_{Q}$ is opposite
+    to the unit vector $\hat{\mitbf{u}}_{Q}$. These unit vectors are
+    close to each other.
     (b) Schematic representation of a topocentric Cartesian 
-    coordinate system with origin at a point $P$ and $x$, $y$ and $z$ 
-    axes defined by the unit vectors $\hat{\mitbf{v}}_{P}$, 
-    $\hat{\mitbf{w}}_{P}$ and $-\hat{\mitbf{u}}_{P}$ 
-    (Figure \ref{fig:fig1}), respectively.}
+    coordinate system with origin at a point $P$. The axes $x$
+    and $y$ are parallel to the unit vectors $\hat{\mitbf{v}}_{P}$
+    and $\hat{\mitbf{w}}_{P}$ (equation \ref{eq:unit-vectors} and
+    Figure \ref{fig:fig1}), respectively. The $z$ axis is opposite
+    to the unit vector $\hat{\mitbf{u}}_{P}$ (equation 
+    \ref{eq:unit-vectors} and Figure \ref{fig:fig1}) and points downward.}
   \label{fig:fig2}
 \end{figure}
 
