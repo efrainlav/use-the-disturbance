@@ -216,7 +216,7 @@ whereas the $z$-axis is opposite to the unit vector
 $\hat{\mitbf{u}}_{P}$ (equation \ref{eq:unit-vectors}) and points downward.
 
 Consider a TCS (Figure \ref{fig:TCS}) with origin at a point $P$ with
-coordinates $(X_{P}, Y_{P}, Z_{P})$ referred to the GCS (Figure \ref{fig:fig1}).
+coordinates $(X_{P}, Y_{P}, Z_{P})$ referred to the GCS (Figure \ref{fig:GCS-GGS}).
 In this case, the relationship between the coordinates $(X, Y, Z)$ of a 
 point in the GCS and the coordinates $(x, y, z)$ of the same point in the 
 TCS is given by:
@@ -244,37 +244,63 @@ $\hat{\mitbf{w}}$ (equation \ref{eq:unit-vectors}) as follows:
 \label{eq:R}
 \end{equation}
 
-\section{Basic concepts}
 
-It is worth noting that, by definition, 
-the centrifugal component of the normal gravity field is
-equal to the centrifugal component of the Earth's gravity
-field if they are evaluated at the same point.
-Then, the differences between the gravity vector
-(corrected from non-gravitational effects) 
-and the normal gravity vector, at the same point, represents a purely 
-gravitational and consequently harmonic disturbing field.
-This gravitational disturbance 
-is caused by contrasts between the actual internal 
-density distribution of the Earth and the internal density 
+\section{Anomalous quantities in gravity modeling}
+
+Let $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$ be, respectively, the 
+gravity vector (corrected from non-gravitational effects due to vehicle 
+motion and time variations such as Earth tides, instrumental drift and 
+barometric pressure changes, for example) and the normal gravity vector 
+at a point $P$. The difference between these two vectors, at the same 
+point $P$, defines a quantity called \textit{gravity disturbance 
+vector}, which is given by:
+\begin{equation}
+\delta \mitbf{g}_{P} = 
+\mitbf{g}_{P} - \mitbf{\gamma}_{P} \: .
+\label{eq:gravity-disturbance-vector}
+\end{equation}
+By definition, the centrifugal component of the normal gravity vector 
+is equal to the centrifugal component of the gravity vector if they 
+are evaluated at the same point.
+Then, the gravity disturbance vector $\delta \mitbf{g}_{P}$ represents 
+a purely gravitational (and consequently harmonic) quantity, which is 
+caused by contrasts between the actual internal 
+density distribution of the Earth and the (unknown) internal density 
 distribution of the normal Earth.
 In applied geophysics, these density differences are generally 
 called \textit{anomalous masses} (e.g., \citeauthor{hammer1945}, 
 \citeyear{hammer1945}; \citeauthor{lafehr1965}, \citeyear{lafehr1965}),
-\textit{density anomalies} (e.g., \citeauthor{forsberg1984}, \citeyear{forsberg1984})
-or \textit{gravity sources} (e.g., \citeauthor{blakely1996}, 
-\citeyear{blakely1996}). Here, we opted for using the last term.
+\textit{density anomalies} (e.g., \citeauthor{forsberg1984}, 
+\citeyear{forsberg1984}) or \textit{gravity sources} (e.g., 
+\citeauthor{blakely1996}, \citeyear{blakely1996}). Here, we opted for 
+using the last term.
+Figure \ref{fig:surfaces} illustrates the gravity vector 
+$\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$ and 
+the gravity disturbance vector $\delta \mitbf{g}_{P}$ at a point $P$ 
+located on the Earth's surface.
 
-The difference between the observed gravity and the
-normal gravity, at the same point, is called \textit{gravity disturbance}
-\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}.
-Notice that the gravity disturbance is not equivalent to the
-magnitude of the difference between the gravity vector
-and the normal gravity vector at the same point 
-\citep{barthelmes2013, sanso_sideris2013}.
+The difference between the gravity $g_{P}$ and the normal gravity 
+$\gamma_{P}$, at the same point $P$, is called \textit{gravity 
+disturbance} \citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005} 
+and can be represented as follows:
+\begin{equation}
+\delta g_{P} = g_{P} - \gamma_{P} \: .
+\label{eq:gravity-disturbance}
+\end{equation}
+Notice that the gravity disturbance $\delta g_{P}$ is not equivalent 
+to the magnitude of the gravity disturbance vector 
+$\delta \mitbf{g}_{P}$ \citep{barthelmes2013, sanso_sideris2013}.
 As properly pointed out by \citet{hackney-featherstone2003},
 the gravity disturbance is a very-well established quantity in geodesy,
 but appears to be less well known in geophysics.
+
+
+%Consider a line (dashed line in Figure \ref{fig:surfaces}) passing 
+%through a point $Q$ on the surface of the reference ellipsoid and 
+%a point $P$ on the Earth's surface
+
+PAREI AQUI - precisa descrever as demais quantidade na fig 3
+
 
 The gravity anomaly is the commonly used quantity in applied 
 geophysics. It is defined as the difference
@@ -522,7 +548,7 @@ reviewers for their criticisms and corrections.
     directed so as to obtain a right-handed system. The GGS is      defined by an oblate ellipsoid with semi-minor axis $b$, 
     coincident with the $Z$-axis of GCS, and a semi-major
     axis $a$. In this coordinate system, the position of a point is
-    determined by the geometric height $h$, the geodetic latitude 
+    determined by the geometric height $h$, geodetic latitude 
     $\varphi$ and longitude $\lambda$. 
     The Earth's center of mass is represented 
     by $O$, $P$ represents a point $(h_{P}, \varphi_{P}, \lambda_{P})$ and $P^{\prime}$ its projection onto the plane $XY$ 
@@ -538,31 +564,35 @@ reviewers for their criticisms and corrections.
 \end{figure}
 
 \begin{figure}
-    \includegraphics{figures/surfaces.png}
-    \caption{text text text text}
-  \label{fig:surfaces}
-\end{figure}    
-
-\begin{figure}
     \includegraphics{figures/local-system.png}
     \caption{(a) Schematic representation of the gravity vector
     $\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$,
-    disturbing gravitational attraction $\Delta \mitbf{g}_{P}$
-    (equation \ref{eq:gravity-vector}), unit vector 
-    $\hat{\mitbf{u}}_{P}$ (equation \ref{eq:unit-vectors}) and
-    the normal gravity vector $\mitbf{\gamma}_{Q}$ at the point $Q$ on the reference ellipsoid.
-    At $P$, the normal gravity vector $\mitbf{\gamma}_{P}$ 
-    is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ and, at $Q$, the normal gravity $\mitbf{\gamma}_{Q}$ is opposite
-    to the unit vector $\hat{\mitbf{u}}_{Q}$. These unit vectors are
-    close to each other.
+    gravity disturbance vector $\delta \mitbf{g}_{P}$
+    (equation \ref{eq:gravity-vector}) and unit vector 
+    $\hat{\mitbf{u}}_{P}$ (equation \ref{eq:unit-vectors}) at a point 
+    $P$.
     (b) Schematic representation of a topocentric Cartesian 
     coordinate system with origin at a point $P$. The axes $x$
     and $y$ are parallel to the unit vectors $\hat{\mitbf{v}}_{P}$
     and $\hat{\mitbf{w}}_{P}$ (equation \ref{eq:unit-vectors} and
-    Figure \ref{fig:GCS-GGS}), respectively. The $z$ axis is opposite
-    to the unit vector $\hat{\mitbf{u}}_{P}$ (equation 
-    \ref{eq:unit-vectors} and Figure \ref{fig:GCS-GGS}) and points downward.}
+    Figure \ref{fig:GCS-GGS}), respectively. On the other hand, the $z$ axis is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ (equation 
+    \ref{eq:unit-vectors} and Figure \ref{fig:GCS-GGS}) and points downward. The gray plane shown in (b) is the same gray plane
+    shown in Figure \ref{fig:GCS-GGS}.}
   \label{fig:TCS}
+\end{figure}
+
+\begin{figure}
+    \includegraphics{figures/surfaces.png}
+    \caption{Schematic representation of the gravity vector
+        $\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$,
+        gravity disturbance vector $\delta \mitbf{g}_{P}$
+        (equation \ref{eq:gravity-vector}) and unit vector 
+        $\hat{\mitbf{u}}_{P}$ (equation \ref{eq:unit-vectors}) at a point $P$ on the surface of the Earth; gravity vector 
+        $\mitbf{g}_{Q^{\prime}}$ at a point $Q^{\prime}$ on the Geoid;
+        normal gravity vector $\mitbf{\gamma}_{Q}$ at a point $Q$ on
+        the reference ellipsoid. The dashed line is normal to the 
+        surface of the reference ellipsoid at $Q$.}
+  \label{fig:surfaces}
 \end{figure}
 
 \label{lastpage}
