@@ -1,4 +1,4 @@
-# Theoretical aspects in gravity modeling
+# Theoretical aspects in gravity modelling
 
 **Authors:**
 
