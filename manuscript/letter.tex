@@ -251,7 +251,25 @@ Let $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$ be, respectively, the
 gravity vector (corrected from non-gravitational effects due to vehicle 
 motion and time variations such as Earth tides, instrumental drift and 
 barometric pressure changes, for example) and the normal gravity vector 
-at a point $P$. The difference between these two vectors, at the same 
+at a point $P$. 
+In this case, the gravity vector $\mitbf{g}_{P}$ represents the 
+gradient of a scalar potential called \textit{gravity potential}, 
+which is the sum of a scalar gravitational potential and a 
+scalar centrifugal potential.
+Similarly, the normal gravity vector $\mitbf{\gamma}_{P}$ represents the 
+gradient of a scalar potential called \textit{normal potential}, 
+which is also the sum of a scalar gravitational potential and a 
+scalar centrifugal potential.
+By definition, the centrifugal part of the normal potential is equal 
+to that of the gravity potential.
+Then, the both gravity vector and normal gravity vectors are represented 
+by the sum of two vectors: the gradient of a gravitational potential and
+the gradient of a centrifugal potential. Notice that, as the centrifugal 
+part of the gravity potential and normal potential are the same, the
+centrifugal part of the gravity vector and normal gravity vector are
+also equal to each other.
+
+The difference between $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$, at the same 
 point $P$, defines a quantity called \textit{gravity disturbance 
 vector}, which is given by:
 \begin{equation}
@@ -259,10 +277,9 @@ vector}, which is given by:
 \mitbf{g}_{P} - \mitbf{\gamma}_{P} \: .
 \label{eq:gravity-disturbance-vector}
 \end{equation}
-By definition, the centrifugal component of the normal gravity vector 
-is equal to the centrifugal component of the gravity vector if they 
-are evaluated at the same point.
-Then, the gravity disturbance vector $\delta \mitbf{g}_{P}$ represents 
+As the centrifugal part of the gravity vector and the normal gravity vector 
+is equal to the centrifugal component of the gravity vector, 
+the gravity disturbance vector $\delta \mitbf{g}_{P}$ represents 
 a purely gravitational (and consequently harmonic) quantity, which is 
 caused by contrasts between the actual internal 
 density distribution of the Earth and the (unknown) internal density 
@@ -279,9 +296,11 @@ $\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$ and
 the gravity disturbance vector $\delta \mitbf{g}_{P}$ at a point $P$ 
 located on the Earth's surface.
 
-The difference between the gravity $g_{P}$ and the normal gravity 
-$\gamma_{P}$, at the same point $P$, is called \textit{gravity 
-disturbance} \citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005} 
+The difference between gravity $g_{P}$ (magnitude of the gravity 
+vector $\mitbf{g}_{P}$) and normal gravity $\gamma_{P}$ 
+(magnitude of the normal gravity vector $\mitbf{\gamma}_{P}$), at the 
+same point $P$, is called \textit{gravity disturbance} 
+\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005} 
 and can be represented as follows:
 \begin{equation}
 \delta g_{P} = g_{P} - \gamma_{P} \: .
@@ -299,23 +318,24 @@ but appears to be less well known in geophysics.
 %through a point $Q$ on the surface of the reference ellipsoid and 
 %a point $P$ on the Earth's surface
 
-PAREI AQUI - precisa descrever as demais quantidade na fig 3
-
-
 The gravity anomaly is the commonly used quantity in applied 
-geophysics. It is defined as the difference
-between the gravity on the geoid and the normal gravity on the ellipsoid,
-both at the same geodetic latitude and longitude.
+geophysics. It is defined as the difference between the 
+gravity at a point $Q^{\prime}$ on the geoid and the normal gravity 
+at a point $Q$ on the ellipsoid surface,
+both at the same geodetic latitude and longitude (Figure \ref{fig:surfaces}).
 Notice that, by definition, the gravity anomaly depends on 
-longitude and latitude only and is not a function in space 
-\citep{barthelmes2013}.
-Different gravity anomalies can be calculated, depending on the
-corrections applied to them \citep{blakely1996, hofmann-wellenhof-moritz2005}.
+longitude and latitude only and is not a function of height 
+\citep{barthelmes2013}. As a consequence, it is not possible to compute,
+for example, the upward of a gravity anomaly.
+
+Different gravity anomalies can be calculated (e.g., Free-air and 
+Bouguer anomalies), depending on the corrections applied to 
+them \citep{blakely1996, hofmann-wellenhof-moritz2005}.
 These corrections are usually called gravity reductions.
-For example, the Free-air anomaly is an approximation of the
+It can be shown that the Free-air anomaly is an approximation of the
 gravity disturbance whereas the Bouguer anomaly
 is an approximation of the terrain corrected gravity disturbance.
-The last one is commonly used by geophysicists as the
+The Bouguer anomaly is commonly used by geophysicists as the
 gravitational effect produced by the gravity sources.
 Although this approximation is valid for most practical applications,
 it is important to bear in mind not only the terminology 
@@ -424,7 +444,8 @@ This equation shows that the gravity disturbance $\delta g_{i}$ (equation \ref{e
 of the disturbing gravitational attraction $\Delta \mitbf{g}_{i}$
 produced by the gravity sources. Rather, it represents the 
 component of the $\Delta \mitbf{g}_{i}$ on the direction of the normal
-gravity vector. In the topocentric Cartesian coordinate system,
+gravity vector \citep{sanso_sideris2013}. 
+In the topocentric Cartesian coordinate system,
 the gravity disturbance $\delta g_{i}$ (equation \ref{eq:gravity-disturbance-approx})
 can be defined as the vertical component of the gravitational attraction exerted by
 the gravity sources at the point $(x_{i}, y_{i}, z_{i})$.
