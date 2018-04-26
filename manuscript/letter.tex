@@ -185,7 +185,7 @@ directed so as to obtain a right-handed system (Fig. \ref{fig:GCS-GGS}).
 This reference system can be found in the literature with different names: Mean Terrestrial System \citep[e.g.,][]{soler1976}, Earth-fixed geocentric Cartesian system \citep[e.g.,][]{torge2012} 
 or Earth-centered Earth-fixed system \citep[e.g.,][]{bouman_etal2013}, for example. Here, we opted for simply using the term Geocentric Cartesian System (GCS).
 
-Other important reference system is a geocentric system of 
+Another important reference system is a geocentric system of 
 geodetic coordinates, which is defined by the reference ellipsoid 
 used in the Normal Earth model \citep{heiskanen-moritz1967, soler1976, 
 torge2012, bouman_etal2013}. 
@@ -266,7 +266,7 @@ point $P$, as follows:
 Let $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$ be, respectively, the 
 gravity vector (corrected from non-gravitational effects due to vehicle 
 motion and time variations such as Earth tides, instrumental drift and 
-barometric pressure changes, for example) and the normal gravity vector 
+barometric pressure changes, for instance) and the normal gravity vector 
 at a point $P$. 
 In this case, the gravity vector $\mitbf{g}_{P}$ represents the 
 gradient of a scalar potential called \textit{gravity potential}, 
@@ -293,7 +293,7 @@ vector}, which is given by:
 \mitbf{g}_{P} - \mitbf{\gamma}_{P} \: .
 \label{eq:gravity-disturbance-vector}
 \end{equation}
-As the centrifugal part of the gravity vector and the normal gravity vector 
+As the centrifugal part of the normal gravity vector 
 is equal to the centrifugal component of the gravity vector, 
 the gravity disturbance vector $\delta \mitbf{g}_{P}$ represents 
 a purely gravitational (and consequently harmonic) quantity, which is 
@@ -334,20 +334,29 @@ the gravity disturbance is a very-well established quantity in geodesy,
 but appears to be less well known in geophysics.
 
 The gravity anomaly is the commonly used quantity in applied 
-geophysics. It is defined as the difference between the 
-gravity at a point $Q^{\prime}$ on the Geoid (a particular 
+geophysics. At point $P$, it is defined as the difference between the 
+gravity vector at a point $Q^{\prime}$ on the Geoid (a particular 
 equipotential surface of the gravity potential) and the normal gravity 
-at a point $Q$ on the ellipsoid surface,
-both at the same geodetic latitude and longitude (Fig. \ref{fig:surfaces}).
+vector at a point $Q$ on the ellipsoid surface, both at the same
+geodetic latitude and longitude (Fig. \ref{fig:surfaces}) as in
+\begin{equation}
+\Delta \mitbf{g}_{P} = \mitbf{g}_{Q^{\prime} } - \mitbf{\gamma}_{Q} .
+\label{eq:gravity-anomaly-vector}
+\end{equation}
+Similarly as the gravity disturbance expression (eq.
+\ref{eq:gravity-disturbance}), the gravity anomaly is given by
+\begin{equation}
+\Delta g_{P} = g_{Q^{\prime} } - \gamma_{Q} .
+\label{eq:gravity-anomaly}
+\end{equation}
 Notice that, by definition, the gravity anomaly depends on 
 longitude and latitude only and is not a function of height 
 \citep{barthelmes2013}. As a consequence, it is not possible to compute,
 for example, the upward continuation of a gravity anomaly.
-However, many authors in the literature have computed the upward 
-continuation of gravity anomalies. All these authors have implicitly 
-considered that the gravity anomaly is an approximation of 
+However, many authors in the literature have. All these authors have
+implicitly considered that the gravity anomaly is an approximation of 
 the gravity disturbance, which in turn can be represented by a 
-harmonic function that can be continued upward.
+harmonic function that is allowed to be upward continued.
 
 Different gravity anomalies can be calculated (e.g., Free-air and 
 Bouguer anomalies), depending on the corrections applied to 
@@ -489,6 +498,55 @@ It is important to notice that, contrary to what is written in
 some basic texts, gravimeters do not measure the quantity
 $d_{i}$ (eq. \ref{eq:gz-local}).
 
+\section{Comparing Free-air anomaly with gravity disturbance}
+
+By definition, for a small height $h$, the normal gravity at point
+$P(h, \varphi, \lambda)$ can be expanded into a Taylor series 
+in terms of $h$ \citep{heiskanen-moritz1967,
+hofmann-wellenhof-moritz2005} as in
+\begin{equation}
+\gamma_{P} \approx \gamma_{Q} + \frac{\partial \gamma}{\partial h} h ,
+\label{eq:gamma-expansion}
+\end{equation}
+where higher orders of $h$ were neglected. $h$ represents the
+distance between points $P$ and $Q$ shown in (Fig. \ref{fig:heights}).
+Therefore, substituting \ref{eq:gamma-expansion}'s result into
+eq. \ref{eq:gravity-disturbance}, the gravity disturbance becomes
+\begin{equation}
+\delta g_{P} \approx g_{P} - (\gamma_{Q} + \frac{\partial \gamma}{\partial h} h) .
+\label{eq:disturb-approx}
+\end{equation}
+According to \citet{heiskanen-moritz1967, blakely1996}, the relation
+between gravity on the geoid and on the reference ellipsoid is
+a similar Taylor expansion given by
+\begin{equation}
+g_{Q^{\prime}} = g_{P} - \frac{\partial \gamma}{\partial h} H
+\label{eq:geod2phys_surf}
+\end{equation}
+where $H$ is defined as the orthometric height (Fig. \ref{fig:heights})
+measured along the curved plumb line, starting from the Geoid
+\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}.
+Thus, the Free-air anomaly $(\Delta g^{a})$, which corrects for the
+decrease in gravity due to the elevation of the observation point $P$, 
+can be written as
+\begin{equation}
+\Delta g^{a}_{P} \approx g_{P} - (\gamma_{Q} + \frac{\partial \gamma}{\partial h} H)
+\label{eq:free-air}
+\end{equation}
+By inspection, one easily concludes that the difference is the first
+order derivative term
+\begin{equation}
+\delta g_{P} - \Delta g^{a}_{P} \approx - \frac{\partial \gamma}{\partial h} (h-H) = - \frac{\partial \gamma}{\partial h} N ,
+\label{eq:disturb-FA}
+\end{equation}
+where $N$ is the geoidal undulation (Fig. \ref{fig:heights}) and 
+$\frac{\partial \gamma}{\partial h} = -0.3086$.  Hence, using a
+mean value of $\tilde{N} = 120$m, the absolute value of the
+difference in eq. \ref{eq:disturb-FA} is computed
+\begin{equation}
+\parallel \delta g_{P} - \Delta g^{a}_{P} \parallel \leq \parallel - \frac{\partial \gamma}{\partial h} \tilde{N} \parallel = 37.032
+\label{eq:diff-constant}
+\end{equation}
 
 \section{Conclusions}
 
@@ -619,6 +677,14 @@ reviewers for their criticisms and corrections.
         $Q$, $Q^{\prime}$ and $P$ is normal to the 
         surface of the reference ellipsoid at $Q$.}
   \label{fig:surfaces}
+\end{figure}
+
+\begin{figure}
+    \includegraphics{figures/different-heights.png}
+    \caption{Schematic representation of the geometric height
+        $h$, orthometric height $H$ and geoidal undulation $N$.
+        $H$ is curved because it follows the plumbline.}
+  \label{fig:heights}
 \end{figure}
 
 \label{lastpage}
