@@ -53,16 +53,17 @@ $^2$ Department of Geology and Geophysics, University of Hawaii, Manoa, USA
  In this paper, we discuss the fundamental concepts supporting 
  the fact that gravity disturbance is the more appropriated quantity
  to be used for estimating density variations related to geological
- bodies in subsurface. We stress that almost all authors in the 
- literature have implicitly used the gravity anomaly as an approximation 
- of the gravity disturbance, which can be represented by a harmonic 
- function and, consequently, satisfies the premise behind most of 
+ bodies in subsurface. We show that the maximum absolute difference 
+ between the gravity disturbance and the Free-air anomaly in Brazil 
+ reaches a maximum absolute value of $\approx 9.3$ mGal. We also stress 
+ that almost all authors in the literature have implicitly used the 
+ gravity anomaly as an approximation of the gravity disturbance, 
+ which can be represented by a harmonic function and, consequently, 
+ satisfies the premise behind most of 
  the interpretation techniques used in geophysics (e.g., 
- upward/downward continuation, 
- data processing with equivalent layer,
- conversions between gravity and magnetic data,
- computation of vertical derivatives via Fourier and Hilbert
- transforms).
+ upward/downward continuation, data processing with equivalent layer,
+ conversions between gravity and magnetic data, computation of vertical 
+ derivatives via Fourier and Hilbert transforms).
  Although the gravity anomaly can be considered a good approximation of the 
  gravity disturbance for most practical applications, 
  it is important to bear in mind not only the terminology 
@@ -261,7 +262,7 @@ point $P$, as follows:
 \end{equation}
 
 
-\section{Anomalous quantities in gravity modelling}
+\section{Relationship between gravity disturbance and gravity anomaly}
 
 Let $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$ be, respectively, the 
 gravity vector (corrected from non-gravitational effects due to vehicle 
@@ -340,30 +341,82 @@ equipotential surface of the gravity potential) and the normal gravity
 vector at a point $Q$ on the ellipsoid surface, both at the same
 geodetic latitude and longitude (Fig. \ref{fig:surfaces}) as in
 \begin{equation}
-\Delta \mitbf{g}_{P} = \mitbf{g}_{Q^{\prime} } - \mitbf{\gamma}_{Q} .
+\Delta \mitbf{g}_{P} = \mitbf{g}_{Q^{\prime}} - \mitbf{\gamma}_{Q} .
 \label{eq:gravity-anomaly-vector}
 \end{equation}
-Similarly as the gravity disturbance expression (eq.
+Similarly to the gravity disturbance expression (eq.
 \ref{eq:gravity-disturbance}), the gravity anomaly is given by
 \begin{equation}
-\Delta g_{P} = g_{Q^{\prime} } - \gamma_{Q} .
+\Delta g_{P} = g_{Q^{\prime}} - \gamma_{Q} ,
 \label{eq:gravity-anomaly}
 \end{equation}
+where $g_{Q^{\prime} } = \| \mitbf{g}_{Q^{\prime}} \|$ is
+the magnitude of the gravity vector $\mitbf{g}_{Q}$ at $Q^{\prime}$, 
+on the Geoid, and $\gamma_{Q} = \| \mitbf{\gamma}_{Q} \|$ is the 
+magnitude of the normal gravity vector $\mitbf{\gamma}_{Q}$ at $Q$, 
+on the reference ellipsoid (Fig. \ref{fig:surfaces}).
 Notice that, by definition, the gravity anomaly depends on 
 longitude and latitude only and is not a function of height 
 \citep{barthelmes2013}. As a consequence, it is not possible to compute,
 for example, the upward continuation of a gravity anomaly.
-However, many authors in the literature have. All these authors have
+However, many authors in the literature have computed the upward 
+continuation of gravity anomalies. All these authors have
 implicitly considered that the gravity anomaly is an approximation of 
 the gravity disturbance, which in turn can be represented by a 
 harmonic function that is allowed to be upward continued.
 
 Different gravity anomalies can be calculated (e.g., Free-air and 
 Bouguer anomalies), depending on the corrections applied to 
-them \citep{blakely1996, hofmann-wellenhof-moritz2005}.
-These corrections are usually called gravity reductions.
-It can be shown that the Free-air anomaly is an approximation of the
-gravity disturbance whereas the Bouguer anomaly
+them. These corrections are usually called gravity reductions. 
+The Free-air anomaly, for example, is defined as follows 
+\citep{blakely1996, hofmann-wellenhof-moritz2005}:
+\begin{equation}
+\Delta g_{P}^{a} 
+= g_{P} - \left( \gamma_{Q} + \frac{\partial \gamma}{\partial h} \, H \right)
+\: ,
+\label{eq:free-air-anomaly}
+\end{equation}
+where $\frac{\partial \gamma}{\partial h} \approx -0.3086$ mGal/m is the
+derivative of the normal gravity with respect to the geometric height $h$
+and $H$ is the orthometric height (Fig. \ref{fig:surfaces}). 
+Notice that the term between parenthesis represents an 
+approximation of the normal gravity at the point $Q^{\prime}$ on the
+Geoid. By using a similar approach, we can approximate the normal gravity
+$\gamma_{P}$, at a point $P$ on the Earth's surface, so that the 
+gravity disturbance $\delta g_{P}$ (eq. \ref{eq:gravity-disturbance}) 
+can be rewritten as follows:
+\begin{equation}
+\delta g_{P} \approx g_{P} - 
+\left( \gamma_{Q} + \frac{\partial \gamma}{\partial h} h \right) \: .
+\label{eq:gravity-disturbance-approx}
+\end{equation}
+By inspection, one easily concludes that the absolute difference 
+between the approximated gravity disturbance $\delta g_{P}$ 
+(eq. \ref{eq:gravity-disturbance-approx}), at a point $P$ on or close to
+the Earth's surface, and the Free-air anomaly
+$\Delta g_{P}^{a}$ (eq. \ref{eq:free-air-anomaly}), is given by:
+\begin{equation}
+\vert \delta g_{P} - \Delta g^{a}_{P} \vert \approx 
+\vert \frac{\partial \gamma}{\partial h} N \vert \: ,
+\label{eq:difference-disturbance-free-air}
+\end{equation}
+where the geoidal undulation $N \approx h - H$ (Fig. \ref{fig:surfaces}) assumes 
+that the Geoid and the surface of the reference ellipsoid 
+are approximately parallel at $P$ and the surrounding area.
+We know empirically that the geoidal undulation $N$ in the world 
+is $\approx \pm 1$ on the oceans and reaches a 
+maximum absolute value of $\approx 120$ m \citep[e.g.,][]{torge2012, 
+sanso_sideris2013}. In Brazil, for example, the geoidal undulation 
+reaches $\approx \pm 30$ m \citep{ibge_mapgeo2015}. Consequently, the
+maximum absolute differences between gravity disturbance and
+Free-air anomaly, according to eq. \ref{eq:difference-disturbance-free-air},
+is $\approx 9.258$ mGal.
+
+The approximations defined by eqs \ref{eq:gravity-disturbance-approx}
+and \ref{eq:difference-disturbance-free-air} are commonly used
+in geodesy to define the \textit{fundamental equation of physical
+geodesy} \citep{hofmann-wellenhof-moritz2005}.
+A similar approach can be used to show that the Bouguer anomaly
 is an approximation of the terrain corrected gravity disturbance.
 The Bouguer anomaly is commonly used by geophysicists as the
 gravitational effect produced by the gravity sources.
@@ -441,7 +494,7 @@ By using the approximation defined in eq.
 follows 
 \begin{equation}
 \delta g_{i} \approx \hat{\mitbf{\gamma}}_{P}^{\top} \delta \mitbf{g}_{i} \: ,
-\label{eq:gravity-disturbance-approx}
+\label{eq:gravity-disturbance-approx-TCS}
 \end{equation}
 where $\hat{\mitbf{\gamma}}_{P}$ represents the unit vector with
 the same direction as the normal gravity vector $\mitbf{\gamma}_{P}$
@@ -450,10 +503,10 @@ This equation shows that the gravity disturbance $\delta g_{i}$ (eq. \ref{eq:gra
 of the gravity disturbance vector $\delta \mitbf{g}_{i}$
 produced by the gravity sources. Rather, it represents the 
 component of $\delta \mitbf{g}_{i}$ on the direction of the normal
-gravity vector \citep{sanso_sideris2013}. 
+gravity vector \citep{hofmann-wellenhof-moritz2005, sanso_sideris2013}. 
 
 In the TCS (Fig. \ref{fig:TCS}b),
-the gravity disturbance $\delta g_{i}$ (eq. \ref{eq:gravity-disturbance-approx})
+the gravity disturbance $\delta g_{i}$ (eq. \ref{eq:gravity-disturbance-approx-TCS})
 can be defined as the $z$-component of the gravitational attraction exerted by
 the gravity sources at the point $(x_{i}, y_{i}, z_{i})$.
 As a consequence, the gravity disturbance produced by
@@ -498,55 +551,6 @@ It is important to notice that, contrary to what is written in
 some basic texts, gravimeters do not measure the quantity
 $d_{i}$ (eq. \ref{eq:gz-local}).
 
-\section{Comparing Free-air anomaly with gravity disturbance}
-
-By definition, for a small height $h$, the normal gravity at point
-$P(h, \varphi, \lambda)$ can be expanded into a Taylor series 
-in terms of $h$ \citep{heiskanen-moritz1967,
-hofmann-wellenhof-moritz2005} as in
-\begin{equation}
-\gamma_{P} \approx \gamma_{Q} + \frac{\partial \gamma}{\partial h} h ,
-\label{eq:gamma-expansion}
-\end{equation}
-where higher orders of $h$ were neglected. $h$ represents the
-distance between points $P$ and $Q$ shown in (Fig. \ref{fig:heights}).
-Therefore, substituting \ref{eq:gamma-expansion}'s result into
-eq. \ref{eq:gravity-disturbance}, the gravity disturbance becomes
-\begin{equation}
-\delta g_{P} \approx g_{P} - (\gamma_{Q} + \frac{\partial \gamma}{\partial h} h) .
-\label{eq:disturb-approx}
-\end{equation}
-According to \citet{heiskanen-moritz1967, blakely1996}, the relation
-between gravity on the geoid and on the reference ellipsoid is
-a similar Taylor expansion given by
-\begin{equation}
-g_{Q^{\prime}} = g_{P} - \frac{\partial \gamma}{\partial h} H
-\label{eq:geod2phys_surf}
-\end{equation}
-where $H$ is defined as the orthometric height (Fig. \ref{fig:heights})
-measured along the curved plumb line, starting from the Geoid
-\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}.
-Thus, the Free-air anomaly $(\Delta g^{a})$, which corrects for the
-decrease in gravity due to the elevation of the observation point $P$, 
-can be written as
-\begin{equation}
-\Delta g^{a}_{P} \approx g_{P} - (\gamma_{Q} + \frac{\partial \gamma}{\partial h} H)
-\label{eq:free-air}
-\end{equation}
-By inspection, one easily concludes that the difference is the first
-order derivative term
-\begin{equation}
-\delta g_{P} - \Delta g^{a}_{P} \approx - \frac{\partial \gamma}{\partial h} (h-H) = - \frac{\partial \gamma}{\partial h} N ,
-\label{eq:disturb-FA}
-\end{equation}
-where $N$ is the geoidal undulation (Fig. \ref{fig:heights}) and 
-$\frac{\partial \gamma}{\partial h} = -0.3086$.  Hence, using a
-mean value of $\tilde{N} = 120$m, the absolute value of the
-difference in eq. \ref{eq:disturb-FA} is computed
-\begin{equation}
-\parallel \delta g_{P} - \Delta g^{a}_{P} \parallel \leq \parallel - \frac{\partial \gamma}{\partial h} \tilde{N} \parallel = 37.032
-\label{eq:diff-constant}
-\end{equation}
 
 \section{Conclusions}
 
@@ -589,6 +593,10 @@ outside the sources. Then, computing the upward
 continuation of gravity anomalies implicitly assumes 
 that they approximate the gravity disturbance.
 
+\item In Brazil, the maximum difference between the gravity 
+disturbance (on or close to the Earth's surface) and the Free-air
+anomaly reaches $\approx 9.3$ mGal.
+
 \end{enumerate}
 
 The principal theoretical implication of this study is that,
@@ -596,7 +604,7 @@ although the gravity anomaly may be used as a good approximation of
 the gravitational effect produced by the sources for most practical applications,
 the more appropriated quantity for gravity modelling is the
 gravity disturbance. We stress that, more important than the 
-the terminology changes, the authors must bear in mind the 
+terminology changes, the researchers must bear in mind the 
 conceptual assumptions used in gravity modelling.
 
 
@@ -669,22 +677,20 @@ reviewers for their criticisms and corrections.
     \caption{Schematic representation of the gravity vector
         $\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$,
         gravity disturbance vector $\delta \mitbf{g}_{P}$
-        (eq. \ref{eq:gravity-disturbance-vector}) and unit vector 
-        $\hat{\mitbf{u}}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$ on the surface of the Earth; gravity vector 
-        $\mitbf{g}_{Q^{\prime}}$ at a point $Q^{\prime}$ on the Geoid;
-        normal gravity vector $\mitbf{\gamma}_{Q}$ at a point $Q$ on
-        the reference ellipsoid. The dashed line passing through
+        (eq. \ref{eq:gravity-disturbance-vector}), unit vector 
+        $\hat{\mitbf{u}}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$ 
+        on the surface of the Earth, gravity vector $\mitbf{g}_{Q^{\prime}}$ 
+        at a point $Q^{\prime}$ on the Geoid, normal gravity vector 
+        $\mitbf{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
+        geometric height $h$, orthometric height $H$ and geoidal undulation 
+        $N$ \citep{heiskanen-moritz1967}.
+        The dashed line passing through
         $Q$, $Q^{\prime}$ and $P$ is normal to the 
-        surface of the reference ellipsoid at $Q$.}
+        surface of the reference ellipsoid at $Q$. This figure
+        shows a commonly used approximation in which the ellipsoid 
+        surface and the Geoid are represented as parallel surfaces, 
+        so that $h \approx H + N$.}
   \label{fig:surfaces}
-\end{figure}
-
-\begin{figure}
-    \includegraphics{figures/different-heights.png}
-    \caption{Schematic representation of the geometric height
-        $h$, orthometric height $H$ and geoidal undulation $N$.
-        $H$ is curved because it follows the plumbline.}
-  \label{fig:heights}
 \end{figure}
 
 \label{lastpage}
