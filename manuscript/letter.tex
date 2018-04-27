@@ -334,12 +334,12 @@ As properly pointed out by \citet{hackney-featherstone2003},
 the gravity disturbance is a very-well established quantity in geodesy,
 but appears to be less well known in geophysics.
 
-The gravity anomaly is the commonly used quantity in applied 
-geophysics. At point $P$, it is defined as the difference between the 
-gravity vector at a point $Q^{\prime}$ on the Geoid (a particular 
-equipotential surface of the gravity potential) and the normal gravity 
-vector at a point $Q$ on the ellipsoid surface, both at the same
-geodetic latitude and longitude (Fig. \ref{fig:surfaces}) as in
+Another anomalous quantity is the \textit{gravity anomaly vector}.
+It is defined, at point $P$, as the difference between the gravity
+vector at a point $Q^{\prime}$ on the Geoid (a particular
+equipotential surface of the gravity potential) and the normal
+gravity vector at a point $Q$ on the ellipsoid surface, both at the
+same geodetic latitude and longitude (Fig. \ref{fig:surfaces}) as in
 \begin{equation}
 \Delta \mitbf{g}_{P} = \mitbf{g}_{Q^{\prime}} - \mitbf{\gamma}_{Q} .
 \label{eq:gravity-anomaly-vector}
@@ -572,15 +572,15 @@ data processing with equivalent layer,
 conversions between gravity and magnetic data,
 computation of vertical derivatives via Fourier and Hilbert
 transforms). As a consequence, they implicitly or directly assume that
-the gravity data approximate the gravitational disturbance.
+the gravity data approximate the gravity disturbance.
 
 \item Almost all forward modelling techniques compute
 the vertical component of the gravitational attraction 
 exerted by the gravity sources at the observation points.
 Notice that the gravity anomaly requires the computation of gravity
 on the Geoid, which is generally within the topographic masses.
-Hence, almost all forward modelling techniques compute 
-the gravity disturbance.
+Hence, almost all these forward modelling techniques in fact
+compute the gravity disturbance.
 
 \item The gravity anomaly is defined as the difference between 
 the gravity on the Geoid and the normal gravity on the reference 
