@@ -2,8 +2,8 @@
 
 **Authors:**
 
-[Vanderlei C. Oliveira Jr.](http://www.pinga-lab.org/people/oliveira-jr.html)<sup>1</sup>,
 [Kristoffer A. T. Hallam](http://www.pinga-lab.org/people/kristoffer.html)<sup>1</sup>,
+[Vanderlei C. Oliveira Jr.](http://www.pinga-lab.org/people/oliveira-jr.html)<sup>1</sup>,
 [Valéria C. F. Barbosa](http://www.pinga-lab.org/people/barbosa.html)<sup>1</sup> and
 [Leonardo Uieda](http://www.leouieda.com/)<sup>2</sup>
 
