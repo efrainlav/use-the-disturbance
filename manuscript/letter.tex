@@ -219,7 +219,7 @@ the GCS (Fig. \ref{fig:GCS-GGS}) and vice versa can be easily found in
 the literature \citep[e.g.,][]{heiskanen-moritz1967, torge2012, 
 bouman_etal2013}.
 
-In a local or regional study, geophysicists commonly use a topocentric 
+In local or regional studies, geophysicists commonly use a topocentric 
 Cartesian coordinate system (TCS) with origin at a point $P$ on or 
 close to the Earth's surface and axes $x$, $y$ and $z$ (Fig. 
 \ref{fig:TCS}). In the TCS, the axes $x$ and $y$ are parallel to 
@@ -280,10 +280,11 @@ vector}, which is given by:
 Because the centrifugal part of the normal gravity vector 
 is equal to the centrifugal component of the gravity vector, 
 the gravity disturbance vector $\delta \mitbf{g}_{P}$ represents 
-a purely gravitational (and consequently harmonic) quantity, which is 
-caused by contrasts between the actual internal 
+a purely gravitational effect caused by contrasts between the actual internal 
 density distribution of the Earth and the internal density 
 distribution of the normal Earth.
+ergo, the gravity disturbance vector $\delta \mitbf{g}_{P}$ 
+(eq. \ref{eq:gravity-disturbance-vector}) is harmonic.
 It is important to stress that both density distributions are unknown.
 In applied geophysics, these density differences are generally 
 called \textit{anomalous masses} (e.g., \citeauthor{hammer1945}, 
@@ -310,8 +311,9 @@ and can be represented as follows:
 Notice that the gravity disturbance $\delta g_{P}$ is not equivalent 
 to the magnitude of the gravity disturbance vector 
 $\delta \mitbf{g}_{P}$ \citep{barthelmes2013, sanso_sideris2013}.
-Another anomalous quantity is the \textit{gravity anomaly vector}.
-It is defined, at point $P$, as the difference between the gravity
+
+On the other hand, the \textit{gravity anomaly vector} at $P$ 
+is the difference between the gravity
 vector at a point $Q^{\prime}$ on the Geoid (a particular
 equipotential surface of the gravity potential) and the normal
 gravity vector at a point $Q$ on the ellipsoid surface, both at the
@@ -331,15 +333,21 @@ the magnitude of the gravity vector $\mitbf{g}_{Q}$ on the Geoid,
 at $Q^{\prime}$, and $\gamma_{Q} = \| \mitbf{\gamma}_{Q} \|$ is the 
 magnitude of the normal gravity vector $\mitbf{\gamma}_{Q}$ 
 on the reference ellipsoid, at the point $Q$ (Fig. \ref{fig:surfaces}).
-Notice that, by definition, the gravity anomaly depends on 
-longitude and latitude only and is not a function of height 
-\citep{barthelmes2013}. As a consequence, it is not possible to compute,
-for example, the upward continuation of a gravity anomaly.
+As properly pointed out by \citet{barthelmes2013} the gravity anomaly,
+by definition, depends on 
+longitude and latitude only and is not a function of height. 
+Because the gravity is on the Geoid and the normal gravity 
+is on reference ellipsoid, the gravity anomaly $\Delta g_{P}$ 
+(eq. \ref{eq:gravity-anomaly}) is not a purely gravitational effect 
+due to the gravity sources, but rather a combination of gravitational 
+and centrifugal effects. Consequently, its upward continuation, 
+for example, could not be rigorously done. 
+
 However, many authors in the literature have computed the upward 
 continuation of gravity anomalies. All these authors have
 implicitly considered that the gravity anomaly is an approximation of 
 the gravity disturbance, which in turn can be represented by a 
-harmonic function that is allowed to be upward continued.
+harmonic function and can then being upward continued.
 
 Different gravity anomalies can be calculated, 
 depending on the corrections applied to them. 
@@ -414,11 +422,13 @@ of a survey around $P$, we approximately remove,
 from the gravity measured at the points of the survey,
 the gravitational effect of a homogeneous model representing 
 the topographic masses above the Geoid.
-It is evident from eqs \ref{eq:free-air-anomaly}, \ref{eq:gravity-disturbance-approx}
-and \ref{eq:difference-disturbance-free-air} that the simple Bouguer
-anomaly $\Delta g_{P}^{B}$ (eq. \ref{eq:simple-bouguer-anomaly}) represents
-the gravity disturbance $\delta g_{P}$ (eq. \ref{eq:gravity-disturbance})
-minus the gravitational effect produced by this homogeneous topographic model.
+It is evident from eqs 
+\ref{eq:free-air-anomaly} to \ref{eq:difference-disturbance-free-air} 
+that the simple Bouguer anomaly $\Delta g_{P}^{B}$ (eq.
+\ref{eq:simple-bouguer-anomaly}) approximates the gravity disturbance
+$\delta g_{P}$ (eq. \ref{eq:gravity-disturbance})
+minus the gravitational effect produced by this homogeneous topographic
+model.
 Although this approximation is valid for most practical applications,
 it is important to bear in mind not only the terminology 
 changes, but also the conceptual assumptions.
@@ -440,7 +450,7 @@ internal density distribution of the Earth and the internal density
 distribution of the normal Earth.
 However, he did not stress that, by removing the normal gravity 
 evaluated on the ellipsoid from the gravity measured 
-on the Earth's surface, the remaining disturbing field will reflect 
+on the Earth's surface, the remaining anomalous field will reflect 
 not only the effect produced by the gravity sources, but also a
 small combination of gravitational and centrifugal effects.
 This additional, non-harmonic and undesired effect is 
