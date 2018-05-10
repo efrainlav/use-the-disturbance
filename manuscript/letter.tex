@@ -546,58 +546,55 @@ the quantity $d_{i}$ (eq. \ref{eq:gz-local}).
 
 \section{Conclusions}
 
-We debate the conceptual differences between the gravity
-disturbance and the gravity anomaly.
-Our reasoning suggests that the gravity disturbance is the
-more appropriated quantity for representing the gravity
-effect produced by the gravity sources.
-In summary, we point out that:
+Although the gravity disturbance is a well-known quantity in geodesy,
+its use in the applied geophysics is uncommon. 
+For years, geophysicists have been using gravity anomaly for modelling
+the gravitational effects due to geological bodies.
+The question "Should geophysicists use gravity anomaly or gravity
+disturbance for modelling the gravitational effect of gravity sources?"
+is of more than academic interest.
 
-\begin{enumerate}
-%\renewcommand{\theenumi}{(\arabic{enumi})}
-\renewcommand{\theenumii}{\alph{enumii}}
+Theoretically, the gravity anomaly is the difference between the
+gravity on the Geoid and the normal gravity on the reference ellipsoid,
+both at the same geodetic latitude and longitude.
+On the other hand, the gravity disturbance is defined by the difference
+between gravity and normal gravity at the same point.
+Because these quantities are at the same point, the gravity disturbance
+is a purely gravitational effect due to the gravity sources whereas the
+gravity anomaly is a combination of gravitational and centrifugal
+effects.
+Consequently, the gravity disturbance is a harmonic function whereas the
+gravity anomaly is not.
+Because the gravity disturbance is a purely gravitational effect, it can
+be represented by a harmonic function and satisfies the premise required
+by the most techniques for processing potential-field data (e.g.,
+upward/downward continuation, data processing with equivalent layer,
+conversions between gravity and magnetic data, computation of vertical
+derivatives via Fourier and Hilbert transforms).
+Hence, the gravity disturbance is the more appropriated quantity for
+representing the gravity effect produced by the gravity sources.
 
-\item Almost all interpretation techniques assume, implicitly or
-directly, that the gravity data is harmonic (e.g., 
-upward/downward continuation, 
-data processing with equivalent layer,
-conversions between gravity and magnetic data,
-computation of vertical derivatives via Fourier and Hilbert
-transforms). As a consequence, they implicitly or directly assume that
-the gravity data approximate the gravity disturbance.
+In practical problems of applied geophysics, geophysicists perform the
+gravity-forward modelling by computing the vertical component of the
+gravitational attraction exerted by the sources at the observation
+points, regardless of the Geoid or reference ellipsoid positions,
+for example.
+This means that, actually, they compute gravity disturbance to fit 
+a gravity anomaly (e.g., Bouguer anomaly) and this is a clear inconsistency.
+Moreover, upward or downward continuations, for example, are commonly applied to
+gravity anomalies. In this case, the gravity anomaly is wrongly considered a
+harmonic function and this is another inconsistency.
 
-\item Almost all forward modelling techniques compute
-the vertical component of the gravitational attraction 
-exerted by the gravity sources at the observation points.
-Notice that the gravity anomaly requires the computation of gravity
-on the Geoid, which is generally within the topographic masses.
-Hence, almost all these techniques in fact compute the gravity 
-disturbance.
-
-\item The gravity anomaly is defined as the difference between 
-the gravity on the Geoid and the normal gravity on the reference 
-ellipsoid, both at the same geodetic latitude and longitude.
-Consequently, the gravity anomaly is a function of
-the geodetic latitude and longitude only and cannot
-be calculated at arbitrary heights. On the other hand,
-the gravity disturbance can be computed at arbitrary points
-outside the sources. Then, computing the upward 
-continuation of gravity anomalies implicitly assumes 
-that they approximate the gravity disturbance.
-
-\item In Brazil, the maximum difference between the gravity 
-disturbance (on or close to the Earth's surface) and the Free-air
-anomaly reaches $\approx 9.3$ mGal.
-
-\end{enumerate}
-
-The principal theoretical implication of this study is that,
-although the gravity anomaly may be used as a good approximation of
-the gravitational effect produced by the sources for most practical applications,
-the more appropriated quantity for gravity modelling is the
-gravity disturbance. We stress that, more important than the 
-terminology changes, the researchers must bear in mind the 
-conceptual assumptions used in gravity modelling.
+By adopting these practical procedures, geophysicists are implicitly
+taking the gravity anomaly as a good approximation of the gravity
+disturbance. But why should geophysicists care about this usual
+procedure? Because it may result in wrong interpretations of
+quantitative nature. In Brazil, for example, the maximum difference
+between the gravity disturbance and the free-air anomaly reaches 9.3
+mGal. Such difference on the Earth's surface may lead, for example, to
+an error of about xxx m in the depth-to-center estimate of a sphere-like
+source with true depth-to-center at xxx m, radius xxxx m and density
+contrast of xxx $kg \, m^{-3}$.
 
 
 \begin{acknowledgments}
@@ -687,4 +684,4 @@ reviewers for their criticisms and corrections.
 \label{lastpage}
 
 
-\end{document}
+\end{document}\grid
