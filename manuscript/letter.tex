@@ -330,57 +330,74 @@ an approximation of the gravity disturbance,
 which in turn can be represented by a harmonic function and can be upward
 continued.
 
-Different gravity anomalies can be calculated,
+Different approximations for the gravity anomaly can be calculated
 depending on the corrections applied to them.
-These corrections are usually called \textit{gravity reductions}.
-The Free-air anomaly, for example, may be defined as
-follows \citep{blakely1996, hofmann-wellenhof-moritz2005}:
+These corrections are usually called \textit{gravity reductions}
+and their aim is to approximate the magnitude of gravity at the geoid
+$g_{Q^\prime}$ from the magnitude of gravity $g_P$ measured at a point $P$
+on or above the surface of the Earth.
+The \textit{free-air anomaly}, for example, can be defined as
+\citep{blakely1996, hofmann-wellenhof-moritz2005}:
+
 \begin{equation}
-\Delta g_{P}^{F}
-= g_{P} - \left( \gamma_{Q} + \frac{\partial \gamma}{\partial h} \, H_{P} \right) \: ,
+\Delta g^{F}
+= \left(g_{P} - \frac{\partial \gamma}{\partial h} \, H_{P} \right)
+- \gamma_{Q} \: ,
 \label{eq:free-air-anomaly}
 \end{equation}
-where $\frac{\partial \gamma}{\partial h} \approx -0.3086$ mGal/m is the
+
+\noindent
+where $\partial \gamma/\partial h \approx -0.3086$ mGal/m is the
 derivative of the normal gravity with respect to the geometric height $h$
-and $H_{P}$ is the orthometric height $H$ (Fig. \ref{fig:surfaces}) at the
-point $P$.
-Notice that the term between parenthesis represents an
-approximation of the normal gravity at the point $Q^{\prime}$ on the
-Geoid. By using a similar approach, we can approximate the normal gravity
-$\gamma_{P}$, at a point $P$ on the Earth's surface, so that the
-gravity disturbance $\delta g_{P}$ (eq. \ref{eq:gravity-disturbance})
-can be rewritten as follows:
+and $H_{P}$ is the orthometric height (i.e., with respect to the geoid)
+of point $P$ (Fig. \ref{fig:surfaces}).
+The term between parenthesis represents an
+approximation of the gravity at the point $Q^{\prime}$ on the geoid.
+Similarly, we can approximate the normal gravity $\gamma_{P}$
+at a point $P$ on the Earth's surface
+from the normal gravity at the ellipsoid $\gamma_{Q}$,
+so that the gravity disturbance $\delta g_{P}$
+(eq. \ref{eq:gravity-disturbance}) can be rewritten as:
+
 \begin{equation}
 \delta g_{P} \approx g_{P} -
-\left( \gamma_{Q} + \frac{\partial \gamma}{\partial h} h \right) \: .
+\left( \gamma_{Q} + \frac{\partial \gamma}{\partial h} h_P \right) \: .
 \label{eq:gravity-disturbance-approx}
 \end{equation}
-By inspection, one easily concludes that the absolute difference
-between the approximated gravity disturbance $\delta g_{P}$
-(eq. \ref{eq:gravity-disturbance-approx}), at a point $P$ on or close to
-the Earth's surface, and the Free-air anomaly
-$\Delta g_{P}^{F}$ (eq. \ref{eq:free-air-anomaly}), is given by:
+
+\noindent
+where $h_P$ is the geometric height of point P.
+Thus, the absolute difference between
+the approximated gravity disturbance (eq. \ref{eq:gravity-disturbance-approx}),
+at a point $P$ on or close to the Earth's surface,
+and the Free-air anomaly (eq. \ref{eq:free-air-anomaly}) is:
+
 \begin{equation}
-\vert \delta g_{P} - \Delta g^{F}_{P} \vert \approx
-\vert \frac{\partial \gamma}{\partial h} N \vert \: ,
+\left\vert \delta g_{P} - \Delta g^{F} \right\vert \approx
+\left\vert \frac{\partial \gamma}{\partial h} N \right\vert \: ,
 \label{eq:difference-disturbance-free-air}
 \end{equation}
-where $N \approx h - H$ is the geoidal undulation (Fig. \ref{fig:surfaces}).
-This approximation assumes that the Geoid and the surface of
-the reference ellipsoid are approximately parallel at $P$
+
+\noindent
+where $N \approx h - H$ is the geoidal height (Fig. \ref{fig:surfaces}).
+This approximation assumes that the geoid and the surface of
+the reference ellipsoid are close to being parallel at $P$
 and the surrounding area.
-We know empirically that the geoidal undulation $N$ in the world
-is $\approx \pm 1$ m on the oceans and reaches a
-maximum absolute value of $\approx 120$ m \citep[e.g.,][]{torge2012,
-sanso_sideris2013}. In Brazil, for example, the geoidal undulation
-reaches $\approx \pm 30$ m \citep{ibge_mapgeo2015}. Consequently, the
-maximum absolute differences between gravity disturbance and
-Free-air anomaly, according to eq. \ref{eq:difference-disturbance-free-air},
-is $\approx 9.258$ mGal.
-The approximations defined by eqs \ref{eq:gravity-disturbance-approx}
+Eqs \ref{eq:gravity-disturbance-approx}
 and \ref{eq:difference-disturbance-free-air} are commonly used
 in geodesy to define the \textit{fundamental equation of physical
 geodesy} \citep{hofmann-wellenhof-moritz2005}.
+
+We know empirically that $N$ is $\approx \pm 1$ m on the oceans
+and reaches a maximum absolute value of $\approx 120$ m
+\citep[e.g.,][]{torge2012, sanso_sideris2013}.
+In Brazil, for example, the geoidal height
+varies between $\approx \pm 30$ m \citep{ibge_mapgeo2015}.
+Consequently,
+the maximum absolute difference between the gravity disturbance and
+the free-air anomaly in Brazil,
+according to eq. \ref{eq:difference-disturbance-free-air},
+is $\approx 9.258$ mGal.
 
 The simple Bouguer anomaly is commonly used by geophysicists as the
 gravitational effect produced by the gravity sources.
