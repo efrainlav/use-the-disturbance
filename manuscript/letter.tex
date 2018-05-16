@@ -40,6 +40,10 @@
 
 \newtheorem{theorem}{Theorem}[section]
 
+\newcommand{\versor}[1]{\hat{\mathbf{#1}}}
+\renewcommand{\vector}[1]{\vec{\mathbf{#1}}}
+
+
 \begin{document}
 
 \label{firstpage}
@@ -194,19 +198,19 @@ There are also three mutually-orthogonal unit vectors defined at a given point
 \citep{soler1976}:
 
 \begin{equation}
-    \hat{\mitbf{u}} =
+    \versor{u} =
     \begin{bmatrix}
         \cos\varphi \, \cos\lambda \\
         \cos\varphi \, \sin\lambda \\
         \sin\varphi
     \end{bmatrix}
-    \hat{\mitbf{v}} =
+    \versor{v} =
         \begin{bmatrix}
         -\sin\varphi \, \cos\lambda \\
         -\sin\varphi \, \sin\lambda \\
         \cos\varphi
     \end{bmatrix}
-    \hat{\mitbf{w}} =
+    \versor{w} =
     \begin{bmatrix}
         -\sin\lambda \\
         \cos\lambda \\
@@ -223,41 +227,41 @@ The third is the Topocentric Cartesian System (TCS),
 which is commonly used in local or regional scale geophysical studies.
 The origin of the TCS is located at a point $P$,
 axes $x$ and $y$ are parallel to
-the unit vectors $\hat{\mitbf{v}}$ and $\hat{\mitbf{w}}$
+the unit vectors $\versor{v}$ and $\versor{w}$
 (eq. \ref{eq:unit-vectors}), respectively,
-and the $z$-axis is opposite to the unit vector $\hat{\mitbf{u}}$
+and the $z$-axis is opposite to the unit vector $\versor{u}$
 (Fig. \ref{fig:TCS}).
 
 
 \section{Relationship between gravity disturbance and gravity anomaly}
 
-Let $\mitbf{\gamma}_{P}$ and $\mitbf{g}_{P}$ and be, respectively,
+Let $\vector{\gamma}_{P}$ and $\vector{g}_{P}$ and be, respectively,
 the \textit{normal gravity vector} and the Earth's \textit{gravity vector}
 (corrected from non-gravitational effects due to vehicle
 motion and time variations such as Earth tides and instrumental drift),
 both located at a point $P$.
-In this case, the gravity vector $\mitbf{g}_{P}$ is the
+In this case, the gravity vector $\vector{g}_{P}$ is the
 gradient of the scalar \textit{gravity potential},
 which is the sum of a gravitational potential and a centrifugal potential.
-Similarly, the normal gravity vector $\mitbf{\gamma}_{P}$ is the
+Similarly, the normal gravity vector $\vector{\gamma}_{P}$ is the
 gradient of the scalar \textit{normal potential},
 which is also the sum of a gravitational and a centrifugal potential.
 By definition, the centrifugal part of
 the normal potential and the gravity potential are equal.
 
-The difference between $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$,
+The difference between $\vector{g}_{P}$ and $\vector{\gamma}_{P}$,
 which we emphasize are located at the same point $P$,
 is the \textit{gravity disturbance vector} (Fig. \ref{fig:surfaces}):
 
 \begin{equation}
-\delta \mitbf{g}_{P} =
-\mitbf{g}_{P} - \mitbf{\gamma}_{P} \: .
+\delta \vector{g}_{P} =
+\vector{g}_{P} - \vector{\gamma}_{P} \: .
 \label{eq:gravity-disturbance-vector}
 \end{equation}
 
 Because the centrifugal parts of both the normal gravity vector
 and the Earth's gravity vector are equal,
-the gravity disturbance vector $\delta \mitbf{g}_{P}$
+the gravity disturbance vector $\delta \vector{g}_{P}$
 represents a purely gravitational effect.
 As a consequence of the superposition principal \citep{blakely1996},
 this effect is caused by contrasts between
@@ -270,8 +274,8 @@ or \textit{gravity sources} \citep[e.g.,][]{blakely1996}.
 Here, we opted for using the last term.
 
 The difference between the magnitudes of gravity vector
-$g_{P} = \| \mitbf{g}_{P} \|$ and the normal gravity vector
-$\gamma_{P} = \| \mitbf{\gamma}_{P} \|$, at the
+$g_{P} = \| \vector{g}_{P} \|$ and the normal gravity vector
+$\gamma_{P} = \| \vector{\gamma}_{P} \|$, at the
 same point $P$, is called \textit{gravity disturbance}
 \citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}
 and can be represented as follows:
@@ -283,7 +287,7 @@ and can be represented as follows:
 
 Notice that the gravity disturbance $\delta g_{P}$ is not equivalent
 to the magnitude of the gravity disturbance vector
-$\delta \mitbf{g}_{P}$ \citep{barthelmes2013, sanso_sideris2013}.
+$\delta \vector{g}_{P}$ \citep{barthelmes2013, sanso_sideris2013}.
 
 On the other hand, the \textit{gravity anomaly vector} at $P$
 is the difference between the gravity
@@ -292,7 +296,7 @@ equipotential surface of the gravity potential) and the normal
 gravity vector at a point $Q$ on the ellipsoid surface, both at the
 same geodetic latitude and longitude (Fig. \ref{fig:surfaces}) as in
 \begin{equation}
-\Delta \mitbf{g}_{P} = \mitbf{g}_{Q^{\prime}} - \mitbf{\gamma}_{Q} .
+\Delta \vector{g}_{P} = \vector{g}_{Q^{\prime}} - \vector{\gamma}_{Q} .
 \label{eq:gravity-anomaly-vector}
 \end{equation}
 Similarly to the gravity disturbance expression (eq.
@@ -301,10 +305,10 @@ Similarly to the gravity disturbance expression (eq.
 \Delta g_{P} = g_{Q^{\prime}} - \gamma_{Q} ,
 \label{eq:gravity-anomaly}
 \end{equation}
-where $g_{Q^{\prime} } = \| \mitbf{g}_{Q^{\prime}} \|$ is
-the magnitude of the gravity vector $\mitbf{g}_{Q}$ on the Geoid,
-at $Q^{\prime}$, and $\gamma_{Q} = \| \mitbf{\gamma}_{Q} \|$ is the
-magnitude of the normal gravity vector $\mitbf{\gamma}_{Q}$
+where $g_{Q^{\prime} } = \| \vector{g}_{Q^{\prime}} \|$ is
+the magnitude of the gravity vector $\vector{g}_{Q}$ on the Geoid,
+at $Q^{\prime}$, and $\gamma_{Q} = \| \vector{\gamma}_{Q} \|$ is the
+magnitude of the normal gravity vector $\vector{\gamma}_{Q}$
 on the reference ellipsoid, at the point $Q$ (Fig. \ref{fig:surfaces}).
 As properly pointed out by \citet{barthelmes2013} the gravity anomaly,
 by definition, depends on
@@ -433,13 +437,13 @@ other than that were the gravity is measured.
 
 \section{Mathematical description of the gravity disturbance at the TCS}
 
-From eq. \ref{eq:gravity-disturbance-vector}, the gravity vector $\mitbf{g}_{i}$, at a point
+From eq. \ref{eq:gravity-disturbance-vector}, the gravity vector $\vector{g}_{i}$, at a point
 $(x_{i}, y_{i}, z_{i})$ in the TCS (Fig. \ref{fig:TCS}a), can be represented by:
 \begin{equation}
-\mitbf{g}_{i} = \mitbf{\gamma}_{i} + \delta \mitbf{g}_{i} \: ,
+\vector{g}_{i} = \vector{\gamma}_{i} + \delta \vector{g}_{i} \: ,
 \label{eq:gravity-vector-TCS}
 \end{equation}
-where $\mitbf{\gamma}_{i}$ and $\delta \mitbf{g}_{i}$
+where $\vector{\gamma}_{i}$ and $\delta \vector{g}_{i}$
 are, respectively, the normal gravity vector and the
 gravity disturbance vector produced by the anomalous
 masses at the point $(x_{i}, y_{i}, z_{i})$.
@@ -448,15 +452,15 @@ The gravity $g_{i}$ can be approximated by a first order Taylor's
 expansion as follows \citep{sanso_sideris2013}:
 \begin{equation}
 g_{i} \approx \gamma_{i} +
-\hat{\mitbf{\gamma}}_{i}^{\top} \delta \mitbf{g}_{i} \: ,
+\versor{\gamma}_{i}^{\top} \delta \vector{g}_{i} \: ,
 \label{eq:gobs-approx}
 \end{equation}
 where $^{\top}$ denotes transposition,
-$\hat{\mitbf{\gamma}}_{i} = -\hat{\mitbf{u}}_{i}$ is a unit
+$\versor{\gamma}_{i} = -\versor{u}_{i}$ is a unit
 vector with the same direction as the normal gravity vector
-$\mitbf{\gamma}_{i}$ at the point $(x_{i}, y_{i}, z_{i})$, in the
+$\vector{\gamma}_{i}$ at the point $(x_{i}, y_{i}, z_{i})$, in the
 topocentric Cartesian coordinate system (Fig. \ref{fig:TCS}a), and
-$\hat{\mitbf{u}}_{i}$ is the unit vector $\hat{\mitbf{u}}$
+$\versor{u}_{i}$ is the unit vector $\versor{u}$
 (eq. \ref{eq:unit-vectors}) evaluated at the corresponding
 point $(h_{i}, \varphi_{i}, \lambda_{i})$ in the
 GGS (Fig. \ref{fig:GCS-GGS}).
@@ -467,7 +471,7 @@ This approximation is known in geodesy \citep[e.g.,][]{sanso_sideris2013}
 and a similar approximation is largely used in applied geophysics
 for representing total-field anomalies \citep[e.g.,][]{blakely1996}.
 Notice that, in local- or regional-gravity studies, the unit
-vector $\hat{\mitbf{\gamma}}_{i}$ (eq. \ref{eq:gobs-approx})
+vector $\versor{\gamma}_{i}$ (eq. \ref{eq:gobs-approx})
 may be considered constant throughout the study area and
 parallel to the $z$ axis of the TCS (Fig. \ref{fig:TCS}a).
 By using the approximation defined in eq.
@@ -475,16 +479,16 @@ By using the approximation defined in eq.
 (eq. \ref{eq:gravity-disturbance}) can be rewritten as
 follows
 \begin{equation}
-\delta g_{i} \approx \hat{\mitbf{\gamma}}_{P}^{\top} \delta \mitbf{g}_{i} \: ,
+\delta g_{i} \approx \versor{\gamma}_{P}^{\top} \delta \vector{g}_{i} \: ,
 \label{eq:gravity-disturbance-approx-TCS}
 \end{equation}
-where $\hat{\mitbf{\gamma}}_{P}$ represents the unit vector with
-the same direction as the normal gravity vector $\mitbf{\gamma}_{P}$
+where $\versor{\gamma}_{P}$ represents the unit vector with
+the same direction as the normal gravity vector $\vector{\gamma}_{P}$
 at the origin $P$ of the TCS (Fig. \ref{fig:TCS}a).
 This equation shows that the gravity disturbance $\delta g_{i}$ (eq. \ref{eq:gravity-disturbance}) is different from the magnitude
-of the gravity disturbance vector $\delta \mitbf{g}_{i}$
+of the gravity disturbance vector $\delta \vector{g}_{i}$
 produced by the gravity sources. Rather, it represents the
-component of $\delta \mitbf{g}_{i}$ on the direction of the normal
+component of $\delta \vector{g}_{i}$ on the direction of the normal
 gravity vector \citep{hofmann-wellenhof-moritz2005, sanso_sideris2013}.
 
 In the TCS (Fig. \ref{fig:TCS}a),
@@ -617,8 +621,8 @@ reviewers for their criticisms and corrections.
     by $O$, $P$ represents a point $(h_{P}, \varphi_{P}, \lambda_{P})$ and $P^{\prime}$ its projection onto the plane $XY$
     (Equatorial plane). The plane containing $O$, $P$ and
     $P^{\prime}$ is represented in gray in (a) and (b).
-    The unit vectors $\hat{\mitbf{u}}_{P}$, $\hat{\mitbf{v}}_{P}$ and
-    $\hat{\mitbf{w}}_{P}$ define three mutually orthogonal
+    The unit vectors $\versor{u}_{P}$, $\versor{v}_{P}$ and
+    $\versor{w}_{P}$ define three mutually orthogonal
     directions at $P$ (eq. \ref{eq:unit-vectors}).
     In (b), $Q$ represents a point $(h_{Q}, \varphi_{Q}, \lambda_{Q})$,
     which is the projection of $P$ onto the reference ellipsoid, at
@@ -630,15 +634,15 @@ reviewers for their criticisms and corrections.
     \includegraphics{figures/local-system.png}
     \caption{(a) Schematic representation of a topocentric Cartesian
     coordinate system (TCS) with origin at a point $P$. The axes $x$
-    and $y$ are parallel to the unit vectors $\hat{\mitbf{v}}_{P}$
-    and $\hat{\mitbf{w}}_{P}$ (eq. \ref{eq:unit-vectors} and
-    Fig. \ref{fig:GCS-GGS}), respectively. On the other hand, the $z$ axis is opposite to the unit vector $\hat{\mitbf{u}}_{P}$ (eq.
+    and $y$ are parallel to the unit vectors $\versor{v}_{P}$
+    and $\versor{w}_{P}$ (eq. \ref{eq:unit-vectors} and
+    Fig. \ref{fig:GCS-GGS}), respectively. On the other hand, the $z$ axis is opposite to the unit vector $\versor{u}_{P}$ (eq.
     \ref{eq:unit-vectors} and Fig. \ref{fig:GCS-GGS}) and points downward. The gray plane is the same shown in Fig. \ref{fig:GCS-GGS}.
     (b) Schematic representation of the gravity vector
-    $\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$,
-    gravity disturbance vector $\delta \mitbf{g}_{P}$
+    $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
+    gravity disturbance vector $\delta \vector{g}_{P}$
     (eq. \ref{eq:gravity-disturbance-vector}) and unit vector
-    $\hat{\mitbf{u}}_{P}$ (eq. \ref{eq:unit-vectors}) at a point
+    $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point
     $P$.}
   \label{fig:TCS}
 \end{figure}
@@ -646,13 +650,13 @@ reviewers for their criticisms and corrections.
 \begin{figure}
     \includegraphics{figures/surfaces.png}
     \caption{Schematic representation of the gravity vector
-        $\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$,
-        gravity disturbance vector $\delta \mitbf{g}_{P}$
+        $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
+        gravity disturbance vector $\delta \vector{g}_{P}$
         (eq. \ref{eq:gravity-disturbance-vector}), unit vector
-        $\hat{\mitbf{u}}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$
-        on the surface of the Earth, gravity vector $\mitbf{g}_{Q^{\prime}}$
+        $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$
+        on the surface of the Earth, gravity vector $\vector{g}_{Q^{\prime}}$
         at a point $Q^{\prime}$ on the Geoid, normal gravity vector
-        $\mitbf{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
+        $\vector{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
         geometric height $h$, orthometric height $H$ and geoidal undulation
         $N$ \citep{heiskanen-moritz1967}.
         The dashed line passing through
