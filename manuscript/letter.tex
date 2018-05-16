@@ -231,47 +231,43 @@ and the $z$-axis is opposite to the unit vector $\hat{\mitbf{u}}$
 
 \section{Relationship between gravity disturbance and gravity anomaly}
 
-Let $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$ be, respectively, the
-gravity vector (corrected from non-gravitational effects due to vehicle
-motion and time variations such as Earth tides, instrumental drift and
-barometric pressure changes, for instance) and the normal gravity vector
-at a point $P$.
-In this case, the gravity vector $\mitbf{g}_{P}$ represents the
-gradient of a scalar potential called \textit{gravity potential},
-which is the sum of a scalar gravitational potential and a
-scalar centrifugal potential.
-Similarly, the normal gravity vector $\mitbf{\gamma}_{P}$ represents the
-gradient of a scalar potential called \textit{normal potential},
-which is also the sum of a scalar gravitational potential and a
-scalar centrifugal potential.
-By definition, the centrifugal part of the normal potential is equal
-to that of the gravity potential.
+Let $\mitbf{\gamma}_{P}$ and $\mitbf{g}_{P}$ and be, respectively,
+the \textit{normal gravity vector} and the Earth's \textit{gravity vector}
+(corrected from non-gravitational effects due to vehicle
+motion and time variations such as Earth tides and instrumental drift),
+both located at a point $P$.
+In this case, the gravity vector $\mitbf{g}_{P}$ is the
+gradient of the scalar \textit{gravity potential},
+which is the sum of a gravitational potential and a centrifugal potential.
+Similarly, the normal gravity vector $\mitbf{\gamma}_{P}$ is the
+gradient of the scalar \textit{normal potential},
+which is also the sum of a gravitational and a centrifugal potential.
+By definition, the centrifugal part of
+the normal potential and the gravity potential are equal.
 
-The difference between $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$, at the same
-point $P$, defines a quantity called \textit{gravity disturbance
-vector}, which is given by:
+The difference between $\mitbf{g}_{P}$ and $\mitbf{\gamma}_{P}$,
+which we emphasize are located at the same point $P$,
+is the \textit{gravity disturbance vector} (Fig. \ref{fig:surfaces}):
+
 \begin{equation}
 \delta \mitbf{g}_{P} =
 \mitbf{g}_{P} - \mitbf{\gamma}_{P} \: .
 \label{eq:gravity-disturbance-vector}
 \end{equation}
-Because the centrifugal part of the normal gravity vector
-is equal to the centrifugal component of the gravity vector,
-the gravity disturbance vector $\delta \mitbf{g}_{P}$ represents
-a purely gravitational effect caused by contrasts between the actual internal
-density distribution of the Earth and the internal density
-distribution of the normal Earth.
-In applied geophysics, these density differences are generally
-called \textit{anomalous masses} (e.g., \citeauthor{hammer1945},
-\citeyear{hammer1945}; \citeauthor{lafehr1965}, \citeyear{lafehr1965}),
-\textit{density anomalies} (e.g., \citeauthor{forsberg1984},
-\citeyear{forsberg1984}) or \textit{gravity sources} (e.g.,
-\citeauthor{blakely1996}, \citeyear{blakely1996}). Here, we opted for
-using the last term.
-Fig. \ref{fig:surfaces} illustrates the gravity vector
-$\mitbf{g}_{P}$, normal gravity vector $\mitbf{\gamma}_{P}$ and
-the gravity disturbance vector $\delta \mitbf{g}_{P}$ at a point $P$
-located on the Earth's surface.
+
+Because the centrifugal parts of both the normal gravity vector
+and the Earth's gravity vector are equal,
+the gravity disturbance vector $\delta \mitbf{g}_{P}$
+represents a purely gravitational effect.
+As a consequence of the superposition principal \citep{blakely1996},
+this effect is caused by contrasts between
+the internal density distributions
+of the actual Earth and the normal Earth.
+In applied geophysics, these density differences are generally called
+\textit{anomalous masses} \citep[e.g.,][]{hammer1945,lafehr1965},
+\textit{density anomalies} \citep[e.g.,][]{forsberg1984},
+or \textit{gravity sources} \citep[e.g.,][]{blakely1996}.
+Here, we opted for using the last term.
 
 The difference between the magnitudes of gravity vector
 $g_{P} = \| \mitbf{g}_{P} \|$ and the normal gravity vector
