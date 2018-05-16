@@ -40,8 +40,8 @@
 
 \newtheorem{theorem}{Theorem}[section]
 
-\newcommand{\versor}[1]{\hat{\mathbf{#1}}}
-\renewcommand{\vector}[1]{\vec{\mathbf{#1}}}
+\newcommand{\versor}[1]{\hat{\mitbf{#1}}}
+\renewcommand{\vector}[1]{\vec{\mitbf{#1}}}
 
 
 \begin{document}
@@ -233,7 +233,7 @@ and the $z$-axis is opposite to the unit vector $\versor{u}$
 (Fig. \ref{fig:TCS}).
 
 
-\section{Relationship between gravity disturbance and gravity anomaly}
+\section{gravity disturbance and gravity anomaly}
 
 Let $\vector{\gamma}_{P}$ and $\vector{g}_{P}$ and be, respectively,
 the \textit{normal gravity vector} and the Earth's \textit{gravity vector}
@@ -273,58 +273,62 @@ In applied geophysics, these density differences are generally called
 or \textit{gravity sources} \citep[e.g.,][]{blakely1996}.
 Here, we opted for using the last term.
 
-The difference between the magnitudes of gravity vector
+The difference between the magnitudes of the gravity vector
 $g_{P} = \| \vector{g}_{P} \|$ and the normal gravity vector
-$\gamma_{P} = \| \vector{\gamma}_{P} \|$, at the
-same point $P$, is called \textit{gravity disturbance}
-\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}
-and can be represented as follows:
+$\gamma_{P} = \| \vector{\gamma}_{P} \|$,
+at the same point $P$, is the \textit{gravity disturbance}
+\citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}:
 
 \begin{equation}
 \delta g_{P} = g_{P} - \gamma_{P} \: .
 \label{eq:gravity-disturbance}
 \end{equation}
 
-Notice that the gravity disturbance $\delta g_{P}$ is not equivalent
+\noindent
+Notice that $\delta g_{P}$ is not equivalent
 to the magnitude of the gravity disturbance vector
 $\delta \vector{g}_{P}$ \citep{barthelmes2013, sanso_sideris2013}.
 
-On the other hand, the \textit{gravity anomaly vector} at $P$
+The \textit{gravity anomaly vector}
 is the difference between the gravity
-vector at a point $Q^{\prime}$ on the Geoid (a particular
-equipotential surface of the gravity potential) and the normal
-gravity vector at a point $Q$ on the ellipsoid surface, both at the
-same geodetic latitude and longitude (Fig. \ref{fig:surfaces}) as in
+vector at a point $Q^{\prime}$ on the geoid
+(a particular equipotential surface of the gravity potential)
+and the normal gravity vector at a point $Q$ on the surface of the ellipsoid,
+both located at the same geodetic latitude and longitude
+(Fig. \ref{fig:surfaces}):
+
 \begin{equation}
-\Delta \vector{g}_{P} = \vector{g}_{Q^{\prime}} - \vector{\gamma}_{Q} .
+\Delta \vector{g} = \vector{g}_{Q^{\prime}} - \vector{\gamma}_{Q} .
 \label{eq:gravity-anomaly-vector}
 \end{equation}
-Similarly to the gravity disturbance expression (eq.
-\ref{eq:gravity-disturbance}), the gravity anomaly is given by
+
+Similarly to the gravity disturbance (eq. \ref{eq:gravity-disturbance}),
+the \textit{gravity anomaly} is given by
+
 \begin{equation}
-\Delta g_{P} = g_{Q^{\prime}} - \gamma_{Q} ,
+\Delta g = g_{Q^{\prime}} - \gamma_{Q} ,
 \label{eq:gravity-anomaly}
 \end{equation}
-where $g_{Q^{\prime} } = \| \vector{g}_{Q^{\prime}} \|$ is
-the magnitude of the gravity vector $\vector{g}_{Q}$ on the Geoid,
-at $Q^{\prime}$, and $\gamma_{Q} = \| \vector{\gamma}_{Q} \|$ is the
-magnitude of the normal gravity vector $\vector{\gamma}_{Q}$
-on the reference ellipsoid, at the point $Q$ (Fig. \ref{fig:surfaces}).
-As properly pointed out by \citet{barthelmes2013} the gravity anomaly,
-by definition, depends on
-longitude and latitude only and is not a function of height.
-Because the gravity is on the Geoid and the normal gravity
-is on reference ellipsoid, the gravity anomaly $\Delta g_{P}$
-(eq. \ref{eq:gravity-anomaly}) is not a purely gravitational effect
-due to the gravity sources, but rather a combination of gravitational
-and centrifugal effects. Consequently, its upward continuation,
-for example, could not be rigorously done.
 
-However, many authors in the literature have computed the upward
-continuation of gravity anomalies. All these authors have
-implicitly considered that the gravity anomaly is an approximation of
-the gravity disturbance, which in turn can be represented by a
-harmonic function and can then being upward continued.
+\noindent
+where $g_{Q^{\prime}}$ is the magnitude of the gravity vector on the geoid,
+and $\gamma_{Q}$ is the magnitude of the normal gravity vector
+on the reference ellipsoid (Fig. \ref{fig:surfaces}).
+
+The gravity anomaly is not defined at a particular point.
+Instead, as properly pointed out by \citet{barthelmes2013},
+it depends only on longitude and latitude and is not a function of height.
+Because gravity and normal gravity are located at different points,
+the gravity anomaly is a combination of gravitational and centrifugal effects,
+rather than purely gravitational effects like the gravity disturbance.
+Consequently, its upward continuation, for example, cannot be rigorously done
+because it is not a harmonic function.
+However, upward continuation of gravity anomalies is commonly seen in the
+literature.
+In doing so, an implicit assumption is being made that the gravity anomaly is
+an approximation of the gravity disturbance,
+which in turn can be represented by a harmonic function and can be upward
+continued.
 
 Different gravity anomalies can be calculated,
 depending on the corrections applied to them.
