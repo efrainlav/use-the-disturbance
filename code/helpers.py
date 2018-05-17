@@ -1,6 +1,8 @@
 """
 Helper functions for loading and plotting data.
 """
+import tarfile
+
 import numpy as np
 import xarray as xr
 import matplotlib.pyplot as plt
@@ -39,7 +41,7 @@ def plot_field(ax, data, field, cmap=None, gridline_spacing=30, cb_pad=0.03,
     ax.gridlines(color="#cccccc55", xlocs=xlocs, ylocs=ylocs)
 
 
-def load_icgem_gdf(fname, dtype='float32'):
+def load_icgem_gdf(fname, dtype='float64'):
     """
     Load data from an ICGEM .gdf file into an xarray.Dataset.
 
@@ -47,11 +49,13 @@ def load_icgem_gdf(fname, dtype='float32'):
     height over the ellipsoid (if it's constant), etc.
 
     Stores the file header in the ``attrs`` attribute of the Dataset.
+    
+    Assumes that files are in tar files with gz compression.
 
     Parameters
     ----------
     fname : str
-        The name of the .gdf file.
+        The name of the .gdf.tar.gz file.
     dtype : str or numpy dtype object
         The data type used when loading the data from the file.
 
@@ -60,7 +64,8 @@ def load_icgem_gdf(fname, dtype='float32'):
     data : xarray.Dataset
 
     """
-    with open(fname) as gdf_file:
+    with tarfile.open(fname, 'r:gz') as archive:
+        gdf_file = archive.extractfile(archive.getmembers()[0])
         # Read the header and extract metadata
         header = []
         shape = [None, None]
