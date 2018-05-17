@@ -1,0 +1,12 @@
+name: use-the-disturbance
+channels:
+    - conda-forge
+    - defaults
+dependencies:
+    - python=2.7
+    - pip
+    - numpy
+    - xarray
+    - jupyter
+    - cartopy
+    - fatiando=0.5
