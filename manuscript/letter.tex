@@ -647,61 +647,60 @@ reviewers for their criticisms and corrections.
 \begin{figure}
 %    \vspace{5.5cm}
     \includegraphics{figures/cartesian-geodetic-systems.png}
-    \caption{Schematic representation of the Geocentric Cartesian System (GCS) and the Geocentric Geodetic System (GGS). The GCS has the $Z$-axis coincident with the mean Earth's rotational axis,
-    the $X$-axis pointing to the Greenwich meridian and the $Y$-axis
-    directed so as to obtain a right-handed system. The GGS is      defined by an oblate ellipsoid with semi-minor axis $b$,
-    coincident with the $Z$-axis of GCS, and a semi-major
-    axis $a$. In this coordinate system, the position of a point is
-    determined by the geometric height $h$, geodetic latitude
-    $\varphi$ and longitude $\lambda$.
-    The Earth's center of mass is represented
-    by $O$, $P$ represents a point $(h_{P}, \varphi_{P}, \lambda_{P})$ and $P^{\prime}$ its projection onto the plane $XY$
-    (Equatorial plane). The plane containing $O$, $P$ and
-    $P^{\prime}$ is represented in gray in (a) and (b).
-    The unit vectors $\versor{u}_{P}$, $\versor{v}_{P}$ and
-    $\versor{w}_{P}$ define three mutually orthogonal
-    directions at $P$ (eq. \ref{eq:unit-vectors}).
-    In (b), $Q$ represents a point $(h_{Q}, \varphi_{Q}, \lambda_{Q})$,
-    which is the projection of $P$ onto the reference ellipsoid, at
-    the same latitude and longitude ($\varphi_{Q} = \varphi_{P}$ and $\lambda_{Q} = \lambda_{P}$).}
+    \caption{
+    The Geocentric Cartesian System (GCS) and the Geocentric Geodetic System
+    (GGS).
+    The GGS is defined by an oblate ellipsoid with semi-minor axis $b$ and
+    semi-major axis $a$.
+    In this coordinate system, the position of a point is determined by the
+    geometric height $h$, geodetic latitude $\varphi$, and longitude $\lambda$.
+    $O$ is the Earth's center of mass, $P$ is an observation point, and
+    unit vectors $\versor{u}$, $\versor{v}$, and $\versor{w}$ define mutually
+    orthogonal directions at $P$ (eq. \ref{eq:unit-vectors}).
+    In (b), $Q$ is the projection of $P$ onto the reference ellipsoid at
+    the same latitude and longitude.
+    }
   \label{fig:GCS-GGS}
 \end{figure}
 
 \begin{figure}
     \includegraphics{figures/local-system.png}
-    \caption{(a) Schematic representation of a topocentric Cartesian
-    coordinate system (TCS) with origin at a point $P$. The axes $x$
-    and $y$ are parallel to the unit vectors $\versor{v}_{P}$
-    and $\versor{w}_{P}$ (eq. \ref{eq:unit-vectors} and
-    Fig. \ref{fig:GCS-GGS}), respectively. On the other hand, the $z$ axis is opposite to the unit vector $\versor{u}_{P}$ (eq.
-    \ref{eq:unit-vectors} and Fig. \ref{fig:GCS-GGS}) and points downward. The gray plane is the same shown in Fig. \ref{fig:GCS-GGS}.
+    \caption{
+    (a) The topocentric Cartesian coordinate system (TCS) with origin at a
+    point $P$.
+    Axes $x$ and $y$ are parallel to the unit vectors $\versor{v}$ and
+    $\versor{w}$ (eq. \ref{eq:unit-vectors} and Fig. \ref{fig:GCS-GGS}),
+    respectively, and the $z$ axis is opposite to $\versor{u}$.
+    The gray plane is the same shown in Fig. \ref{fig:GCS-GGS}.
     (b) Schematic representation of the gravity vector
     $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
     gravity disturbance vector $\delta \vector{g}_{P}$
     (eq. \ref{eq:gravity-disturbance-vector}) and unit vector
     $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point
-    $P$.}
+    $P$.
+    }
   \label{fig:TCS}
 \end{figure}
 
 \begin{figure}
     \includegraphics{figures/surfaces.png}
-    \caption{Schematic representation of the gravity vector
-        $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
-        gravity disturbance vector $\delta \vector{g}_{P}$
-        (eq. \ref{eq:gravity-disturbance-vector}), unit vector
-        $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$
-        on the surface of the Earth, gravity vector $\vector{g}_{Q^{\prime}}$
-        at a point $Q^{\prime}$ on the Geoid, normal gravity vector
-        $\vector{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
-        geometric height $h$, orthometric height $H$ and geoidal undulation
-        $N$ \citep{heiskanen-moritz1967}.
-        The dashed line passing through
-        $Q$, $Q^{\prime}$ and $P$ is normal to the
-        surface of the reference ellipsoid at $Q$. This figure
-        shows a commonly used approximation in which the ellipsoid
-        surface and the Geoid are represented as parallel surfaces,
-        so that $h \approx H + N$.}
+    \caption{
+    The gravity vector
+    $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
+    gravity disturbance vector $\delta \vector{g}_{P}$
+    (eq. \ref{eq:gravity-disturbance-vector}), and unit vector
+    $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$
+    on the surface of the Earth.
+    The gravity vector $\vector{g}_{Q^{\prime}}$
+    at a point $Q^{\prime}$ on the geoid, normal gravity vector
+    $\vector{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
+    geometric height $h$, orthometric height $H$, and geoidal height $N$.
+    The dashed line passing through
+    $Q$, $Q^{\prime}$ and $P$ is normal to the
+    surface of the reference ellipsoid at $Q$.
+    This figure shows a commonly used approximation in which the ellipsoid and
+    geoid are represented as parallel surfaces so that $h \approx H + N$.
+    }
   \label{fig:surfaces}
 \end{figure}
 
