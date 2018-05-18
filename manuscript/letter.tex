@@ -11,7 +11,7 @@
 \usepackage{amsmath}
 
 \title[Gravity anomaly or gravity disturbance?]
-      {Geophysicists should use the gravity disturbance rather than the gravity anomaly}
+      {Should geophysicists use the gravity disturbance or the anomaly?}
 
 \author[Hallam et al.]{
 \parbox{\linewidth}{%
@@ -64,14 +64,12 @@
  (e.g., upward/downward continuation and vertical derivatives).
  Unlike the anomaly, the disturbance is due solely to the
  gravitational effects of geologic sources, making it the most appropriate
- choice for modelling.
+ for geophysical purposes.
  Use of the gravity anomaly in geophysics carries with it the implicit
  assumption that it is a good approximation for the gravity disturbance.
  However, bear in mind that the difference between the gravity disturbance and
  the free-air anomaly can be larger than 10 mGal worldwide.
- Fortunately, the solution to these problems is to simply replace
- heights referenced to the geoid (orthometric) with heights referenced to the
- ellipsoid (geometric) for geophysical use cases.
+ SOMETHING ABOUT MODELLING.
 \end{summary}
 
 \begin{keywords}
@@ -328,35 +326,28 @@ an approximation of the gravity disturbance,
 which in turn can be represented by a harmonic function and can be upward
 continued.
 
-
-\section{The geophysical meaning of gravity reductions}
-
 Different approximations for the gravity anomaly can be calculated
 depending on the corrections applied to them.
-These corrections are usually called \textit{gravity reductions}
-and their aim is to approximate the magnitude of gravity at the geoid
-$g_{Q^\prime}$ from the magnitude of gravity $g_P$ measured at a point $P$
-on or above the surface of the Earth.
-
+These corrections are usually called \textit{gravity reductions}.
 The \textit{free-air anomaly}, for example, can be defined as
 \citep{blakely1996, hofmann-wellenhof-moritz2005}:
 
 \begin{equation}
-\Delta g^{F}
-= \left(g_{P} - \frac{\partial \gamma}{\partial h} \, H_{P} \right)
-- \gamma_{Q} \: ,
+\Delta g^{F} = g_{P}
+- \gamma_{Q} - \frac{\partial \gamma}{\partial h} \, H_{P} \: ,
 \label{eq:free-air-anomaly}
 \end{equation}
 
 \noindent
-where $\partial \gamma/\partial h \approx -0.3086$ mGal/m is the
-derivative of the normal gravity with respect to the geometric height $h$
+where the rightmost term is called the \textit{free-air correction},
+$\partial \gamma/\partial h \approx -0.3086$ mGal/m is the
+derivative of the normal gravity with respect to the geometric height $h$,
 and $H_{P}$ is the orthometric height (i.e., with respect to the geoid)
 of point $P$ (Fig. \ref{fig:surfaces}).
-The term between parenthesis represents an
-approximation of the gravity at the point $Q^{\prime}$ on the geoid,
-disregarding the effect of topographic masses.
-Similarly, we can apply the same correction
+The free-air correction can be interpreted as a downward continuation of
+$g_P$ to the geoid or as an upward continuation of $\gamma_Q$ to a height
+$H_P$.
+Regardless, we can also apply the free-air correction
 to calculate the gravity disturbance by
 approximating the normal gravity $\gamma_{P}$
 at a point $P$ on the Earth's surface
@@ -370,11 +361,9 @@ from the normal gravity at the ellipsoid $\gamma_{Q}$:
 
 \noindent
 where $h_P$ is the geometric height of point P.
-Such an approximation is usually not required because
-an analytical expression exists for calculating $\gamma$ at any point
-on or above the ellipsoid \citep{li2001}.
-The same cannot be said for the free-air anomaly because
-there is usually no way of measuring gravity at the geoid ($g_{Q^\prime}$).
+However, using the free-air correction to calculate the disturbance is
+discouraged because an analytical expression exists for calculating $\gamma$ at
+any point on or above the ellipsoid \citep{li2001}.
 
 Using eqs. \ref{eq:free-air-anomaly} and \ref{eq:gravity-disturbance-approx},
 we can estimate the absolute difference between the gravity disturbance and the
@@ -407,30 +396,34 @@ the free-air anomaly in Brazil,
 according to eq. \ref{eq:difference-disturbance-free-air},
 is $\approx 9.258$ mGal.
 
-The \textit{Bouguer anomaly}
-has the aim of removing the gravitational effect of the topographic masses
+
+\section{The effect of topographic masses}
+
+The \textit{Bouguer correction} can be applied to the free-air anomaly
+to remove the gravitational effect of the topographic masses
 between the observation point $P$ and the point on the geoid $Q^\prime$.
-It is defined in the continents as
+The \textit{Bouguer anomaly} is defined in the continents as
 \citep{blakely1996, hofmann-wellenhof-moritz2005}:
 
 \begin{equation}
-\Delta g^{B} =
-\left(g_{P}
+\Delta g^{B} = g_{P}
+    - \gamma_{Q}
     - \frac{\partial \gamma}{\partial h} \, H_{P}
-    - 2 \pi G \rho_{t} \, H_{P} \right)
-- \gamma_{Q} \: ,
+    - 2 \pi G \rho_{t} \, H_{P}
+     \: ,
 \label{eq:simple-bouguer-anomaly}
 \end{equation}
 
 \noindent
-where $\rho_t$ is the density, $G$ is the gravitational constant,
-and the rightmost term in parenthesis is the simple Bouguer correction.
-This term approximates the gravitational effect that all topographic
-masses above the geoid exert on point $P$ by the effect of a homogeneous,
-infinitely extended slab of constant density $\rho_{t}$ and thickness $H_{P}$.
-The same correction can be applied to the gravity disturbance
+where $\rho_t$ is the density of the topographic masses and $G$ is the
+gravitational constant.
+Th Bouguer correction approximates the gravitational effect that all
+topographic masses above the geoid exert on point $P$ by the effect of a
+homogeneous, infinitely extended slab of constant density $\rho_{t}$ and
+thickness $H_{P}$.
+A similar correction can be applied to the gravity disturbance
 (using the approximation in eq. \ref{eq:gravity-disturbance-approx})
-with the aim of removing the effect of topographic masses between
+to remove the effect of topographic masses between
 the observation point $P$ and a point on the ellipsoid $Q$.
 We will call this quantity the \textit{Bouguer disturbance}:
 
@@ -445,21 +438,17 @@ g_{P} -
 At first glance, the only difference between eqs.
 \ref{eq:simple-bouguer-anomaly} and \ref{eq:bouguer-disturbance} is the use of
 orthometric ($H_P$) versus geometric ($h_P$) heights.
-However, their objectives and geophysical interpretations are significantly
-different.
-The corrections applied in eq. \ref{eq:simple-bouguer-anomaly} approximate
-gravity at the geoid from measurements made on the Earth's surface by removing
-the effects of the distance and the topographic masses between the two points.
+However, their geophysical interpretations are significantly different.
 Apart from the centrifugal effect mentioned in the previous section,
-the gravitational effect of topographic masses between the geoid and ellipsoid
-are still present in the anomaly.
-Conversely, when calculating the Bouguer disturbance one removes from
-the observed gravity the effects of an ellipsoidal reference model (the normal
-Earth) and the known topographic masses between the surface of the ellipsoid
-and observation point.
+the Bouguer anomaly (eq. \ref{eq:simple-bouguer-anomaly}) still contains
+the gravitational effect of topographic masses between the geoid and ellipsoid.
+Conversely, when calculating the Bouguer disturbance one removes the effects of
+an ellipsoidal reference model (the normal Earth) and the known topographic
+masses between the surface of the ellipsoid and observation point.
 Hence, the Bouguer disturbance can be interpreted as being solely the
 gravitational effect produced by the density contrasts between the actual
-internal density distribution of the Earth and that of the normal Earth.
+internal density distribution of the Earth and that of the normal Earth plus a
+homogeneous topography.
 
 There was a certain lack of comprehension regarding the geophysical meaning of
 gravity anomalies until the mid 90s.
@@ -476,8 +465,6 @@ gravity anomalies reflect not only the gravity sources,
 but also a combination of gravitational and centrifugal effects.
 These additional, non-harmonic and undesired effects are due to the calculation
 of the normal gravity at a point other than that were gravity is measured.
-In practice, this issue can be avoided entirely by performing the free-air and
-Bouguer corrections using geometric instead of orthometric heights.
 
 
 \section{Gravity modelling}
@@ -611,12 +598,13 @@ an error of XXX m in the depth-to-center estimate of a sphere with
 true depth-to-center at xxx m, radius xxxx m, and density
 contrast of xxx $kg.m^{-3}$.
 
-Fortunately, all of these issues are nullified during data processing by
+In practice, most of these issues can be nullified during data processing by
 substituting orthometric heights (i.e., with respect to the geoid) with
 geometric heights (i.e., with respect to the ellipsoid).
 For modern acquisitions, this requires no extra work because GPS already
 provide geometric heights.
-The free-air correction can even be bypassed entirely.
+The free-air correction can even be bypassed entirely by computing $\gamma_P$
+directly.
 As a bonus, the gravity disturbance is conceptually simpler to understand and
 doesn't require the concept of the geoid with which learners often struggle.
 
