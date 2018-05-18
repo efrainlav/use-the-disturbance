@@ -449,7 +449,7 @@ At first glance, the only difference between eqs.
 orthometric ($H_P$) versus geometric ($h_P$) heights.
 However, their objectives and geophysical interpretations are significantly
 different.
-The corrections applied when calculating the Bouguer anomaly approximate
+The corrections applied in eq. \ref{eq:simple-bouguer-anomaly} approximate
 gravity at the geoid from measurements made on the Earth's surface by removing
 the effects of the distance and the topographic masses between the two points.
 Apart from the centrifugal effect mentioned in the previous section,
@@ -482,100 +482,93 @@ In practice, this issue can be avoided entirely by performing the free-air and
 Bouguer corrections using geometric instead of orthometric heights.
 
 
-\section{Mathematical description of the gravity disturbance at the TCS}
+\section{Gravity modelling}
 
-From eq. \ref{eq:gravity-disturbance-vector}, the gravity vector $\vector{g}_{i}$, at a point
-$(x_{i}, y_{i}, z_{i})$ in the TCS (Fig. \ref{fig:TCS}a), can be represented by:
+We have established that the gravity disturbance is due solely to the
+gravitational effect of the gravity sources.
+Now we will discuss how this relates to some assumptions made during gravity
+modelling.
+
+The gravity vector $\vector{g}_i$ (eq. \ref{eq:gravity-disturbance-vector})
+at a point $(x_i, y_i, z_i)$ in the TCS (Fig. \ref{fig:TCS}a) can be
+represented by:
+
 \begin{equation}
-\vector{g}_{i} = \vector{\gamma}_{i} + \delta \vector{g}_{i} \: ,
+\vector{g}_i = \vector{\gamma}_i + \delta \vector{g}_i \: .
 \label{eq:gravity-vector-TCS}
 \end{equation}
-where $\vector{\gamma}_{i}$ and $\delta \vector{g}_{i}$
-are, respectively, the normal gravity vector and the
-gravity disturbance vector produced by the anomalous
-masses at the point $(x_{i}, y_{i}, z_{i})$.
 
-The gravity $g_{i}$ can be approximated by a first order Taylor's
-expansion as follows \citep{sanso_sideris2013}:
+\noindent
+Furthermore, the gravity $g_i$ can be approximated by a first order Taylor's
+expansion \citep{sanso_sideris2013}:
+
 \begin{equation}
-g_{i} \approx \gamma_{i} +
-\versor{\gamma}_{i}^{\top} \delta \vector{g}_{i} \: ,
+g_i \approx \gamma_i +
+\versor{\gamma}_i^{\top} \delta \vector{g}_i \: ,
 \label{eq:gobs-approx}
 \end{equation}
-where $^{\top}$ denotes transposition,
-$\versor{\gamma}_{i} = -\versor{u}_{i}$ is a unit
-vector with the same direction as the normal gravity vector
-$\vector{\gamma}_{i}$ at the point $(x_{i}, y_{i}, z_{i})$, in the
-topocentric Cartesian coordinate system (Fig. \ref{fig:TCS}a), and
-$\versor{u}_{i}$ is the unit vector $\versor{u}$
-(eq. \ref{eq:unit-vectors}) evaluated at the corresponding
-point $(h_{i}, \varphi_{i}, \lambda_{i})$ in the
-GGS (Fig. \ref{fig:GCS-GGS}).
-This approximation can be made because, fortunately,
-the condition $\gamma_{i} \gg \| \delta \mathbf{g}_{i} \|$
-is met at all points located above or on the Earth's surface.
-This approximation is known in geodesy \citep[e.g.,][]{sanso_sideris2013}
-and a similar approximation is largely used in applied geophysics
-for representing total-field anomalies \citep[e.g.,][]{blakely1996}.
-Notice that, in local- or regional-gravity studies, the unit
-vector $\versor{\gamma}_{i}$ (eq. \ref{eq:gobs-approx})
+
+\noindent
+where $^{\top}$ denotes transposition and $\versor{\gamma}_{i}$ is a unit
+vector with the direction of the normal gravity vector.
+This approximation is valid because
+$\gamma_{i} \gg \| \delta \mathbf{g}_{i} \|$ at all points on or above the
+Earth's surface.
+It is known in geodesy \citep[e.g.,][]{sanso_sideris2013}
+and is analogous to the approximation used for
+total-field magnetic anomalies \citep[e.g.,][]{blakely1996}.
+In local or regional scales, the unit
+vector $\versor{\gamma}_{i}$
 may be considered constant throughout the study area and
 parallel to the $z$ axis of the TCS (Fig. \ref{fig:TCS}a).
-By using the approximation defined in eq.
-\ref{eq:gobs-approx}, the gravity disturbance
-(eq. \ref{eq:gravity-disturbance}) can be rewritten as
-follows
+
+Using eq. \ref{eq:gobs-approx} and fixing $\gamma$ at a point $P$ at
+the origin of the TCS (Fig. \ref{fig:TCS}a),
+the gravity disturbance can be rewritten as:
+
 \begin{equation}
-\delta g_{i} \approx \versor{\gamma}_{P}^{\top} \delta \vector{g}_{i} \: ,
+\delta g_{i} \approx \versor{\gamma}_{P}^{\top} \delta \vector{g}_{i} \: .
 \label{eq:gravity-disturbance-approx-TCS}
 \end{equation}
-where $\versor{\gamma}_{P}$ represents the unit vector with
-the same direction as the normal gravity vector $\vector{\gamma}_{P}$
-at the origin $P$ of the TCS (Fig. \ref{fig:TCS}a).
-This equation shows that the gravity disturbance $\delta g_{i}$ (eq. \ref{eq:gravity-disturbance}) is different from the magnitude
-of the gravity disturbance vector $\delta \vector{g}_{i}$
-produced by the gravity sources. Rather, it represents the
-component of $\delta \vector{g}_{i}$ on the direction of the normal
-gravity vector \citep{hofmann-wellenhof-moritz2005, sanso_sideris2013}.
 
-In the TCS (Fig. \ref{fig:TCS}a),
-the gravity disturbance $\delta g_{i}$ (eq. \ref{eq:gravity-disturbance-approx-TCS})
-can be defined as the $z$-component of the gravitational attraction exerted by
-the gravity sources at the point $(x_{i}, y_{i}, z_{i})$.
-As a consequence, the gravity disturbance produced by
-a gravity source can be represented by the following harmonic function:
+\noindent
+This equation shows that the gravity disturbance $\delta g_{i}$ is
+approximately the component of the $\delta \vector{g}_{i}$ in the direction of
+the normal gravity vector $\vector{\gamma}_P$
+\citep{hofmann-wellenhof-moritz2005, sanso_sideris2013}.
+Because $z$-axis of the TCS is parallel to $\vector{\gamma}_P$
+(Fig. \ref{fig:TCS}b), the gravity disturbance can be defined as the
+$z$-component of the gravitational attraction exerted by the gravity sources at
+the point $(x_{i}, y_{i}, z_{i})$.
+As a consequence, the gravity disturbance can be modelled by the harmonic
+function:
+
 \begin{equation}
-d_{i} = \int\int\limits_{v}\int
-\frac{c_{g} \, G \, \Delta\rho(x^{\prime}, y^{\prime}, z^{\prime})
-\, (z_{i} - z^{\prime}) \: dv^{\prime}}
-{\sqrt{(x_{i} - x^{\prime})^{2} +
-(y_{i} - y^{\prime})^{2} + (z_{i} - z^{\prime})^{2}}} \: ,
+d_{i} = \iiint\limits_{v}
+\frac{G \, \Delta\rho(x^{\prime}, y^{\prime}, z^{\prime}) \,
+[z_{i} - z^{\prime}]}
+{\sqrt{[x_{i} - x^{\prime}]^{2} +
+[y_{i} - y^{\prime}]^{2} + [z_{i} - z^{\prime}]^{2}}} \: dv^{\prime} \: ,
 \label{eq:gz-local}
 \end{equation}
-where $G$ is the Newtonian constant of gravitation (in $m^{3} \, kg^{-1} \, s^{-2}$),
-$c_{g} = 10^{5}$ is a constant factor transforming from $m \, s^{-2}$
-to milligal (mGal), $\Delta\rho(x^{\prime}, y^{\prime}, z^{\prime})$
-is the density contrast (in $kg \, m^{-3}$) at a point
-$(x^{\prime}, y^{\prime}, z^{\prime})$ within
-the volume $v$ of the gravity source and the integration is conducted
-over $x^{\prime}$, $y^{\prime}$ and $z^{\prime}$.
-This equation can be easily generalized for the case
-of multiple gravity sources.
-Practically, all articles accomplishing gravity modelling
-use the quantity $d_{i}$ (eq. \ref{eq:gz-local})
-to represent the gravity anomaly produced by
-gravity sources \citep[e.g.,][]{blakely1996}.
-Consequently, almost all geophysicists use the gravity
-anomaly as an approximation of the gravity disturbance
-produced by the gravity sources. Notice that $d_{i}$
-(eq. \ref{eq:gz-local}) does not depend on the
-height with respect to the Geoid (orthometric height).
-Rather, it depends on the relative position
-of the observation points $(x_{i}, y_{i}, z_{i})$ with respect to
-the gravity sources in the TCS (Fig. \ref{fig:TCS}a).
-Finally, it is important to notice that, contrary to what
-is written in some basic texts, gravimeters do not measure
-the quantity $d_{i}$ (eq. \ref{eq:gz-local}).
+
+\noindent
+where $\Delta\rho(x^{\prime}, y^{\prime}, z^{\prime})$
+is the density contrast at a point $(x^{\prime}, y^{\prime}, z^{\prime})$
+within the volume $v$ and the integration is conducted over $x^{\prime}$,
+$y^{\prime}$ and $z^{\prime}$.
+
+In practice, most instances of gravity modelling in the literature use Bouguer
+anomalies and function $d_{i}$ (usually presented as ``$g_z$'') to represent
+the gravitational effect of gravity sources.
+Consequently, these studies are using the gravity
+anomaly as an approximation for the gravity disturbance.
+Notice that $d_{i}$ does not depend on the
+height with respect to the geoid (orthometric height).
+Rather, it depends on the relative position of the gravity sources and the
+observation point $(x_{i}, y_{i}, z_{i})$ in the TCS (Fig. \ref{fig:TCS}a).
+Finally, it is important to mention that gravimeters do not measure $d_{i}$ but
+$\| \vector{g}_i \|$.
 
 
 \section{Conclusions}
