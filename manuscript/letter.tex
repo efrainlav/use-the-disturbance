@@ -52,28 +52,26 @@
 
 
 \begin{summary}
- In applied geophysics, the gravity anomaly has long been used for representing the
- gravitational effect produced by gravity sources, which are defined as the density
- contrasts between the internal density distribution of the Earth and the normal Earth.
- The gravity anomaly is defined by the difference between the gravity (produced by the
- Earth) on the Geoid and the normal gravity (produced by the normal Earth)
- on reference ellipsoid, both at the same geodetic latitude and longitude.
- Because these quantities are not defined at the same point,
- the gravity anomaly does not represent the gravitational effect due to the gravity
- sources and, consequently, cannot be considered a harmonic function.
- On the contrary, the gravity disturbance is defined by the difference between
- the gravity and normal gravity at the same point. Consequently, the centrifugal
- effects can be neglected, the gravity disturbance can be considered a harmonic
- function representing the gravitational effect due to the gravity sources and then
- it satisfies the premise behind most of the processing techniques of potential-field
- data (e.g., upward/downward continuations). Then, rigorously, the gravity disturbance
- is  more appropriated to be used for estimating density variations in subsurface.
- The use the gravity anomaly for most of the geophysicists carries the
- implicit meaning that it can be considered a good approximation of the gravity
- disturbance. It is important to bear in mind, however, that in Brazil, for example,
- the maximum absolute difference between the gravity disturbance (on or close
- to the Earth’s surface) and the Free-air anomaly reaches 9.3 mGal.
-
+ The gravity anomaly is defined as the difference between the Earth's gravity
+ on the geoid and the gravity of the normal Earth on the reference ellipsoid.
+ Because these quantities are not at the same point, the anomaly contains
+ centrifugal accelerations and cannot be considered a harmonic function.
+ The gravity disturbance is the difference between gravity and normal gravity
+ at the same point.
+ Consequently, the centrifugal effects can be neglected and the disturbance can
+ be considered a harmonic function.
+ This is the premise behind most potential-field data processing techniques
+ (e.g., upward/downward continuation and vertical derivatives).
+ Unlike the anomaly, the disturbance is due solely to the
+ gravitational effects of geologic sources, making it the most appropriate
+ choice for modelling.
+ Use of the gravity anomaly in geophysics carries with it the implicit
+ assumption that it is a good approximation for the gravity disturbance.
+ However, bear in mind that the difference between the gravity disturbance and
+ the free-air anomaly can be larger than 10 mGal worldwide.
+ Fortunately, the solution to these problems is to simply replace
+ heights referenced to the geoid (orthometric) with heights referenced to the
+ ellipsoid (geometric) for geophysical use cases.
 \end{summary}
 
 \begin{keywords}
