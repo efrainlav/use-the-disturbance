@@ -1,5 +1,8 @@
 .ipynb_checkpoints
 manuscript/output
+code/__pycache__
+code/gmt.conf
+.gmt*
 
 # Tex files
 *.synctex.gz

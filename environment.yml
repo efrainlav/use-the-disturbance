@@ -1,0 +1,16 @@
+name: use-the-disturbance
+channels:
+    - conda-forge
+    - conda-forge/label/dev
+    - defaults
+dependencies:
+    - python=2.7
+    - pip
+    - numpy
+    - xarray
+    - jupyter
+    - cartopy
+    - fatiando=0.5
+    - gmt=6.0.0a14
+    # Fix it to this version because gdal can't handle 0.13
+    - json-c=0.12.1

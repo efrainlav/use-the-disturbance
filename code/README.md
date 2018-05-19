@@ -1,14 +1,10 @@
 # Source code for producing the results and figures
 
-Describe your code briefly here.
+Python code (mostly) to generate the results for the paper.
+Most of the code is in Jupyter notebooks (the `.ipynb` files). Some helper
+functions are defined in `helpers.py` and imported by the notebooks.
 
-List the notebooks here with links to each on nbviewer:
-
-* [example.ipynb](http://nbviewer.jupyter.org/github/pinga-lab/paper-template/blob/master/code/example.ipynb):
-  What this notebook does.
-
-The `Makefile` has a rule to convert all notebooks to PDF.
-To convert, run the following in this directory:
-
-    make
-
+* `difference.ipynb`: Loads the gravity data from ICGEM, calculates the
+  free-air anomaly, the disturbance, and their difference. Generates the
+  difference netCDF grid `disturbance-anomaly-difference.nc`.
+* `plot-difference.ipynb`: Plots the difference grid using GMT.
