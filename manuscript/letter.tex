@@ -53,7 +53,7 @@
 
 \begin{summary}
  The gravity anomaly is defined as the difference between the Earth's gravity
- on the geoid and the gravity of the normal Earth on the reference ellipsoid.
+ on the geoid and the normal gravity on the reference ellipsoid.
  Because these quantities are not at the same point, the anomaly contains
  centrifugal accelerations and cannot be considered a harmonic function.
  The gravity disturbance is the difference between gravity and normal gravity
@@ -61,7 +61,7 @@
  Consequently, the centrifugal effects can be neglected and the disturbance can
  be considered a harmonic function.
  This is the premise behind most potential-field data processing techniques
- (e.g., upward/downward continuation and vertical derivatives).
+ (e.g., upward/downward continuation).
  Unlike the anomaly, the disturbance is due solely to the
  gravitational effects of geologic sources, making it the most appropriate
  for geophysical purposes.
@@ -176,7 +176,7 @@ positions and movements of objects on and close to the Earth's surface
 The first is a geocentric system of Cartesian coordinates
 having the $Z$-axis coincident with the mean rotational axis of the Earth,
 the $X$-axis pointing to the Greenwich meridian,
-and the $Y$-axis completing a right-handed system (Fig. \ref{fig:GCS-GGS}).
+and the $Y$-axis completing a right-handed system (Fig. \ref{fig:systems}).
 This reference system is called by different names in the literature:
 Mean Terrestrial System \citep[e.g.,][]{soler1976},
 Earth-fixed geocentric Cartesian system \citep[e.g.,][]{torge2012}
@@ -191,7 +191,7 @@ which is defined by the reference ellipsoid used as the Normal Earth
 The position of a point is defined by
 the \textit{geometric height} $h$,
 the \textit{geodetic latitude} $\varphi$,
-and the \textit{longitude} $\lambda$ (Fig. \ref{fig:GCS-GGS}).
+and the \textit{longitude} $\lambda$ (Fig. \ref{fig:systems}).
 There are also three mutually-orthogonal unit vectors defined at a given point
 \citep{soler1976}:
 
@@ -228,7 +228,53 @@ axes $x$ and $y$ are parallel to
 the unit vectors $\versor{v}$ and $\versor{w}$
 (eq. \ref{eq:unit-vectors}), respectively,
 and the $z$-axis is opposite to the unit vector $\versor{u}$
-(Fig. \ref{fig:TCS}).
+(Fig. \ref{fig:systems}c).
+
+\begin{figure}
+%    \vspace{5.5cm}
+    \includegraphics{figures/cartesian-geodetic-systems.eps}
+    \caption{
+    (a) and (b) The Geocentric Cartesian System (GCS) and the Geocentric
+    Geodetic System (GGS).
+    The GGS is defined by an oblate ellipsoid with semi-minor axis $b$ and
+    semi-major axis $a$.
+    In this coordinate system, the position of a point is determined by the
+    geometric height $h$, geodetic latitude $\varphi$, and longitude $\lambda$.
+    $O$ is the Earth's center of mass, $P$ is an observation point, and
+    unit vectors $\versor{u}$, $\versor{v}$, and $\versor{w}$ define mutually
+    orthogonal directions at $P$ (eq. \ref{eq:unit-vectors}).
+    In (b), $Q$ is the projection of $P$ onto the reference ellipsoid at
+    the same latitude and longitude.
+    (c) The topocentric Cartesian coordinate system (TCS) with origin at a
+    point $P$.
+    Axes $x$ and $y$ are parallel to the unit vectors $\versor{v}$ and
+    $\versor{w}$, respectively, and the $z$ axis is opposite to $\versor{u}$.
+    The gray plane is the same shown in (a) and (b).
+    }
+  \label{fig:systems}
+\end{figure}
+
+\begin{figure}
+    \includegraphics{figures/surfaces.png}
+    \caption{
+    The gravity vector
+    $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
+    gravity disturbance vector $\delta \vector{g}_{P}$
+    (eq. \ref{eq:gravity-disturbance-vector}), and unit vector
+    $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$
+    on the surface of the Earth.
+    The gravity vector $\vector{g}_{Q^{\prime}}$
+    at a point $Q^{\prime}$ on the geoid, normal gravity vector
+    $\vector{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
+    geometric height $h$, orthometric height $H$, and geoidal height $N$.
+    The dashed line passing through
+    $Q$, $Q^{\prime}$ and $P$ is normal to the
+    surface of the reference ellipsoid at $Q$.
+    This figure shows a commonly used approximation in which the ellipsoid and
+    geoid are represented as parallel surfaces so that $h \approx H + N$.
+    }
+  \label{fig:surfaces}
+\end{figure}
 
 
 \section{gravity disturbance and gravity anomaly}
@@ -419,7 +465,7 @@ The \textit{Bouguer anomaly} is defined in the continents as
 \noindent
 where $\rho_t$ is the density of the topographic masses and $G$ is the
 gravitational constant.
-Th Bouguer correction approximates the gravitational effect that all
+The Bouguer correction approximates the gravitational effect that all
 topographic masses above the geoid exert on point $P$ by the effect of a
 homogeneous, infinitely extended slab of constant density $\rho_{t}$ and
 thickness $H_{P}$.
@@ -447,10 +493,6 @@ the gravitational effect of topographic masses between the geoid and ellipsoid.
 Conversely, when calculating the Bouguer disturbance one removes the effects of
 an ellipsoidal reference model (the normal Earth) and the known topographic
 masses between the surface of the ellipsoid and observation point.
-Hence, the Bouguer disturbance can be interpreted as being solely the
-gravitational effect produced by the density contrasts between the actual
-internal density distribution of the Earth and that of the normal Earth plus a
-homogeneous topography.
 
 There was a certain lack of comprehension regarding the geophysical meaning of
 gravity anomalies until the mid 90s.
@@ -477,7 +519,7 @@ Now we will discuss how this relates to some assumptions made during gravity
 modelling.
 
 The gravity vector $\vector{g}_i$ (eq. \ref{eq:gravity-disturbance-vector})
-at a point $(x_i, y_i, z_i)$ in the TCS (Fig. \ref{fig:TCS}a) can be
+at a point $(x_i, y_i, z_i)$ in the TCS (Fig. \ref{fig:systems}c) can be
 represented by:
 
 \begin{equation}
@@ -507,10 +549,10 @@ total-field magnetic anomalies \citep[e.g.,][]{blakely1996}.
 In local or regional scales, the unit
 vector $\versor{\gamma}_{i}$
 may be considered constant throughout the study area and
-parallel to the $z$ axis of the TCS (Fig. \ref{fig:TCS}a).
+parallel to the $z$ axis of the TCS (Fig. \ref{fig:systems}c).
 
 Using eq. \ref{eq:gobs-approx} and fixing $\gamma$ at a point $P$ at
-the origin of the TCS (Fig. \ref{fig:TCS}a),
+the origin of the TCS (Fig. \ref{fig:systems}c),
 the gravity disturbance can be rewritten as:
 
 \begin{equation}
@@ -524,7 +566,7 @@ approximately the component of the $\delta \vector{g}_{i}$ in the direction of
 the normal gravity vector $\vector{\gamma}_P$
 \citep{hofmann-wellenhof-moritz2005, sanso_sideris2013}.
 Because $z$-axis of the TCS is parallel to $\vector{\gamma}_P$
-(Fig. \ref{fig:TCS}b), the gravity disturbance can be defined as the
+(Fig. \ref{fig:surfaces}), the gravity disturbance can be defined as the
 $z$-component of the gravitational attraction exerted by the gravity sources at
 the point $(x_{i}, y_{i}, z_{i})$.
 As a consequence, the gravity disturbance can be modelled by the harmonic
@@ -553,7 +595,7 @@ anomaly as an approximation for the gravity disturbance.
 Notice that $d_{i}$ does not depend on the
 height with respect to the geoid (orthometric height).
 Rather, it depends on the relative position of the gravity sources and the
-observation point $(x_{i}, y_{i}, z_{i})$ in the TCS (Fig. \ref{fig:TCS}a).
+observation point $(x_{i}, y_{i}, z_{i})$ in the TCS (Fig. \ref{fig:systems}c).
 Finally, it is important to mention that gravimeters do not measure $d_{i}$ but
 $\| \vector{g}_i \|$.
 
@@ -618,83 +660,5 @@ reviewers for their criticisms and corrections.
 
 \bibliographystyle{gji}
 \bibliography{bib-file}
-
-
-\appendix
-%\section{For authors}
-%
-%Table~\ref{authors} is a list of design macros which are unique to GJI. The
-%list displays each macro's name and description.
-%
-%\section{For editors}
-%
-%The additional features shown in Table~\ref{editors} may be used for
-%production purposes.
-%
-%\bsp % ``This paper has been produced using the Blackwell
-%     %   Publishing GJI \LaTeXe\ class file.''
-
-\begin{figure}
-%    \vspace{5.5cm}
-    \includegraphics{figures/cartesian-geodetic-systems.png}
-    \caption{
-    The Geocentric Cartesian System (GCS) and the Geocentric Geodetic System
-    (GGS).
-    The GGS is defined by an oblate ellipsoid with semi-minor axis $b$ and
-    semi-major axis $a$.
-    In this coordinate system, the position of a point is determined by the
-    geometric height $h$, geodetic latitude $\varphi$, and longitude $\lambda$.
-    $O$ is the Earth's center of mass, $P$ is an observation point, and
-    unit vectors $\versor{u}$, $\versor{v}$, and $\versor{w}$ define mutually
-    orthogonal directions at $P$ (eq. \ref{eq:unit-vectors}).
-    In (b), $Q$ is the projection of $P$ onto the reference ellipsoid at
-    the same latitude and longitude.
-    }
-  \label{fig:GCS-GGS}
-\end{figure}
-
-\begin{figure}
-    \includegraphics{figures/local-system.png}
-    \caption{
-    (a) The topocentric Cartesian coordinate system (TCS) with origin at a
-    point $P$.
-    Axes $x$ and $y$ are parallel to the unit vectors $\versor{v}$ and
-    $\versor{w}$ (eq. \ref{eq:unit-vectors} and Fig. \ref{fig:GCS-GGS}),
-    respectively, and the $z$ axis is opposite to $\versor{u}$.
-    The gray plane is the same shown in Fig. \ref{fig:GCS-GGS}.
-    (b) Schematic representation of the gravity vector
-    $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
-    gravity disturbance vector $\delta \vector{g}_{P}$
-    (eq. \ref{eq:gravity-disturbance-vector}) and unit vector
-    $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point
-    $P$.
-    }
-  \label{fig:TCS}
-\end{figure}
-
-\begin{figure}
-    \includegraphics{figures/surfaces.png}
-    \caption{
-    The gravity vector
-    $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
-    gravity disturbance vector $\delta \vector{g}_{P}$
-    (eq. \ref{eq:gravity-disturbance-vector}), and unit vector
-    $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$
-    on the surface of the Earth.
-    The gravity vector $\vector{g}_{Q^{\prime}}$
-    at a point $Q^{\prime}$ on the geoid, normal gravity vector
-    $\vector{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
-    geometric height $h$, orthometric height $H$, and geoidal height $N$.
-    The dashed line passing through
-    $Q$, $Q^{\prime}$ and $P$ is normal to the
-    surface of the reference ellipsoid at $Q$.
-    This figure shows a commonly used approximation in which the ellipsoid and
-    geoid are represented as parallel surfaces so that $h \approx H + N$.
-    }
-  \label{fig:surfaces}
-\end{figure}
-
-\label{lastpage}
-
 
 \end{document}
