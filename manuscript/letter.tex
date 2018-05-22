@@ -255,7 +255,7 @@ and the $z$-axis is opposite to the unit vector $\versor{u}$
 \end{figure}
 
 \begin{figure}
-    \includegraphics{figures/surfaces.png}
+    \includegraphics{figures/surfaces.eps}
     \caption{
     The gravity vector
     $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
@@ -436,6 +436,10 @@ geodesy} \citep{hofmann-wellenhof-moritz2005}.
 We know empirically that $N$ is $\approx \pm 1$ m on the oceans
 and reaches a maximum absolute value of $\approx 120$ m
 \citep[e.g.,][]{torge2012, sanso_sideris2013}.
+Fig. \ref{fig:difference} shows the absolute difference between the
+gravity disturbance and the free-anomaly globally calculated
+using eq. \ref{eq:difference-disturbance-free-air} and the spherical harmonic
+model EIGEN-6c4 \citep{forste2014}.
 In Brazil, for example, the geoidal height
 varies between $\approx \pm 30$ m \citep{ibge_mapgeo2015}.
 Consequently,
@@ -443,6 +447,18 @@ the maximum absolute difference between the gravity disturbance and
 the free-air anomaly in Brazil,
 according to eq. \ref{eq:difference-disturbance-free-air},
 is $\approx 9.258$ mGal.
+
+\begin{figure}
+    \includegraphics[width=\columnwidth]{figures/difference.eps}
+    \caption{
+    Absolute difference between the gravity disturbance and free-air anomaly.
+    Calculated using eq. \ref{eq:difference-disturbance-free-air}, the
+    EIGEN-6c4 \citep{forste2014} spherical harmonic model, and software
+    \textit{Fatiando a Terra} \citep{uieda2013}. The figure was made using GMT
+    \citep{wessel2013}.
+    }
+  \label{fig:difference}
+\end{figure}
 
 
 \section{The effect of topographic masses}
