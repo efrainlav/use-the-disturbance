@@ -42,6 +42,11 @@ gravity disturbance for most practical applications,
 it is important to bear in mind not only the terminology
 changes, but also the conceptual assumptions.
 
+![Difference between the gravity disturbance and the free-air anomaly.](difference.png)
+*Map of the gifference between the gravity disturbance and the free-air anomaly worldwide.
+This is the error committed when assuming that the free-anomaly is a good
+approximation for the disturbance.*
+
 
 ## Software
 
