@@ -2,10 +2,11 @@
 
 **Authors:**
 
-[Kristoffer A. T. Hallam](http://www.pinga-lab.org/people/kristoffer.html)<sup>1</sup>,
+
 [Vanderlei C. Oliveira Jr.](http://www.pinga-lab.org/people/oliveira-jr.html)<sup>1</sup>,
+[Leonardo Uieda](https://www.leouieda.com/)<sup>2</sup>,
 [Valéria C. F. Barbosa](http://www.pinga-lab.org/people/barbosa.html)<sup>1</sup> and
-[Leonardo Uieda](https://www.leouieda.com/)<sup>2</sup>
+[Kristoffer A. T. Hallam](http://www.pinga-lab.org/people/kristoffer.html)<sup>1</sup>
 
 <sup>1</sup>[*Observatório Nacional*](http://www.on.br/), Rio de Janeiro, Brazil
 
