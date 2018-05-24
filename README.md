@@ -1,4 +1,4 @@
-# Theoretical aspects in gravity modelling
+# Should geophysicists use the gravity disturbance or the anomaly?
 
 **Authors:**
 
@@ -18,29 +18,26 @@ This paper has been submitted for publication in the
 
 ## Abstract
 
-The gravity anomaly has long been used by geophysicists for
-representing the gravitational effect produced by gravity
-sources.This quantity, however, can be used in this way as a good
-approximation. Rigorously, the gravitational effect produced by the sources
-is represented by the gravity disturbance, which is a well-known
-quantity in geodesy.
-In this paper, we discuss the fundamental concepts supporting
-the fact that gravity disturbance is the more appropriated quantity
-to be used for estimating density variations related to geological
-bodies in subsurface. We stress that almost all authors in the
-literature have implicitly used the gravity anomaly as an approximation
-of the gravity disturbance, which can be represented by a harmonic
-function and, consequently, satisfies the premise behind most of
-the interpretation techniques used in geophysics (e.g.,
-upward/downward continuation,
-data processing with equivalent layer,
-conversions between gravity and magnetic data,
-computation of vertical derivatives via Fourier and Hilbert
-transforms).
-Although the gravity anomaly can be considered a good approximation of the
-gravity disturbance for most practical applications,
-it is important to bear in mind not only the terminology
-changes, but also the conceptual assumptions.
+The gravity anomaly is defined as the difference between the Earth's gravity
+on the geoid and the normal gravity on the reference ellipsoid.
+Because these quantities are not at the same point, the anomaly contains
+centrifugal accelerations and cannot be considered a harmonic function.
+The gravity disturbance is the difference between gravity and normal gravity
+at the same point.
+Consequently, the centrifugal effects can be neglected and the disturbance can
+be considered a harmonic function.
+This is the premise behind most potential-field data processing techniques
+(e.g., upward/downward continuation).
+Unlike the anomaly, the disturbance is due solely to the
+gravitational effects of geologic sources, making it the most appropriate
+for geophysical purposes.
+Use of the gravity anomaly in geophysics carries with it the implicit
+assumption that it is a good approximation for the gravity disturbance.
+However, bear in mind that the difference between the gravity disturbance and
+the free-air anomaly can be larger than 10 mGal worldwide.
+In fact, we argue that the assumptions made during gravity forward and inverse
+modeling imply that the quantity being modelled is the disturbance, not the
+anomaly.
 
 ![Difference between the gravity disturbance and the free-air anomaly.](difference.png)
 *Map of the gifference between the gravity disturbance and the free-air anomaly worldwide.
