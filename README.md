@@ -40,7 +40,7 @@ modeling imply that the quantity being modelled is the disturbance, not the
 anomaly.
 
 ![Difference between the gravity disturbance and the free-air anomaly.](difference.png)
-*Map of the gifference between the gravity disturbance and the free-air anomaly worldwide.
+*Map of the difference between the gravity disturbance and the free-air anomaly worldwide.
 This is the error committed when assuming that the free-anomaly is a good
 approximation for the disturbance.*
 
