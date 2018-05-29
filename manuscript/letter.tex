@@ -9,15 +9,19 @@
 %Extra packages
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage[pdftex,colorlinks=true]{hyperref}
+\hypersetup{
+    allcolors=black,
+}
 
 \title[Gravity anomaly or gravity disturbance?]
       {Should geophysicists use the gravity disturbance or the anomaly?}
 
-\author[Hallam et al.]{
+\author[Oliveira Jr et al.]{
 \parbox{\linewidth}{%
     Vanderlei C. Oliveira Jr$^1$\thanks{Email: vanderlei@on.br},
     Leonardo Uieda$^2$, Val\'{e}ria C. F. Barbosa$^1$, and
-    \linebreak Kristoffer A. T. Hallam$^{1}$ 
+    \linebreak Kristoffer A. T. Hallam$^{1}$
     \vspace{0.3cm}
 }%
     \\
@@ -653,9 +657,9 @@ This is a clear inconsistency.
 Doing so may even result in wrong interpretations of a quantitative nature.
 In Brazil, for example, the maximum difference
 between the gravity disturbance and the free-air anomaly reaches $\approx 9.3$ mGal.
-This is approximately the maximum difference between the vertical gravitational 
-accelerations of a sphere with depth-to-center of $700$ m and one with $1550$ m, 
-assuming both spheres have a radius of $699$ m and density contrast of 
+This is approximately the maximum difference between the vertical gravitational
+accelerations of a sphere with depth-to-center of $700$ m and one with $1550$ m,
+assuming both spheres have a radius of $699$ m and density contrast of
 $600$ kg~$\cdot$~m~$^{-3}$.
 
 In practice, most of these issues can be nullified during data processing by
@@ -670,8 +674,13 @@ doesn't require the concept of the geoid with which learners often struggle.
 
 
 \begin{acknowledgments}
-The authors would like to thank the editor and all the
-reviewers for their criticisms and corrections.
+The authors would like to thank the editor and reviewers for their criticisms
+and corrections.
+All source code and data used to generate the results presented here are
+available at
+\href{https://doi.org/10.5281/zenodo.1255306}{doi.org/10.5281/zenodo.1255306}
+and
+\href{https://github.com/pinga-lab/use-the-disturbance}{github.com/pinga-lab/use-the-disturbance}.
 \end{acknowledgments}
 
 \bibliographystyle{gji}

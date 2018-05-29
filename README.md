@@ -15,6 +15,9 @@
 This paper has been submitted for publication in the
 [*Geophysical Journal International*](https://academic.oup.com/gji).
 
+A snapshot of this repository is archived at
+doi:[10.5281/zenodo.1255306](https://doi.org/10.5281/zenodo.1255306)
+
 
 ## Abstract
 
