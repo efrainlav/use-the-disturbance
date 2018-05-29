@@ -7,4 +7,8 @@ functions are defined in `helpers.py` and imported by the notebooks.
 * `difference.ipynb`: Loads the gravity data from ICGEM, calculates the
   free-air anomaly, the disturbance, and their difference. Generates the
   difference netCDF grid `disturbance-anomaly-difference.nc`.
+
+* `sphere_error.ipynb`: Compute the error in the depth-to-center
+  estimate of the sphere mentioned in conclusion.
+
 * `plot-difference.ipynb`: Plots the difference grid using GMT.
