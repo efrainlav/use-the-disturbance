@@ -68,8 +68,6 @@ You can download a copy of all the files in this repository by cloning the
 
 or [download a zip archive](https://github.com/pinga-lab/use-the-disturbance/archive/master.zip).
 
-A copy of the repository is also archived at *DOI*
-
 
 ## Dependencies
 
