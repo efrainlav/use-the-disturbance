@@ -1,4 +1,4 @@
-Copyright (c) 2018 Vanderlei C. Oliveira Jr., Leonardo Uieda, Valéria C. F. Barbosa, Kristoffer A. T. Hallam.
+Copyright (c) 2018 Vanderlei C. Oliveira Jr., Leonardo Uieda, Kristoffer A. T. Hallam, Valéria C. F. Barbosa.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
