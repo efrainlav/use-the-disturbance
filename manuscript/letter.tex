@@ -1,61 +1,46 @@
-% gjilguid2e.tex
-% V2.0 released 1998 December 18
-% V2.1 released 2003 October 7 -- Gregor Hutton, updated the web address for the style files.
+\documentclass[paper,twocolumn,twoside]{geophysics}
+%\documentclass[manuscript,revised]{geophysics}
 
-%\documentclass[extra,mreferee]{gji}
-\documentclass[extra]{gji}
-\usepackage{timet}
+% An example of defining macros
+\newcommand{\rs}[1]{\mathstrut\mbox{\scriptsize\rm #1}}
+\newcommand{\rr}[1]{\mbox{\rm #1}}
 
-%Extra packages
-\usepackage{graphicx}
+% Extra packages
 \usepackage{amsmath}
+\usepackage{bm}
 \usepackage[pdftex,colorlinks=true]{hyperref}
 \hypersetup{
-    allcolors=black,
+	allcolors=black,
 }
 
-\title[Gravity anomaly or gravity disturbance?]
-      {Should geophysicists use the gravity disturbance or the anomaly?}
-
-\author[Oliveira Jr et al.]{
-\parbox{\linewidth}{%
-    Vanderlei C. Oliveira Jr$^1$\thanks{Email: vanderlei@on.br},
-    Leonardo Uieda$^2$, Kristoffer A. T. Hallam$^{1}$ and
-    \linebreak Val\'{e}ria C. F. Barbosa$^1$
-    \vspace{0.3cm} }%
-    \\
-    $^1$ Department of Geophysics, Observat\'{o}rio Nacional, Rio de Janeiro, Brazil \\
-    $^2$ Department of Geology and Geophysics, SOEST, University of Hawai'i at M\={a}noa, Honolulu, USA
-}
-
-\date{Received 2018 Month XX; in original form 2018 Month XX}
-\pagerange{\pageref{firstpage}--\pageref{lastpage}}
-\volume{XXX}
-\pubyear{2018}
-
-%\def\LaTeX{L\kern-.36em\raise.3ex\hbox{{\small A}}\kern-.15em
-%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}
-%\def\LATeX{L\kern-.36em\raise.3ex\hbox{{\Large A}}\kern-.15em
-%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}
-% Authors with AMS fonts and mssymb.tex can comment out the following
-% line to get the correct symbol for Geophysical Journal International.
-\let\leqslant=\leq
-
-\newtheorem{theorem}{Theorem}[section]
-
-\newcommand{\versor}[1]{\hat{\mitbf{#1}}}
-\renewcommand{\vector}[1]{\vec{\mitbf{#1}}}
-
+\renewcommand{\figdir}{figures} % figure directory
 
 \begin{document}
 
-\label{firstpage}
+\title{Should geophysicists use the gravity disturbance or the anomaly?}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} 
+
+\ms{GEO-XXXX} % manuscript number
+
+\address{
+\footnotemark[1]Observat\'{o}rio Nacional, \\
+Department of Geophysics, \\
+Rio de Janeiro, Brazil \\
+\footnotemark[2]University of Hawai'i at M\={a}noa, \\
+Department of Geology and Geophysics, SOEST, \\
+Honolulu, USA}
+\author{Vanderlei C. Oliveira Jr\footnotemark[1], Leonardo Uieda\footnotemark[2],
+Kristoffer A. T. Hallam\footnotemark[1] and Val\'{e}ria C. F. Barbosa\footnotemark[1]}
+
+\footer{vanderlei@on.br, leouieda@gmail.com, kristoffer.hallam@gmail.com, valcris@on.br}
+\lefthead{Oliveira Jr et al.}
+\righthead{Gravity anomaly or gravity disturbance?}
 
 \maketitle
 
-
-\begin{summary}
- The gravity anomaly is defined as the difference between the Earth's gravity
+\begin{abstract}
+  The gravity anomaly is defined as the difference between the Earth's gravity
  on the geoid and the normal gravity on the reference ellipsoid.
  Because these quantities are not at the same point, the anomaly contains
  centrifugal accelerations and cannot be considered a harmonic function.
@@ -73,14 +58,9 @@
  However, bear in mind that the difference between the gravity disturbance and
  the free-air anomaly can be larger than 10 mGal worldwide.
  In fact, we argue that the assumptions made during gravity forward and inverse
- modeling imply that the quantity being modelled is the disturbance, not the
+ modeling imply that the quantity being modeled is the disturbance, not the
  anomaly.
-\end{summary}
-
-\begin{keywords}
- Geopotential theory -- Gravity anomalies and Earth structure -- Reference systems -- Numerical modelling.
-\end{keywords}
-
+\end{abstract}
 
 \section{Introduction}
 
@@ -114,24 +94,25 @@ distributions related to geological structures in subsurface,
 are the main goals of applied gravimetry \citep{blakely1996}.
 The computation of the gravitational effect produced by
 the geological structures is known in geophysics as
-\textit{gravity modelling}.
-Not to be confused with \textit{gravity field modelling}, which
+\textit{gravity modeling}.
+Not to be confused with \textit{gravity field modeling}, which
 is commonly used in geodesy to denote the mathematical characterization of the
 gravity field in local, regional, or global scales (e.g., spherical harmonic
 analysis).
 
 We present a discussion of whether the gravity disturbance or the gravity
 anomaly should be used in geophysical applications.
-The concepts discussed here are well-established in the literature.
+The concepts discussed here are well-established in the literature and
+are familiar to most geodesists.
 However, the debate around this theoretical issue has been
 carried about from a more geodetic than a geophysical point of view
 \citep{lafehr1991,chapin1996,li2001,fairhead2003,
-hackney-featherstone2003,hinze2005}.
+hackney-featherstone2003,hinze2005} and maybe that is why it is
+unfamiliar to most exploration geophysicists.
 We will approach the topic by comparing the geophysical interpretations of the
 disturbance and the anomaly.
 Our reasoning suggests that the gravity disturbance is more appropriated for
 geophysical purposes than the gravity anomaly.
-
 
 \section{Normal Earth and normal gravity}
 
@@ -168,9 +149,9 @@ having a particular equipotential which coincides
 with its limiting surface.
 
 
-\section{Terrestrial Reference Systems used in gravity modelling}
+\section{Terrestrial Reference Systems used in gravity modeling}
 
-For geophysical gravity modelling purposes, there are three important
+For geophysical gravity modeling purposes, there are three important
 Terrestrial Reference Systems.
 They rotate with the Earth and are used for describing
 positions and movements of objects on and close to the Earth's surface
@@ -179,7 +160,7 @@ positions and movements of objects on and close to the Earth's surface
 The first is a geocentric system of Cartesian coordinates
 having the $Z$-axis coincident with the mean rotational axis of the Earth,
 the $X$-axis pointing to the Greenwich meridian,
-and the $Y$-axis completing a right-handed system (Fig. \ref{fig:systems}).
+and the $Y$-axis completing a right-handed system (Figure \ref{fig:systems}).
 This reference system is called by different names in the literature:
 Mean Terrestrial System \citep[e.g.,][]{soler1976},
 Earth-fixed geocentric Cartesian system \citep[e.g.,][]{torge2012}
@@ -194,29 +175,29 @@ which is defined by the reference ellipsoid used as the Normal Earth
 The position of a point is defined by
 the \textit{geometric height} $h$,
 the \textit{geodetic latitude} $\varphi$,
-and the \textit{longitude} $\lambda$ (Fig. \ref{fig:systems}).
+and the \textit{longitude} $\lambda$ (Figure \ref{fig:systems}).
 There are also three mutually-orthogonal unit vectors defined at a given point
 \citep{soler1976}:
 
 \begin{equation}
-    \versor{u} =
-    \begin{bmatrix}
+    \mathbf{u} =
+    \begin{pmatrix}
         \cos\varphi \, \cos\lambda \\
         \cos\varphi \, \sin\lambda \\
         \sin\varphi
-    \end{bmatrix}
-    \versor{v} =
-        \begin{bmatrix}
+    \end{pmatrix}
+    \mathbf{v} =
+    \begin{pmatrix}
         -\sin\varphi \, \cos\lambda \\
         -\sin\varphi \, \sin\lambda \\
         \cos\varphi
-    \end{bmatrix}
-    \versor{w} =
-    \begin{bmatrix}
+    \end{pmatrix}
+    \mathbf{w} =
+    \begin{pmatrix}
         -\sin\lambda \\
         \cos\lambda \\
         0
-    \end{bmatrix} .
+    \end{pmatrix} \: .
     \label{eq:unit-vectors}
 \end{equation}
 
@@ -228,87 +209,41 @@ The third is the Topocentric Cartesian System (TCS),
 which is commonly used in local or regional scale geophysical studies.
 The origin of the TCS is located at a point $P$,
 axes $x$ and $y$ are parallel to
-the unit vectors $\versor{v}$ and $\versor{w}$
-(eq. \ref{eq:unit-vectors}), respectively,
-and the $z$-axis is opposite to the unit vector $\versor{u}$
-(Fig. \ref{fig:systems}c).
-
-\begin{figure}
-%    \vspace{5.5cm}
-    \includegraphics{figures/cartesian-geodetic-systems.eps}
-    \caption{
-    (a) and (b) The Geocentric Cartesian System (GCS) and the Geocentric
-    Geodetic System (GGS).
-    The GGS is defined by an oblate ellipsoid with semi-minor axis $b$ and
-    semi-major axis $a$.
-    In this coordinate system, the position of a point is determined by the
-    geometric height $h$, geodetic latitude $\varphi$, and longitude $\lambda$.
-    $O$ is the Earth's center of mass, $P$ is an observation point, and
-    unit vectors $\versor{u}$, $\versor{v}$, and $\versor{w}$ define mutually
-    orthogonal directions at $P$ (eq. \ref{eq:unit-vectors}).
-    In (b), $Q$ is the projection of $P$ onto the reference ellipsoid at
-    the same latitude and longitude.
-    (c) The topocentric Cartesian coordinate system (TCS) with origin at a
-    point $P$.
-    Axes $x$ and $y$ are parallel to the unit vectors $\versor{v}$ and
-    $\versor{w}$, respectively, and the $z$ axis is opposite to $\versor{u}$.
-    The gray plane is the same shown in (a) and (b).
-    }
-  \label{fig:systems}
-\end{figure}
-
-\begin{figure}
-    \includegraphics{figures/surfaces.eps}
-    \caption{
-    The gravity vector
-    $\vector{g}_{P}$, normal gravity vector $\vector{\gamma}_{P}$,
-    gravity disturbance vector $\delta \vector{g}_{P}$
-    (eq. \ref{eq:gravity-disturbance-vector}), and unit vector
-    $\versor{u}_{P}$ (eq. \ref{eq:unit-vectors}) at a point $P$
-    on the surface of the Earth.
-    The gravity vector $\vector{g}_{Q^{\prime}}$
-    at a point $Q^{\prime}$ on the geoid, normal gravity vector
-    $\vector{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
-    geometric height $h$, orthometric height $H$, and geoidal height $N$.
-    The dashed line passing through
-    $Q$, $Q^{\prime}$ and $P$ is normal to the
-    surface of the reference ellipsoid at $Q$.
-    This figure shows a commonly used approximation in which the ellipsoid and
-    geoid are represented as parallel surfaces so that $h \approx H + N$.
-    }
-  \label{fig:surfaces}
-\end{figure}
+the unit vectors $\mathbf{v}$ and $\mathbf{w}$
+(equation \ref{eq:unit-vectors}), respectively,
+and the $z$-axis is opposite to the unit vector $\mathbf{u}$
+(Figure \ref{fig:systems}c).
 
 
 \section{gravity disturbance and gravity anomaly}
 
-Let $\vector{\gamma}_{P}$ and $\vector{g}_{P}$ and be, respectively,
+Let $\boldsymbol{\gamma}_{P}$ and $\mathbf{g}_{P}$ and be, respectively,
 the \textit{normal gravity vector} and the Earth's \textit{gravity vector}
 (corrected from non-gravitational effects due to vehicle
 motion and time variations such as Earth tides and instrumental drift),
 both located at a point $P$.
-In this case, the gravity vector $\vector{g}_{P}$ is the
+In this case, the gravity vector $\mathbf{g}_{P}$ is the
 gradient of the scalar \textit{gravity potential},
 which is the sum of a gravitational potential and a centrifugal potential.
-Similarly, the normal gravity vector $\vector{\gamma}_{P}$ is the
+Similarly, the normal gravity vector $\boldsymbol{\gamma}_{P}$ is the
 gradient of the scalar \textit{normal potential},
 which is also the sum of a gravitational and a centrifugal potential.
 By definition, the centrifugal part of
 the normal potential and the gravity potential are equal.
 
-The difference between $\vector{g}_{P}$ and $\vector{\gamma}_{P}$,
+The difference between $\mathbf{g}_{P}$ and $\boldsymbol{\gamma}_{P}$,
 which we emphasize are located at the same point $P$,
-is the \textit{gravity disturbance vector} (Fig. \ref{fig:surfaces}):
+is the \textit{gravity disturbance vector} (Figure \ref{fig:surfaces}):
 
 \begin{equation}
-\delta \vector{g}_{P} =
-\vector{g}_{P} - \vector{\gamma}_{P} \: .
+\delta \mathbf{g}_{P} =
+\mathbf{g}_{P} - \boldsymbol{\gamma}_{P} \: .
 \label{eq:gravity-disturbance-vector}
 \end{equation}
 
 Because the centrifugal parts of both the normal gravity vector
 and the Earth's gravity vector are equal,
-the gravity disturbance vector $\delta \vector{g}_{P}$
+the gravity disturbance vector $\delta \mathbf{g}_{P}$
 represents a purely gravitational effect.
 As a consequence of the superposition principal \citep{blakely1996},
 this effect is caused by contrasts between
@@ -321,8 +256,8 @@ or \textit{gravity sources} \citep[e.g.,][]{blakely1996}.
 Here, we opted for using the last term.
 
 The difference between the magnitudes of the gravity vector
-$g_{P} = \| \vector{g}_{P} \|$ and the normal gravity vector
-$\gamma_{P} = \| \vector{\gamma}_{P} \|$,
+$g_{P} = \| \mathbf{g}_{P} \|$ and the normal gravity vector
+$\gamma_{P} = \| \boldsymbol{\gamma}_{P} \|$,
 at the same point $P$, is the \textit{gravity disturbance}
 \citep{heiskanen-moritz1967, hofmann-wellenhof-moritz2005}:
 
@@ -334,7 +269,7 @@ at the same point $P$, is the \textit{gravity disturbance}
 \noindent
 Notice that $\delta g_{P}$ is not equivalent
 to the magnitude of the gravity disturbance vector
-$\delta \vector{g}_{P}$ \citep{barthelmes2013, sanso_sideris2013}.
+$\delta \mathbf{g}_{P}$ \citep{barthelmes2013, sanso_sideris2013}.
 
 The \textit{gravity anomaly vector}
 is the difference between the gravity
@@ -342,14 +277,14 @@ vector at a point $Q^{\prime}$ on the geoid
 (a particular equipotential surface of the gravity potential)
 and the normal gravity vector at a point $Q$ on the surface of the ellipsoid,
 both located at the same geodetic latitude and longitude
-(Fig. \ref{fig:surfaces}):
+(Figure \ref{fig:surfaces}):
 
 \begin{equation}
-\Delta \vector{g} = \vector{g}_{Q^{\prime}} - \vector{\gamma}_{Q} .
+\Delta \mathbf{g} = \mathbf{g}_{Q^{\prime}} - \boldsymbol{\gamma}_{Q} .
 \label{eq:gravity-anomaly-vector}
 \end{equation}
 
-Similarly to the gravity disturbance (eq. \ref{eq:gravity-disturbance}),
+Similarly to the gravity disturbance (equation \ref{eq:gravity-disturbance}),
 the \textit{gravity anomaly} is given by
 
 \begin{equation}
@@ -360,7 +295,7 @@ the \textit{gravity anomaly} is given by
 \noindent
 where $g_{Q^{\prime}}$ is the magnitude of the gravity vector on the geoid,
 and $\gamma_{Q}$ is the magnitude of the normal gravity vector
-on the reference ellipsoid (Fig. \ref{fig:surfaces}).
+on the reference ellipsoid (Figure \ref{fig:surfaces}).
 
 The gravity anomaly is not defined at a particular point.
 Instead, as properly pointed out by \citet{barthelmes2013},
@@ -394,7 +329,7 @@ where the rightmost term is called the \textit{free-air correction},
 $\partial \gamma/\partial h \approx -0.3086$ mGal/m is the
 derivative of the normal gravity with respect to the geometric height $h$,
 and $H_{P}$ is the orthometric height (i.e., with respect to the geoid)
-of point $P$ (Fig. \ref{fig:surfaces}).
+of point $P$ (Figure \ref{fig:surfaces}).
 The free-air correction can be interpreted as a downward continuation of
 $g_P$ to the geoid or as an upward continuation of $\gamma_Q$ to a height
 $H_P$.
@@ -427,41 +362,29 @@ free-air anomaly:
 \end{equation}
 
 \noindent
-where $N \approx h - H$ is the geoidal height (Fig. \ref{fig:surfaces}).
+where $N \approx h - H$ is the geoidal height (Figure \ref{fig:surfaces}).
 This approximation assumes that the geoid and the surface of
 the reference ellipsoid are close to being parallel at $P$
 and the surrounding area.
 Eqs \ref{eq:gravity-disturbance-approx}
 and \ref{eq:difference-disturbance-free-air} are commonly used
 in geodesy to define the \textit{fundamental equation of physical
-geodesy} \citep{hofmann-wellenhof-moritz2005}.
+	geodesy} \citep{hofmann-wellenhof-moritz2005}.
 
 We know empirically that $N$ is $\approx \pm 1$ m on the oceans
 and reaches a maximum absolute value of $\approx 120$ m
 \citep[e.g.,][]{torge2012, sanso_sideris2013}.
-Fig. \ref{fig:difference} shows the absolute difference between the
+Figure \ref{fig:difference} shows the absolute difference between the
 gravity disturbance and the free-anomaly globally calculated
-using eq. \ref{eq:difference-disturbance-free-air} and the spherical harmonic
+using equation \ref{eq:difference-disturbance-free-air} and the spherical harmonic
 model EIGEN-6c4 \citep{forste2014}.
 In Brazil, for example, the geoidal height
 varies between $\approx \pm 30$ m \citep{ibge_mapgeo2015}.
 Consequently,
 the maximum absolute difference between the gravity disturbance and
 the free-air anomaly in Brazil,
-according to eq. \ref{eq:difference-disturbance-free-air},
+according to equation \ref{eq:difference-disturbance-free-air},
 is $\approx 9.3$ mGal.
-
-\begin{figure}
-    \includegraphics[width=\columnwidth]{figures/difference.eps}
-    \caption{
-    Absolute difference between the gravity disturbance and free-air anomaly.
-    Calculated using eq. \ref{eq:difference-disturbance-free-air}, the
-    EIGEN-6c4 \citep{forste2014} spherical harmonic model, and software
-    \textit{Fatiando a Terra} \citep{uieda2013}. The figure was made using GMT
-    \citep{wessel2013}.
-    }
-  \label{fig:difference}
-\end{figure}
 
 
 \section{The effect of topographic masses}
@@ -474,10 +397,10 @@ The \textit{Bouguer anomaly} is defined in the continents as
 
 \begin{equation}
 \Delta g^{B} = g_{P}
-    - \gamma_{Q}
-    - \frac{\partial \gamma}{\partial h} \, H_{P}
-    - 2 \pi G \rho_{t} \, H_{P}
-     \: ,
+- \gamma_{Q}
+- \frac{\partial \gamma}{\partial h} \, H_{P}
+- 2 \pi G \rho_{t} \, H_{P}
+\: ,
 \label{eq:simple-bouguer-anomaly}
 \end{equation}
 
@@ -489,7 +412,7 @@ topographic masses above the geoid exert on point $P$ by the effect of a
 homogeneous, infinitely extended slab of constant density $\rho_{t}$ and
 thickness $H_{P}$.
 A similar correction can be applied to the gravity disturbance
-(using the approximation in eq. \ref{eq:gravity-disturbance-approx})
+(using the approximation in equation \ref{eq:gravity-disturbance-approx})
 to remove the effect of topographic masses between
 the observation point $P$ and a point on the ellipsoid $Q$.
 We will call this quantity the \textit{Bouguer disturbance}:
@@ -507,7 +430,7 @@ At first glance, the only difference between eqs.
 orthometric ($H_P$) versus geometric ($h_P$) heights.
 However, their geophysical interpretations are significantly different.
 Apart from the centrifugal effect mentioned in the previous section,
-the Bouguer anomaly (eq. \ref{eq:simple-bouguer-anomaly}) still contains
+the Bouguer anomaly (equation \ref{eq:simple-bouguer-anomaly}) still contains
 the gravitational effect of topographic masses between the geoid and ellipsoid.
 Conversely, when calculating the Bouguer disturbance one removes the effects of
 an ellipsoidal reference model (the normal Earth) and the known topographic
@@ -530,19 +453,19 @@ These additional, non-harmonic and undesired effects are due to the calculation
 of the normal gravity at a point other than that were gravity is measured.
 
 
-\section{Gravity modelling}
+\section{Gravity modeling}
 
 We have established that the gravity disturbance is due solely to the
 gravitational effect of the gravity sources.
 Now we will discuss how this relates to some assumptions made during gravity
-modelling.
+modeling.
 
-The gravity vector $\vector{g}_i$ (eq. \ref{eq:gravity-disturbance-vector})
-at a point $(x_i, y_i, z_i)$ in the TCS (Fig. \ref{fig:systems}c) can be
+The gravity vector $\mathbf{g}_i$ (equation \ref{eq:gravity-disturbance-vector})
+at a point $(x_i, y_i, z_i)$ in the TCS (Figure \ref{fig:systems}c) can be
 represented by:
 
 \begin{equation}
-\vector{g}_i = \vector{\gamma}_i + \delta \vector{g}_i \: .
+\mathbf{g}_i = \mathbf{\gamma}_i + \delta \mathbf{g}_i \: .
 \label{eq:gravity-vector-TCS}
 \end{equation}
 
@@ -552,12 +475,12 @@ expansion \citep{sanso_sideris2013}:
 
 \begin{equation}
 g_i \approx \gamma_i +
-\versor{\gamma}_i^{\top} \delta \vector{g}_i \: ,
+\mathbf{\gamma}_i^{\top} \delta \mathbf{g}_i \: ,
 \label{eq:gobs-approx}
 \end{equation}
 
 \noindent
-where $^{\top}$ denotes transposition and $\versor{\gamma}_{i}$ is a unit
+where $^{\top}$ denotes transposition and $\mathbf{\gamma}_{i}$ is a unit
 vector with the direction of the normal gravity vector.
 This approximation is valid because
 $\gamma_{i} \gg \| \delta \mathbf{g}_{i} \|$ at all points on or above the
@@ -566,26 +489,26 @@ It is known in geodesy \citep[e.g.,][]{sanso_sideris2013}
 and is analogous to the approximation used for
 total-field magnetic anomalies \citep[e.g.,][]{blakely1996}.
 In local or regional scales, the unit
-vector $\versor{\gamma}_{i}$
+vector $\mathbf{\gamma}_{i}$
 may be considered constant throughout the study area and
-parallel to the $z$ axis of the TCS (Fig. \ref{fig:systems}c).
+parallel to the $z$ axis of the TCS (Figure \ref{fig:systems}c).
 
-Using eq. \ref{eq:gobs-approx} and fixing $\gamma$ at a point $P$ at
-the origin of the TCS (Fig. \ref{fig:systems}c),
+Using equation \ref{eq:gobs-approx} and fixing $\gamma$ at a point $P$ at
+the origin of the TCS (Figure \ref{fig:systems}c),
 the gravity disturbance can be rewritten as:
 
 \begin{equation}
-\delta g_{i} \approx \versor{\gamma}_{P}^{\top} \delta \vector{g}_{i} \: .
+\delta g_{i} \approx \mathbf{\gamma}_{P}^{\top} \delta \mathbf{g}_{i} \: .
 \label{eq:gravity-disturbance-approx-TCS}
 \end{equation}
 
 \noindent
 This equation shows that the gravity disturbance $\delta g_{i}$ is
-approximately the component of the $\delta \vector{g}_{i}$ in the direction of
-the normal gravity vector $\vector{\gamma}_P$
+approximately the component of the $\delta \mathbf{g}_{i}$ in the direction of
+the normal gravity vector $\mathbf{\gamma}_P$
 \citep{hofmann-wellenhof-moritz2005, sanso_sideris2013}.
-Because $z$-axis of the TCS is parallel to $\vector{\gamma}_P$
-(Fig. \ref{fig:surfaces}), the gravity disturbance can be defined as the
+Because $z$-axis of the TCS is parallel to $\mathbf{\gamma}_P$
+(Figure \ref{fig:surfaces}), the gravity disturbance can be defined as the
 $z$-component of the gravitational attraction exerted by the gravity sources at
 the point $(x_{i}, y_{i}, z_{i})$.
 As a consequence, the gravity disturbance can be modelled by the harmonic
@@ -593,10 +516,9 @@ function:
 
 \begin{equation}
 d_{i} = \iiint\limits_{v}
-\frac{G \, \Delta\rho(x^{\prime}, y^{\prime}, z^{\prime}) \,
-[z_{i} - z^{\prime}]}
-{\sqrt{[x_{i} - x^{\prime}]^{2} +
-[y_{i} - y^{\prime}]^{2} + [z_{i} - z^{\prime}]^{2}}} \: dv^{\prime} \: ,
+\frac{(z_{i} - z^{\prime}) \, G \, \Delta\rho(x^{\prime}, y^{\prime}, z^{\prime})}
+{\sqrt{(x_{i} - x^{\prime})^{2} +
+		(y_{i} - y^{\prime})^{2} + (z_{i} - z^{\prime})^{2}}} \: dv^{\prime} \: ,
 \label{eq:gz-local}
 \end{equation}
 
@@ -606,7 +528,7 @@ is the density contrast at a point $(x^{\prime}, y^{\prime}, z^{\prime})$
 within the volume $v$ and the integration is conducted over $x^{\prime}$,
 $y^{\prime}$ and $z^{\prime}$.
 
-In practice, most instances of gravity modelling in the literature use Bouguer
+In practice, most instances of gravity modeling in the literature use Bouguer
 anomalies and function $d_{i}$ (usually presented as ``$g_z$'') to represent
 the gravitational effect of gravity sources.
 Consequently, these studies are using the gravity
@@ -614,21 +536,21 @@ anomaly as an approximation for the gravity disturbance.
 Notice that $d_{i}$ does not depend on the
 height with respect to the geoid (orthometric height).
 Rather, it depends on the relative position of the gravity sources and the
-observation point $(x_{i}, y_{i}, z_{i})$ in the TCS (Fig. \ref{fig:systems}c).
+observation point $(x_{i}, y_{i}, z_{i})$ in the TCS (Figure \ref{fig:systems}c).
 Finally, it is important to mention that gravimeters do not measure $d_{i}$ but
-$\| \vector{g}_i \|$.
+$\| \mathbf{g}_i \|$.
 
 
 \section{Conclusions}
 
 Although the gravity disturbance is well-known in geodesy,
 its use in applied geophysics is uncommon.
-For years, geophysicists have been using gravity anomalies for modelling
+For years, geophysicists have been using gravity anomalies for modeling
 the gravitational effects of geological bodies.
 Whether geophysicists should use the gravity anomaly or the gravity disturbance
 is of more than mere academic interest.
 It is a question that underpins the very assumptions about what it is that we
-are actually modelling.
+are actually modeling.
 
 The gravity anomaly is the difference between
 gravity on the geoid and normal gravity on the reference ellipsoid.
@@ -648,7 +570,7 @@ Hence, the gravity disturbance is the logical choice for
 representing the gravitational effects produced by the heterogeneous density
 distribution of the Earth.
 
-More often than not, gravity modelling is done by computing the
+More often than not, gravity modeling is done by computing the
 vertical component of the gravitational acceleration exerted by the sources.
 We have shown that, in doing so, one is actually computing the gravity
 disturbance while attempting to fit a gravity anomaly.
@@ -672,17 +594,78 @@ As a bonus, the gravity disturbance is conceptually simpler to understand and
 doesn't require the concept of the geoid with which learners often struggle.
 
 
-\begin{acknowledgments}
+%%%%%%%%%%%%%%%%%% Figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\plot{cartesian-geodetic-systems}{width=0.6\textwidth}{
+\plot{cartesian-geodetic-systems}{width=\columnwidth}{
+	{(a) and (b) The Geocentric Cartesian System (GCS) and the Geocentric
+		Geodetic System (GGS).
+		The GGS is defined by an oblate ellipsoid with semi-minor axis $b$ and
+		semi-major axis $a$.
+		In this coordinate system, the position of a point is determined by the
+		geometric height $h$, geodetic latitude $\varphi$, and longitude $\lambda$.
+		$O$ is the Earth's center of mass, $P$ is an observation point, and
+		unit vectors $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$ define mutually
+		orthogonal directions at $P$ (equation \ref{eq:unit-vectors}).
+		In (b), $Q$ is the projection of $P$ onto the reference ellipsoid at
+		the same latitude and longitude.
+		(c) The topocentric Cartesian coordinate system (TCS) with origin at a
+		point $P$.
+		Axes $x$ and $y$ are parallel to the unit vectors $\mathbf{v}$ and
+		$\mathbf{w}$, respectively, and the $z$ axis is opposite to $\mathbf{u}$.
+		The gray plane is the same shown in (a) and (b).}
+	\label{fig:systems}
+}
+
+%\plot{surfaces}{width=0.6\textwidth}{
+\plot{surfaces}{width=\columnwidth}{
+	{The gravity vector
+		$\mathbf{g}_{P}$, normal gravity vector $\boldsymbol{\gamma}_{P}$,
+		gravity disturbance vector $\delta \mathbf{g}_{P}$
+		(equation \ref{eq:gravity-disturbance-vector}), and unit vector
+		$\mathbf{u}_{P}$ (equation \ref{eq:unit-vectors}) at a point $P$ 
+		on the surface of the Earth.
+		The gravity vector $\mathbf{g}_{Q^{\prime}}$
+		at a point $Q^{\prime}$ on the geoid, normal gravity vector
+		$\boldsymbol{\gamma}_{Q}$ at a point $Q$ on the reference ellipsoid,
+		geometric height $h$, orthometric height $H$, and geoidal height $N$.
+		The dashed line passing through
+		$Q$, $Q^{\prime}$ and $P$ is normal to the
+		surface of the reference ellipsoid at $Q$.
+		This figure shows a commonly used approximation in which the ellipsoid and
+		geoid are represented as parallel surfaces so that $h \approx H + N$.} 
+	\label{fig:surfaces}
+}
+
+
+%\plot{difference}{width=0.6\textwidth}{
+\plot{difference}{width=\columnwidth}{
+	{Absolute difference between the gravity disturbance and free-air anomaly.
+		Calculated using equation \ref{eq:difference-disturbance-free-air}, the
+		EIGEN-6c4 \citep{forste2014} spherical harmonic model, and software
+		\textit{Fatiando a Terra} \citep{uieda2013}. The figure was made using GMT
+		\citep{wessel2013}.}
+	\label{fig:difference}
+}
+
+%%%%%%%%%%%%%%%%%% Figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{ACKNOWLEDGMENTS}
+
 The authors would like to thank the editor and reviewers for their criticisms
-and corrections.
-All source code and data used to generate the results presented here are
-available at
+and corrections. All source code and data used to generate the results presented 
+here are available at
 \href{https://doi.org/10.5281/zenodo.1255306}{doi.org/10.5281/zenodo.1255306}
 and
 \href{https://github.com/pinga-lab/use-the-disturbance}{github.com/pinga-lab/use-the-disturbance}.
-\end{acknowledgments}
 
-\bibliographystyle{gji}
-\bibliography{bib-file}
+
+%\newpage
+
+\bibliographystyle{seg}  % style file is seg.bst
+
+\bibliography{bib-file.bib} 
 
 \end{document}
+
