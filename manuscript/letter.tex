@@ -466,22 +466,23 @@ at a point $(x_i, y_i, z_i)$ in the TCS (Figure \ref{fig:systems}c) can be
 represented by:
 
 \begin{equation}
-\mathbf{g}_i = \mathbf{\gamma}_i + \delta \mathbf{g}_i \: .
+\mathbf{g}_i = \boldsymbol{\gamma}_i + \delta \mathbf{g}_i \: .
 \label{eq:gravity-vector-TCS}
 \end{equation}
 
 \noindent
-Furthermore, the gravity $g_i$ can be approximated by a first order Taylor's
+Furthermore, the gravity $g_i = \| \mathbf{g}_i \|$ can be approximated by a first order Taylor's
 expansion \citep{sanso_sideris2013}:
 
 \begin{equation}
 g_i \approx \gamma_i +
-\mathbf{\gamma}_i^{\top} \delta \mathbf{g}_i \: ,
+\hat{\boldsymbol{\gamma}}_i^{\top} \delta \mathbf{g}_i \: ,
 \label{eq:gobs-approx}
 \end{equation}
 
 \noindent
-where $^{\top}$ denotes transposition and $\mathbf{\gamma}_{i}$ is a unit
+where $^{\top}$ denotes transposition, $\gamma_i = \| \boldsymbol{\gamma}_i \|$ 
+and $\hat{\boldsymbol{\gamma}}_{i}$ is a unit
 vector with the direction of the normal gravity vector.
 This approximation is valid because
 $\gamma_{i} \gg \| \delta \mathbf{g}_{i} \|$ at all points on or above the
@@ -490,25 +491,26 @@ It is known in geodesy \citep[e.g.,][]{sanso_sideris2013}
 and is analogous to the approximation used for
 total-field magnetic anomalies \citep[e.g.,][]{blakely1996}.
 In local or regional scales, the unit
-vector $\mathbf{\gamma}_{i}$
+vector $\hat{\boldsymbol{\gamma}}_{i}$
 may be considered constant throughout the study area and
 parallel to the $z$ axis of the TCS (Figure \ref{fig:systems}c).
 
-Using equation \ref{eq:gobs-approx} and fixing $\gamma$ at a point $P$ at
+Using equation \ref{eq:gobs-approx} and fixing 
+$\hat{\boldsymbol{\gamma}}_{i}$ at a point $P$ at
 the origin of the TCS (Figure \ref{fig:systems}c),
 the gravity disturbance can be rewritten as:
 
 \begin{equation}
-\delta g_{i} \approx \mathbf{\gamma}_{P}^{\top} \delta \mathbf{g}_{i} \: .
+\delta g_{i} \approx \hat{\boldsymbol{\gamma}}_{P}^{\top} \delta \mathbf{g}_{i} \: .
 \label{eq:gravity-disturbance-approx-TCS}
 \end{equation}
 
 \noindent
 This equation shows that the gravity disturbance $\delta g_{i}$ is
 approximately the component of the $\delta \mathbf{g}_{i}$ in the direction of
-the normal gravity vector $\mathbf{\gamma}_P$
+the normal gravity vector $\boldsymbol{\gamma}_P$
 \citep{hofmann-wellenhof-moritz2005, sanso_sideris2013}.
-Because $z$-axis of the TCS is parallel to $\mathbf{\gamma}_P$
+Because $z$-axis of the TCS is parallel to $\boldsymbol{\gamma}_P$
 (Figure \ref{fig:surfaces}), the gravity disturbance can be defined as the
 $z$-component of the gravitational attraction exerted by the gravity sources at
 the point $(x_{i}, y_{i}, z_{i})$.
