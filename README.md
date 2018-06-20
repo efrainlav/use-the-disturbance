@@ -12,8 +12,8 @@
 
 <sup>2</sup>[*University of Hawai'i at Manoa*](http://www.soest.hawaii.edu/GG/index.html), Honolulu, USA
 
-This paper has been submitted for publication in the
-[*Geophysical Journal International*](https://academic.oup.com/gji).
+This paper has been submitted for publication in the journal
+[*Geophysics*](https://library.seg.org/journal/gpysa7).
 
 A snapshot of this repository is archived at
 doi:[10.5281/zenodo.1255306](https://doi.org/10.5281/zenodo.1255306)
@@ -128,5 +128,5 @@ use and modify the code, without warranty, so long as you provide attribution
 to the authors. See `LICENSE.md` for the full license text.
 
 The manuscript text is not open source. The authors reserve the rights to the
-article content, which is currently submitted for publication in the
-Geophysical Journal International.
+article content, which is currently submitted for publication in the journal
+Geophysics.
