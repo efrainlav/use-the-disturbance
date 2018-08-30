@@ -1,11 +1,113 @@
-from __future__ import division, absolute_import
 import numpy as np
+import warnings
 
-def geodetic2cartesian(height, latitude, longitude,
+
+def distance(xi, yi, zi, x0, y0, z0):
+    '''
+    Compute the Euclidean distances between a point (xi, yi, zi) and a set of
+    points whose Cartesian coordinates are stored in the vectors x0, y0 and z0.
+    input
+    xi, yi, zi: floats - Cartesian coordinates of a point.
+    x0, y0, z0: numpy arrays 1D - vectors containing Cartesian coordinates.
+    output
+    r: numpy array 1D - Euclidean distances.
+    '''
+
+    assert x0.size == y0.size == z0.size, 'x0, y0 and z0 must have the same \
+number of elements'
+
+    assert x0.shape == y0.shape == z0.shape, 'x0, y0 and z0 must have the same \
+shape'
+
+    #the asserts below do not work if xi, yi and/or zi is int
+    #assert isinstance(xi, (int, float)), 'xi must be a float'
+    #assert isinstance(yi, (int, float)), 'yi must be a float'
+    #assert isinstance(zi, (int, float)), 'zi must be a float'
+    assert isinstance(1.*xi, float), 'xi must be a float'
+    assert isinstance(1.*yi, float), 'yi must be a float'
+    assert isinstance(1.*zi, float), 'zi must be a float'
+
+    X = xi - x0
+    Y = yi - y0
+    Z = zi - z0
+    r = np.sqrt(X*X + Y*Y + Z*Z)
+    return r
+
+
+def squared_distance(xi, yi, zi, x0, y0, z0):
+    '''
+    Compute the squared Euclidean distances between a point (xi, yi, zi) and a
+    set of points whose Cartesian coordinates are stored in the vectors
+    x0, y0 and z0.
+    input
+    xi, yi, zi: floats - Cartesian coordinates of a point.
+    x0, y0, z0: numpy arrays 1D - vectors containing Cartesian coordinates.
+    output
+    r2: numpy array 1D - squared Euclidean distances.
+    '''
+
+    assert x0.size == y0.size == z0.size, 'x0, y0 and z0 must have the same \
+number of elements'
+
+    assert x0.shape == y0.shape == z0.shape, 'x0, y0 and z0 must have the same \
+shape'
+
+    #the asserts below do not work if xi, yi and/or zi is int
+    #assert isinstance(xi, (int, float)), 'xi must be a float'
+    #assert isinstance(yi, (int, float)), 'yi must be a float'
+    #assert isinstance(zi, (int, float)), 'zi must be a float'
+    assert isinstance(1.*xi, float), 'xi must be a float'
+    assert isinstance(1.*yi, float), 'yi must be a float'
+    assert isinstance(1.*zi, float), 'zi must be a float'
+
+    X = xi - x0
+    Y = yi - y0
+    Z = zi - z0
+    r2 = X*X + Y*Y + Z*Z
+    return r2
+
+
+def unit_vector(inclination, declination):
+    '''
+    Compute unit vectors for specific inclination and declination values.
+    input
+    inclination, declination: numpy arrays 1D or floats - inclination and
+                              declination angles, in degrees.
+    output
+    vx, vy, vz: numpy arrays 1D or floats - Cartesian componentes of the unit
+                vector.
+    '''
+
+    if isinstance(inclination, (float, int)) or \
+       isinstance(declination, (float, int)):
+        warnings.warn('inclination and declination were converted to numpy \
+arrays')
+        inclination = np.array([inclination])
+        declination = np.array([declination])
+    assert inclination.size == declination.size, 'inclination and declination \
+must have the same number of elements'
+
+    # transform the angles in radians
+    inc = np.deg2rad(inclination)
+    dec = np.deg2rad(declination)
+
+    cosine_inc = np.cos(inc)
+    cosine_dec = np.cos(dec)
+    sine_inc = np.sin(inc)
+    sine_dec = np.sin(dec)
+
+    vx = cosine_inc*cosine_dec
+    vy = cosine_inc*sine_dec
+    vz = sine_inc
+
+    return vx, vy, vz
+
+
+def GGC2GCC(height, latitude, longitude,
                        major_semiaxis, minor_semiaxis):
     '''
-    Transform geocentric geodetic coordinates into geocentric
-    Cartesian coordinates.
+    Transform geocentric geodetic coordinates (GGC) into geocentric
+    Cartesian coordinates (GGC).
 
     input
 
@@ -19,11 +121,11 @@ def geodetic2cartesian(height, latitude, longitude,
 
     output
 
-    x: numpy array 1D - vector containing the x component of the Cartesian
+    X: numpy array 1D - vector containing the X component of the Cartesian
        coordinates (in meters).
-    y: numpy array 1D - vector containing the y component of the Cartesian
+    Y: numpy array 1D - vector containing the Y component of the Cartesian
        coordinates (in meters).
-    z: numpy array 1D - vector containing the z component of the Cartesian
+    Z: numpy array 1D - vector containing the Z component of the Cartesian
        coordinates (in meters).
     '''
 
@@ -54,16 +156,16 @@ than the minor_semiaxis'
     clon = np.cos(lon)
     slon = np.sin(lon)
 
-    x = aux*clat*clon
-    y = aux*clat*slon
-    z = (N*(1 - e2) + height)*slat
+    X = aux*clat*clon
+    Y = aux*clat*slon
+    Z = (N*(1 - e2) + height)*slat
 
-    return x, y, z
+    return X, Y, Z
 
-def cartesian2geodetic(X, Y, Z, major_semiaxis, minor_semiaxis, itmax = 5):
+def GCC2GGC(X, Y, Z, major_semiaxis, minor_semiaxis, itmax = 5):
     '''
-    Convert geocentric Cartesian coordinates into geocentric geodetic
-    coordinates by using the Hirvonen-Moritz algorithm.
+    Convert geocentric Cartesian coordinates (GCC) into geocentric geodetic
+    coordinates (GGC) by using the Hirvonen-Moritz algorithm.
 
     input
 
@@ -140,10 +242,10 @@ than the minor_semiaxis'
     return height, latitude, longitude
 
 
-def cartesian2geodetic_approx(X, Y, Z, major_semiaxis, minor_semiaxis):
+def GCC2GGC_approx(X, Y, Z, major_semiaxis, minor_semiaxis):
     '''
-    Convert geocentric Cartesian coordinates into geocentric geodetic
-    coordinates by using an approximated formula (Hofmann-Wellenhof and
+    Convert geocentric Cartesian coordinates (GCC) into geocentric geodetic
+    coordinates (GGC) by using an approximated formula (Hofmann-Wellenhof and
     Moritz, 2005).
 
     reference
@@ -373,15 +475,59 @@ def meridian_curv(a, b, latitude):
 
 def rotation_matrix(latitude, longitude):
     '''
-    Compute the elements of a rotation matrix whose columns are
-    unit vectors pointing to the direction of increasing orthometric height,
-    the direction of increasing geodetic latitude and the direction of
-    increasing longitude. At a given point with geodetic coordinates
-    (h, lat, lon), the rotation matrix can be written as follows:
+    Compute the elements of the mutually-orthogonal unit vectors u, v and w
+    at a given set of points. The vector u is defined along the positive
+    geometric height, v is defined along the positive geodetic latitude and
+    w is defined along the positive longitude.
+    input
+    latitude: numpy array 1D - vector containing the geodetic latitude
+              (in degrees) of the computation points.
+    longitude: numpy array 1D - vector containing the lonitude (in degrees)
+               of the computation points.
+    output
+    R: numpy array 2D - matrix whose columns contain the elements
+       u1, v1, w1, u2, v2, w2, u3 and v3 of the unit vectors u, v and w
+       evaluated at the computation points.
+    '''
+    latitude = np.asarray(latitude)
+    longitude = np.asarray(longitude)
 
-        | cos(lat)*cos(lon)   -sin(lat)*cos(lon)   -sin(lon) |
-    R = | cos(lat)*sin(lon)   -sin(lat)*sin(lon)    cos(lon) |
-        | sin(lat)             cos(lat)             0        |
+    assert latitude.size == longitude.size, 'latitude and longitude must have \
+the same numer of elements'
+
+    # convert degrees to radian
+    lat = np.deg2rad(latitude)
+    lon = np.deg2rad(longitude)
+
+    coslat = np.cos(lat)
+    sinlat = np.sin(lat)
+    coslon = np.cos(lon)
+    sinlon = np.sin(lon)
+
+    u1 = coslat*coslon
+    v1 = -sinlat*coslon
+    w1 = -sinlon
+    u2 = coslat*sinlon
+    v2 = -sinlat*sinlon
+    w2 = coslon
+    u3 = sinlat
+    v3 = coslat
+
+    R = np.vstack([u1, v1, w1, u2, v2, w2, u3, v3]).T
+
+    return R
+
+
+def unit_vector_orthometric_height(latitude, longitude):
+    '''
+    Compute the elements of a unit vector u pointing to the direction of
+    increasing orthometric height. At a given point with geodetic coordinates
+    (h, lat, lon), the components of u along the axes X, Y and Z of a Geocentric
+    Cartesian coordinate system can be written as follows:
+
+        | cos(lat)*cos(lon) |
+    u = | cos(lat)*sin(lon) | .
+        | sin(lat)          |
 
     input
 
@@ -392,9 +538,7 @@ def rotation_matrix(latitude, longitude):
 
     output
 
-    R: list of numpy arrays 1D - list of vectors containing the elements
-       11, 12, 13, 21, 22, 23, 31 and 32 of the rotation matrix evaluated
-       at the computation points.
+    uX, uY, uZ: numpy arrays 1D - components of the vector u.
 
     '''
     latitude = np.asarray(latitude)
@@ -412,31 +556,23 @@ the same numer of elements'
     coslon = np.cos(lon)
     sinlon = np.sin(lon)
 
-    R11 = coslat*coslon
-    R12 = -sinlat*coslon
-    R13 = -sinlon
-    R21 = coslat*sinlon
-    R22 = -sinlat*sinlon
-    R23 = coslon
-    R31 = sinlat
-    R32 = coslat
+    uX = coslat*coslon
+    uY = coslat*sinlon
+    uZ = sinlat
 
-    R = [R11, R12, R13, R21, R22, R23, R31, R32]
-
-    return R
+    return uX, uY, uZ
 
 
-def rotation_matrix(latitude, longitude):
+def unit_vector_latitude(latitude, longitude):
     '''
-    Compute the elements of a rotation matrix whose columns are
-    unit vectors pointing to the direction of increasing orthometric height,
-    the direction of increasing geodetic latitude and the direction of
-    increasing longitude. At a given point with geodetic coordinates
-    (h, lat, lon), the rotation matrix can be written as follows:
+    Compute the elements of a unit vector v pointing to the direction of
+    increasing (geodetic) latitude. At a given point with geodetic coordinates
+    (h, lat, lon), the components of v along the axes X, Y and Z of a Geocentric
+    Cartesian coordinate system can be written as follows:
 
-        | cos(lat)*cos(lon)   -sin(lat)*cos(lon)   -sin(lon) |
-    R = | cos(lat)*sin(lon)   -sin(lat)*sin(lon)    cos(lon) |
-        | sin(lat)             cos(lat)             0        |
+        | -sin(lat)*cos(lon) |
+    v = | -sin(lat)*sin(lon) | .
+        |  cos(lat)          |
 
     input
 
@@ -447,9 +583,7 @@ def rotation_matrix(latitude, longitude):
 
     output
 
-    R: list of numpy arrays 1D - list of vectors containing the elements
-       11, 12, 13, 21, 22, 23, 31 and 32 of the rotation matrix evaluated
-       at the computation points.
+    vX, vY, vZ: numpy arrays 1D - components of the vector v.
 
     '''
     latitude = np.asarray(latitude)
@@ -467,15 +601,109 @@ the same numer of elements'
     coslon = np.cos(lon)
     sinlon = np.sin(lon)
 
-    R11 = coslat*coslon
-    R12 = -sinlat*coslon
-    R13 = -sinlon
-    R21 = coslat*sinlon
-    R22 = -sinlat*sinlon
-    R23 = coslon
-    R31 = sinlat
-    R32 = coslat
+    vX = -sinlat*coslon
+    vY = -sinlat*sinlon
+    vZ = coslat
 
-    R = [R11, R12, R13, R21, R22, R23, R31, R32]
+    return vX, vY, vZ
 
-    return R
+
+def unit_vector_longitude(longitude):
+    '''
+    Compute the elements of a unit vector w pointing to the direction of
+    increasing longitude. At a given point with geodetic coordinates
+    (h, lat, lon), the components of w along the axes X, Y and Z of a Geocentric
+    Cartesian coordinate system can be written as follows:
+
+        | -sin(lon) |
+    w = |  cos(lon) | .
+        |  0        |
+
+    input
+
+    longitude: numpy array 1D - vector containing the longitude (in degrees)
+               of the computation points.
+
+    output
+
+    wX, wY: numpy arrays 1D - non-null components of the vector w.
+
+    '''
+    longitude = np.asarray(longitude)
+
+    # convert degrees to radian
+    lon = np.deg2rad(longitude)
+
+    coslon = np.cos(lon)
+    sinlon = np.sin(lon)
+
+    wX = -sinlon
+    wY = coslon
+    #wZ = 0.
+
+    return wX, wY
+
+
+def GGC2TCC(height_P, latitude_P, longitude_P,
+            height, latitude, longitude,
+            major_semiaxis, minor_semiaxis):
+    '''
+    Transform geocentric Geodetic coordinates (GGC) height, latitude and
+    longitude into topocentric Cartesian coordinates (TCC) x, y and z.
+    input
+    height_P, latitude_P, longitude_P: floats - coordinates of the origin of
+                                       the topocentric Cartesian coordinate
+                                       system. The values are given in meters.
+    height, latitude, longitude: numpy arrays 1D - vectors containing the
+                                 geometrical height (in meters), geodetic
+                                 latitude and longitude (in degrees) of the
+                                 coordinates to be transformed.
+    major_semiaxis: float - major semiaxis of the reference
+                    ellipsoid (in meters).
+    minor_semiaxis: float - minor semiaxis of the reference
+                    ellipsoid (in meters).
+    output
+    x, y, z: numpy arrays 1D - vectors containing the x, y and z components of
+             the computed topocentric Cartesian coordinates. The values are
+             given in meters.
+    '''
+
+    height = np.asarray(height)
+    latitude = np.asarray(latitude)
+    longitude = np.asarray(longitude)
+
+    assert (height.size == latitude.size == longitude.size), 'height, latitude \
+and longitude must have the same number of elements'
+
+    assert isinstance(1.*height_P, float), 'height_P must be a float'
+    assert isinstance(1.*latitude_P, float), 'latitude_P must be a float'
+    assert isinstance(1.*longitude_P, float), 'longitude_P must be a float'
+    assert isinstance(1.*major_semiaxis, float), 'major_semiaxis must be a \
+float'
+    assert isinstance(1.*minor_semiaxis, float), 'minor_semiaxis must be a \
+float'
+    assert (major_semiaxis > minor_semiaxis), 'major_semiaxis must be greater \
+than the minor_semiaxis'
+
+    # compute the components of the unit vectors u, v and w at the origin
+    uX, uY, uZ = unit_vector_orthometric_height(latitude_P, longitude_P)
+    vX, vY, vZ = unit_vector_latitude(latitude_P, longitude_P)
+    wX, wY = unit_vector_longitude(longitude_P)
+
+    # compute the geocentric Cartesian coordinates of the origin
+    X_P, Y_P, Z_P = GGC2GCC(height_P, latitude_P, longitude_P,
+                            major_semiaxis, minor_semiaxis)
+
+    # compute the geocentric Cartesian coordinates to be transformed
+    X, Y, Z = GGC2GCC(height, latitude, longitude,
+                      major_semiaxis, minor_semiaxis)
+
+    DX = X - X_P
+    DY = Y - Y_P
+    DZ = Z - Z_P
+
+    x = vX*DX + vY*DY + vZ*DZ
+    y = wX*DX + wY*DY
+    z = -(uX*DX + uY*DY + uZ*DZ)
+
+    return x, y, z
